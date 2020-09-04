@@ -7,6 +7,7 @@ Blockly PyGame <br>
 <br>
        
 To run the code, navigate to demos/code/index.html<br>
+<a href="http://Paulware.github.io/blocklyPygame/index.html">Docs</a>
 
        
        
