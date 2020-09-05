@@ -16,6 +16,7 @@
   <script src="../../dart_compressed.js"></script>
   <script src="code.js"></script>
   <script src="blocks.js"></script>
+  <script src="codeGenerator.js"></script>
 </head>
 <body>
   <table width="100%" height="100%">
@@ -38,7 +39,37 @@
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_javascript" class="taboff tab_collapse" style="display:none">JavaScript</td>            
             <td class="tabmin tab_collapse">&nbsp;</td>
-            <td id="tab_python" class="taboff tab_collapse">PyGame</td>
+            <td id="tab_python" class="taboff tab_collapse">PyGame<br>
+            
+                  <script type="text/javascript">                                            
+                     function savePython() {
+                        var text = document.all.content_python.value;
+                        var filename = "project.py"
+                        var tempElem = document.createElement('a');
+                        tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        tempElem.setAttribute('download', filename);
+                        tempElem.click();
+                     }                      
+
+                     function clipboardCopy (text) {
+                        var textarea = document.createElement("textarea");
+                        textarea.textContent = text;
+                        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+                        document.body.appendChild(textarea);
+                        textarea.select();
+
+                        source = document.all.content_javascript.innerText;
+                        download ('test.js', source );
+                     } 
+
+                     function bodyLoad() { 
+                          autocomplete(document.getElementById("myInput"), codeLocations);
+                     }
+                      
+                  </script>             
+            
+               <input type="button" style="border:1px solid" value="Save" onclick="savePython ();">                     
+            </td>
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_php" class="taboff tab_collapse" style="display:none">PHP</td>
             <td class="tabmin tab_collapse">&nbsp;</td>
@@ -46,7 +77,55 @@
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_dart" class="taboff tab_collapse" style="display:none">Dart</td>
             <td class="tabmin tab_collapse">&nbsp;</td>
-            <td id="tab_xml" class="taboff tab_collapse" style="display:none">XML</td>
+            <td id="tab_xml" class="taboff tab_collapse" >Project<br>
+                  <input type="button" style="border:1px solid" value="Load" onclick="document.getElementById('inputfile').click();" />                                    
+                  <input id="inputfile" type="file" name="inputfile" id="inputfile" style="display:none"/> 
+                  
+                  <script type="text/javascript">                   
+                      document.getElementById('inputfile').onclick = function () {
+                          this.value = null; // To allow selecting the same filename 
+                      };                  
+                      document.getElementById('inputfile') 
+                         .addEventListener('change', function() {                             
+                            var fr=new FileReader(); 
+                            fr.onload=function(){ 
+                               document.all.content_xml.value = fr.result;
+                            }                                
+                            fr.readAsText(this.files[0]); 
+                         }
+                      )
+                      
+                      function loadXml () {
+                        alert ( 'load xml' );
+                                 var fr=new FileReader(); 
+                                 fr.onload=function(){
+                                     alert ( 'onload triggered' );
+                                     alert ( 'got result: ' + fr.result );            
+                                     //var tempElem = document.createElement ('a');
+                                     //tempElem.value = fr.result;
+                                     //document.getElementById('output') 
+                                     //        .textContent=fr.result; 
+                                 } 
+                                   
+                                 fr.readAsText('C:\SpigotMC\scriptcraft\plugins\spleef.xml');    
+                     }
+
+                     function saveXml(myText) {
+                        var text = myText;
+                        text = document.all.content_xml.value;
+                        //var text=JSON.stringify(text);
+                        var filename = "project.xml"
+                        var tempElem = document.createElement('a');
+                        tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        tempElem.setAttribute('download', filename);
+                        tempElem.click();
+                     } 
+                  </script>             
+                                                
+               <input type="button" style="border:1px solid" value="Save" onclick="saveXml (document.all.content_xml.value);">                     
+            
+            
+            </td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_code" class="taboff">
               <select id="code_menu"></select>
@@ -72,15 +151,26 @@
     </tr>
   </table>
   <div id="content_blocks" class="content"></div>
-  <pre id="content_javascript" class="content prettyprint lang-js"></pre>
-  <pre id="content_python" class="content prettyprint lang-py"></pre>
-  <pre id="content_php" class="content prettyprint lang-php"></pre>
-  <pre id="content_lua" class="content prettyprint lang-lua"></pre>
-  <pre id="content_dart" class="content prettyprint lang-dart"></pre>
+  <pre id="content_javascript" class="content prettyprint lang-js" style="visibility:hidden"></pre>
+  <textarea id="content_python" class="content" wrap="off"></textarea>
+  <pre id="content_php" class="content prettyprint lang-php" style="visibility:hidden"></pre>
+  <pre id="content_lua" class="content prettyprint lang-lua" style="visibility:hidden"></pre>
+  <pre id="content_dart" class="content prettyprint lang-dart" style="visibility:hidden"></pre>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    <category name="Setup" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="pygameinit"></block>
+      <block type="fullscreen"></block>
+    </category>  
+    <category name="Events" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="pygameevent"></block>
+      <block type="eventtype"></block>
+      <block type="events"></block>
+    </category>
     <category name="Images" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="loadimage"></block>
+      <block type="imagesize"></block>
       <block type="drawimage"></block>
     </category>
     <category name="%{BKY_CATLOGIC}" colour="%{BKY_LOGIC_HUE}">
