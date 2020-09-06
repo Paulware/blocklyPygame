@@ -87,7 +87,10 @@ Blockly.Blocks['events']={
    this.appendDummyInput()
         .appendField("Pygame Event:")        
         .appendField(new Blockly.FieldDropdown([
-                                                ["mouse down", "MOUSEBUTTONDOWN"]
+                                                ["key down",   "KEYDOWN"],
+                                                ["mouse down", "MOUSEBUTTONDOWN"],
+                                                ["mouse move", "MOUSEMOTION"],
+                                                ["quit",       "QUIT"]
                                                ]), "EVENT");       
    this.setOutput(true, null);
    this.setTooltip('');
@@ -101,10 +104,8 @@ Blockly.Blocks['drawimage'] = {
         .appendField("Draw image");
     this.appendValueInput("SURFACE")
         .appendField("on surface");        
-    this.appendValueInput("X")
-        .appendField("at x:");        
-    this.appendValueInput("Y")
-        .appendField("y:");        
+    this.appendValueInput("POSITION")
+        .appendField("at Position:");                
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(290);
@@ -244,5 +245,294 @@ Blockly.Blocks['drawtext'] = {
     this.setInputsInline(true);    
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['wait'] = {
+  init: function() {  
+    this.appendValueInput("SECONDS")
+        .appendField("Wait ");   
+    this.appendDummyInput()
+        .appendField("seconds");         
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['position']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("X")
+       .appendField("X:"); 
+   this.appendValueInput("Y")
+       .appendField("Y:");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawline'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Draw line ");
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");        
+    this.appendValueInput("POSITION1")
+        .appendField("from position");        
+    this.appendValueInput("POSITION2")
+        .appendField("to position");        
+    this.appendValueInput("COLOR")
+        .appendField("with color");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawrect'] = {
+  init: function() {   
+    this.appendValueInput("SURFACE")
+        .appendField("Draw rectangle on surface");                        
+    this.appendValueInput("RECT")
+        .appendField("using rectangle");                
+    this.appendValueInput("COLOR")
+        .appendField("with color");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['makerectangle']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Make rectangle from 2 points:")
+   this.appendValueInput("POSITION1")
+       .appendField("Upper Left Position:"); 
+   this.appendValueInput("POSITION2")
+       .appendField("Lower Right Position:");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawcircle'] = {
+  init: function() {   
+    this.appendValueInput("SURFACE")
+        .appendField("Draw circle on surface");                        
+    this.appendValueInput("POSITION")
+        .appendField("with center");                
+    this.appendValueInput("COLOR")
+        .appendField("with color");   
+    this.appendValueInput("RADIUS")
+        .appendField("and radius");         
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['elapsedtime']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("STARTTIME")
+        .appendField("CurrentTime - start time:");         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['currenttime']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Current time")
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['fillsurface'] = {
+  init: function() {   
+    this.appendValueInput("SURFACE")
+        .appendField("Fill surface");                                        
+    this.appendValueInput("COLOR")
+        .appendField("with color");            
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['mouseposition']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Mouse Position")
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['expression']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("EXPRESSION")
+       .appendField ("Expression")
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['rotatesurface'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("SURFACE")
+       .appendField("Rotate surface");                                        
+   this.appendValueInput("DEGREE")
+       .appendField("degrees");  
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawsurface'] = {
+  init: function() {   
+    this.appendValueInput("NEWSURFACE")
+        .appendField("Draw new surface");                                                  
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");                                                  
+    this.appendValueInput("SIZE")
+        .appendField("with size");                                                  
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['includedef'] = {
+  init: function() {   
+   this.appendDummyInput()
+        .appendField("Include Function") 
+        .appendField(new Blockly.FieldDropdown([
+                                                ["Rotate Image", "rotate"]
+                                               ]), "NAME");                                                    
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['getangle']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("POSITION1")
+       .appendField("Get angle between position");                                        
+   this.appendValueInput("POSITION2")
+       .appendField("and position");                                        
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['rotateimage']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("IMAGE")
+       .appendField("Rotate image");                                        
+   this.appendValueInput("DEGREE")
+       .appendField("by degree");                                        
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['rectcenter']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("RECT")
+       .appendField("Get center of rectangle");                                        
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['translate']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("POSITION")
+       .appendField("Move position");                                        
+   this.appendValueInput("DEGREES")
+       .appendField("by degree");                                        
+   this.appendValueInput("SPEED")
+       .appendField("at speed");                                        
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['toradians']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("DEGREE")
+       .appendField("Get radians from degree");                                        
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
   }
 };

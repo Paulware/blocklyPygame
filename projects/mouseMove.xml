@@ -1,0 +1,151 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="l2ug)Cvh^-AIDAj[aO1J">startTime</variable>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</variable>
+    <variable id="cf}~#9u8@ajA6S(o~1DG">event</variable>
+    <variable id="r3K*gC{`77Z)Sd?z-N|d">pos</variable>
+  </variables>
+  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="13" y="88">
+    <next>
+      <block type="setcaption" id="b5jWu-r9EzE_!D7,fmk-">
+        <value name="TITLE">
+          <block type="text" id="61uv^4N;oT+-CHBtnpV6">
+            <field name="TEXT">Mouse Move Application</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="L*x$k1)9o|PkXkNx/d(y">
+            <field name="VAR" id="l2ug)Cvh^-AIDAj[aO1J">startTime</field>
+            <value name="VALUE">
+              <block type="currenttime" id="f}bXvcx2J@6dtR./g4(?"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                <value name="VALUE">
+                  <block type="partialscreen" id=".}4HvY/E$PJ[c+AtH{jj">
+                    <value name="WIDTH">
+                      <block type="math_number" id="4}5usR(PSgrJ}F:+2|x%">
+                        <field name="NUM">400</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="fl/VtohnXzN?#/z[i$m*">
+                        <field name="NUM">200</field>
+                      </block>
+                    </value>
+                    <value name="MODE">
+                      <block type="screenmode" id="zgA+U]3SRVvRuRjHod2M">
+                        <field name="MODE">RESIZABLE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="v`ilP^DG$byc^+2w)o1y">
+                    <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="]vJtsPILVMXjzefLzTBf">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_whileUntil" id="F:%ql8KrxBz?cU!WX6,x">
+                        <field name="MODE">WHILE</field>
+                        <value name="BOOL">
+                          <block type="logic_compare" id="DE=MX^TrgN*d|t|Lxaqi">
+                            <field name="OP">LT</field>
+                            <value name="A">
+                              <block type="variables_get" id="v$KZ=k^sSf91lJMu:[7-">
+                                <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="HZ3dC#.x:ClRbS_Y:wq(">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="controls_forEach" id="i5T6NPDe[~$Ac7-5ng(W">
+                            <field name="VAR" id="cf}~#9u8@ajA6S(o~1DG">event</field>
+                            <value name="LIST">
+                              <block type="pygameevent" id="7.:?mHcgs7./kC{26m,a"></block>
+                            </value>
+                            <statement name="DO">
+                              <block type="controls_if" id="vuzCS7B#%JiYJ#Cu5?X2">
+                                <value name="IF0">
+                                  <block type="logic_compare" id="43BSY$8dhGT:N6(ELiZ$">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="eventtype" id="qi`B#gUIhAK$}{eSiM4K">
+                                        <value name="EVENT">
+                                          <block type="variables_get" id="sEZXjvA}9C+,R_(wsWWa">
+                                            <field name="VAR" id="cf}~#9u8@ajA6S(o~1DG">event</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="events" id="I,Y*mXf/,~-U4,^P?2hF">
+                                        <field name="EVENT">MOUSEMOTION</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="pq-Z)*pF3dm.7|l`P-Yn">
+                                    <field name="VAR" id="r3K*gC{`77Z)Sd?z-N|d">pos</field>
+                                    <value name="VALUE">
+                                      <block type="mouseposition" id="]o2.xK#v=WSa4lL:KX(Z"></block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="Zz8)w%pT!W9Hfk(BEFEw">
+                                        <value name="TEXT">
+                                          <shadow type="text" id="{$rX(%%]pFWTyaT~x$ft">
+                                            <field name="TEXT">pos</field>
+                                          </shadow>
+                                          <block type="expression" id="4|!V@${d_DWJA0x3Gbp!">
+                                            <value name="EXPRESSION">
+                                              <block type="text" id="xL}kVkFW7EO4EZvHg_3{">
+                                                <field name="TEXT">str(pos)</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="variables_set" id="7l:mYon/hj7S_l(+9JKR">
+                                <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                                <value name="VALUE">
+                                  <block type="elapsedtime" id="R_]$K4_lrNwCmi~w|*Nl">
+                                    <value name="STARTTIME">
+                                      <block type="variables_get" id="/BK[^WX`Mo@`xYhY7Aog">
+                                        <field name="VAR" id="l2ug)Cvh^-AIDAj[aO1J">startTime</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

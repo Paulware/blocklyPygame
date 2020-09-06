@@ -1,0 +1,279 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="l2ug)Cvh^-AIDAj[aO1J">startTime</variable>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</variable>
+    <variable id="~pr]/m+oNrD_n-p-s:p^">image</variable>
+    <variable id="T7QZf[S+=v{+-Cn2F~oy">degree</variable>
+    <variable id="y%qJ[;(kMgRfwLm[hd:e">event</variable>
+    <variable id="HW[c8y_Kl$2jje^5ofVX">mousePosition</variable>
+    <variable id="M.e^T%SRS5c@)Xx@uEaZ">img</variable>
+    <variable id="_!)8zS4ZVLuQgO|Nu,X@">rect</variable>
+  </variables>
+  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="38" y="238">
+    <next>
+      <block type="setcaption" id="b5jWu-r9EzE_!D7,fmk-">
+        <value name="TITLE">
+          <block type="text" id="61uv^4N;oT+-CHBtnpV6">
+            <field name="TEXT">Rotate Image pointed at Mouse</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="L*x$k1)9o|PkXkNx/d(y">
+            <field name="VAR" id="l2ug)Cvh^-AIDAj[aO1J">startTime</field>
+            <value name="VALUE">
+              <block type="currenttime" id="f}bXvcx2J@6dtR./g4(?"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                <value name="VALUE">
+                  <block type="partialscreen" id=".}4HvY/E$PJ[c+AtH{jj">
+                    <value name="WIDTH">
+                      <block type="math_number" id="4}5usR(PSgrJ}F:+2|x%">
+                        <field name="NUM">600</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="fl/VtohnXzN?#/z[i$m*">
+                        <field name="NUM">600</field>
+                      </block>
+                    </value>
+                    <value name="MODE">
+                      <block type="screenmode" id="zgA+U]3SRVvRuRjHod2M">
+                        <field name="MODE">RESIZABLE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="v`ilP^DG$byc^+2w)o1y">
+                    <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="]vJtsPILVMXjzefLzTBf">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="b@{G6pH#?rvh)Z_7U?oP">
+                        <field name="VAR" id="~pr]/m+oNrD_n-p-s:p^">image</field>
+                        <value name="VALUE">
+                          <block type="loadimage" id="JC=Anz5c)d}n;i0dRoFK">
+                            <value name="FILENAME">
+                              <block type="text" id="+v/W=JJpiX-kS!+K88NX">
+                                <field name="TEXT">cannon.jpg</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="C@hG;ZOk`vGMNd6Y?_j/">
+                            <field name="VAR" id="T7QZf[S+=v{+-Cn2F~oy">degree</field>
+                            <value name="VALUE">
+                              <block type="getangle" id="Op%hBz.Jt#?D$$Qv=S5@">
+                                <value name="POSITION1">
+                                  <block type="position" id="3p~K:62B5oX6jS5%k]4V">
+                                    <value name="X">
+                                      <block type="math_number" id="Jo]/23vP-F53$9EqMq1z">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                    <value name="Y">
+                                      <block type="math_number" id="7p,Zz=wH5O.U{jYc+|@!">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="POSITION2">
+                                  <block type="position" id=",XjtCT7{r0Z/Fv^vpm+J">
+                                    <value name="X">
+                                      <block type="math_number" id="IA9Q@qTHB;R8c4(2N.4}">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                    <value name="Y">
+                                      <block type="math_number" id="_zLK:Vos+7_oSgkPQ-}8">
+                                        <field name="NUM">180</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_whileUntil" id="F:%ql8KrxBz?cU!WX6,x">
+                                <field name="MODE">WHILE</field>
+                                <value name="BOOL">
+                                  <block type="logic_compare" id="DE=MX^TrgN*d|t|Lxaqi">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="v$KZ=k^sSf91lJMu:[7-">
+                                        <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="HZ3dC#.x:ClRbS_Y:wq(">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="variables_set" id="7l:mYon/hj7S_l(+9JKR">
+                                    <field name="VAR" id="JJ$iW=?^skR[l%]S)%OS">elapsedTime</field>
+                                    <value name="VALUE">
+                                      <block type="elapsedtime" id="R_]$K4_lrNwCmi~w|*Nl">
+                                        <value name="STARTTIME">
+                                          <block type="variables_get" id="/BK[^WX`Mo@`xYhY7Aog">
+                                            <field name="VAR" id="l2ug)Cvh^-AIDAj[aO1J">startTime</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_forEach" id="1A_MQ[F;~EguYtM~Nnj9">
+                                        <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
+                                        <value name="LIST">
+                                          <block type="pygameevent" id="yJ_n}8_c3M#P}O_hNHS7"></block>
+                                        </value>
+                                        <statement name="DO">
+                                          <block type="controls_if" id="`0-)Y7,9gt0x#]n}S0|f">
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="FL2g79G9}*0y#61@{Ao[">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="eventtype" id="zUz#K.hNfW5{/WMJ]KVn">
+                                                    <value name="EVENT">
+                                                      <block type="variables_get" id="u*[57,(YS(afTc4DIX|5">
+                                                        <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="events" id="zc+}[SdaDb2=}@xd=)Ju">
+                                                    <field name="EVENT">MOUSEMOTION</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="variables_set" id="x*lpO9$A~F[BIKm=((Rj">
+                                                <field name="VAR" id="HW[c8y_Kl$2jje^5ofVX">mousePosition</field>
+                                                <value name="VALUE">
+                                                  <block type="mouseposition" id="V4h1lj?20^gA0WCV:x$2"></block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set" id="oz@F!N9:2yjo,!RfO5|p">
+                                                    <field name="VAR" id="M.e^T%SRS5c@)Xx@uEaZ">img</field>
+                                                    <value name="VALUE">
+                                                      <block type="rotateimage" id="QPSulbMHl|vp1,7[=+xx">
+                                                        <value name="IMAGE">
+                                                          <block type="variables_get" id="CS!%Xca}}7xn)A{:4]a}">
+                                                            <field name="VAR" id="~pr]/m+oNrD_n-p-s:p^">image</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="DEGREE">
+                                                          <block type="variables_get" id="r3H(8Zt1;9Q/0OvNd7s1">
+                                                            <field name="VAR" id="T7QZf[S+=v{+-Cn2F~oy">degree</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="variables_set" id="HHj20N_(_p3S~pDSX!o6">
+                                                        <field name="VAR" id="_!)8zS4ZVLuQgO|Nu,X@">rect</field>
+                                                        <value name="VALUE">
+                                                          <block type="getrect" id="Rxlg(a=r[@i`Bk|I:uOZ">
+                                                            <value name="OBJECT">
+                                                              <block type="variables_get" id="DdRPwVS`N|_0IWEu)hJb">
+                                                                <field name="VAR" id="M.e^T%SRS5c@)Xx@uEaZ">img</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="variables_set" id="Y^uPc)`XE)ew#j{cwN.*">
+                                                            <field name="VAR" id="T7QZf[S+=v{+-Cn2F~oy">degree</field>
+                                                            <value name="VALUE">
+                                                              <block type="getangle" id="[u}29Rxb?4W5N|92xXS~">
+                                                                <value name="POSITION1">
+                                                                  <block type="position" id="nB75z{}Erx~RjOVGrAQ:">
+                                                                    <value name="X">
+                                                                      <block type="math_number" id="Yn#^4g;IOAmtU*c6Cxti">
+                                                                        <field name="NUM">100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="Y">
+                                                                      <block type="math_number" id=":w;zNc+VMraX4bi$3l].">
+                                                                        <field name="NUM">100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSITION2">
+                                                                  <block type="variables_get" id="EZ]Yl2B]S;6P|+`dnOAN">
+                                                                    <field name="VAR" id="HW[c8y_Kl$2jje^5ofVX">mousePosition</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="drawimage" id="u]XuS`)-0:T8Smpn_(4T">
+                                                                <value name="IMAGE">
+                                                                  <block type="variables_get" id="Pg$JPG(;$s1[|=j_AW4w">
+                                                                    <field name="VAR" id="M.e^T%SRS5c@)Xx@uEaZ">img</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="SURFACE">
+                                                                  <block type="variables_get" id="g%0:o,DOqj.U54;8K|f$">
+                                                                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSITION">
+                                                                  <block type="position" id="E7VmlKmGiA[0X~-gnv3~">
+                                                                    <value name="X">
+                                                                      <block type="math_number" id="z#$F^H@ka_8Ftm|8Jg!_">
+                                                                        <field name="NUM">100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="Y">
+                                                                      <block type="math_number" id="I30^07)nqSN9J$Fg-ph4">
+                                                                        <field name="NUM">100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
