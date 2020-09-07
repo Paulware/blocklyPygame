@@ -1,0 +1,338 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="R*EH{=GlxH94L:OEds6l">okImage</variable>
+    <variable id="p,O8Cz=b07Ei@/~W$_k`">cancelImage</variable>
+    <variable id="!HY#?-^9e=|JJjW{x[yl">quit</variable>
+    <variable id=",8@j[{VlR6KlIbXas$HS">event</variable>
+    <variable id="a$P6J;`WCREKo}H9Pxz.">rect</variable>
+  </variables>
+  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="13" y="163">
+    <next>
+      <block type="imports" id="Tm!Z)x[(;M#2Lfc:h=A}">
+        <next>
+          <block type="setcaption" id="kXNunFv[gN,5dc{#crn=">
+            <value name="TITLE">
+              <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
+                <field name="TEXT">Detect mouse press on an image</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                <value name="VALUE">
+                  <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
+                    <value name="WIDTH">
+                      <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
+                        <field name="NUM">500</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
+                        <field name="NUM">400</field>
+                      </block>
+                    </value>
+                    <value name="MODE">
+                      <block type="screenmode" id="uuyO;e|8d2gEWNK./)SF">
+                        <field name="MODE">RESIZABLE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="fillsurface" id="T*HcC8A^ab@54A3bq[14">
+                    <value name="SURFACE">
+                      <block type="variables_get" id="y+8M(-K;8TCbIRXzAhF9">
+                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                      </block>
+                    </value>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="-Lp11$`~Kce,p=yt,lO$">
+                        <field name="COLOUR">#ffffff</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="Vx`ia{#C.J6raBtXG?K4">
+                        <field name="VAR" id="R*EH{=GlxH94L:OEds6l">okImage</field>
+                        <value name="VALUE">
+                          <block type="loadimage" id="Wk#G*:R5`bey7{+[4+bK">
+                            <value name="FILENAME">
+                              <block type="text" id="%-E|qZ2R4H43c^epENN_">
+                                <field name="TEXT">ok.jpg</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="}vxsrk3A^;w;AC_dmMx:">
+                            <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">cancelImage</field>
+                            <value name="VALUE">
+                              <block type="loadimage" id="qTNW_*J%,b:(mF{!M7{P">
+                                <value name="FILENAME">
+                                  <block type="text" id="A6{62q1|r{s4%-;[L#J1">
+                                    <field name="TEXT">cancel.jpg</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="drawimage" id="g-@5d^~I:N[K~$Q]b!30">
+                                <value name="IMAGE">
+                                  <block type="variables_get" id="hMJ~Zz2MHLjVNbojZ5nU">
+                                    <field name="VAR" id="R*EH{=GlxH94L:OEds6l">okImage</field>
+                                  </block>
+                                </value>
+                                <value name="SURFACE">
+                                  <block type="variables_get" id="ap^]$7/#Meq)*tw2wg;3">
+                                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                  </block>
+                                </value>
+                                <value name="POSITION">
+                                  <block type="position" id="/pv.yK9}APTpS-*hm#BM">
+                                    <value name="X">
+                                      <block type="math_number" id="E`St_bNl6Z-1o#WCfBye">
+                                        <field name="NUM">100</field>
+                                      </block>
+                                    </value>
+                                    <value name="Y">
+                                      <block type="math_number" id="-.oym{x9/3jep8s:)q@)">
+                                        <field name="NUM">300</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="drawimage" id="7#UbR?2lSh#+tpleLb/o">
+                                    <value name="IMAGE">
+                                      <block type="variables_get" id="L:2A.USd4Im*3{k3rwsr">
+                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">cancelImage</field>
+                                      </block>
+                                    </value>
+                                    <value name="SURFACE">
+                                      <block type="variables_get" id="c1uw%JD:;?w.O=qlwh2C">
+                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                      </block>
+                                    </value>
+                                    <value name="POSITION">
+                                      <block type="position" id="Q%pTko60FhZl^;Gh-xz;">
+                                        <value name="X">
+                                          <block type="math_number" id="jfmVy*h(cgpP.glKBV!w">
+                                            <field name="NUM">300</field>
+                                          </block>
+                                        </value>
+                                        <value name="Y">
+                                          <block type="math_number" id="{ofRkQFL~A5~7(xB=eV7">
+                                            <field name="NUM">300</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="y@Da,M`Cg|t%mX9wq2x;">
+                                        <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
+                                        <value name="VALUE">
+                                          <block type="logic_boolean" id="A(q:HM*Dw!d%[H+z5aFC">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_whileUntil" id="~^OW6NW-bfsoh*Vo[o-.">
+                                            <field name="MODE">WHILE</field>
+                                            <value name="BOOL">
+                                              <block type="logic_negate" id="9PnH4z=rv%7IY6y}h/nA">
+                                                <value name="BOOL">
+                                                  <block type="variables_get" id="KdUvH/w911Llg1kJ?BxV">
+                                                    <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="controls_forEach" id="i^Bx}FitJWmiM_{)eVj_">
+                                                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                                                <value name="LIST">
+                                                  <block type="pygameevent" id="2:OGt(koP4$sTuoa@^Nf"></block>
+                                                </value>
+                                                <statement name="DO">
+                                                  <block type="controls_if" id="+#ZD9_Ue]-1B8?xM2G)f">
+                                                    <mutation elseif="1"></mutation>
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="}`_awM(saOxXm.*`4Er]">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="eventtype" id="~Tny~owz#aM8gSzT4rr-">
+                                                            <value name="EVENT">
+                                                              <block type="variables_get" id="a$RC6{Sk;n}C@S1~A3j^">
+                                                                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="events" id="d7vn)q^mAz%`P60[-0{B">
+                                                            <field name="EVENT">QUIT</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="variables_set" id="W#)XrGeO`QH~0FN8pEHW">
+                                                        <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
+                                                        <value name="VALUE">
+                                                          <block type="logic_boolean" id="S|W+GjNUH4*=7K*Eti3m">
+                                                            <field name="BOOL">TRUE</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                    <value name="IF1">
+                                                      <block type="logic_compare" id="q`q9Nxn_{jF!aOfhz-L_">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="eventtype" id="Zw~FLCwo{nK`ZmP,Z3dQ">
+                                                            <value name="EVENT">
+                                                              <block type="variables_get" id="boZ/h@C8v-D6;)hO:y2b">
+                                                                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="events" id="7*`?~I.|jcs-r4%K5D%W">
+                                                            <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO1">
+                                                      <block type="variables_set" id="DEevSNE_ZzPn[18-VYhc">
+                                                        <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">rect</field>
+                                                        <value name="VALUE">
+                                                          <block type="imagetorect" id="tw5yb0Qc]z6},vzAWLoC">
+                                                            <value name="IMAGE">
+                                                              <block type="variables_get" id="w)Y}a,?Z}7hp.i.c*i~:">
+                                                                <field name="VAR" id="R*EH{=GlxH94L:OEds6l">okImage</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSITION">
+                                                              <block type="position" id="wF#lixQ_R]L7o3E.n#LS">
+                                                                <value name="X">
+                                                                  <block type="math_number" id="n(Z)j@p{~EwbdHCm@x],">
+                                                                    <field name="NUM">100</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="Y">
+                                                                  <block type="math_number" id="8?%!t:RHj{5{-9kcSV:1">
+                                                                    <field name="NUM">300</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="controls_if" id="ig]zAV-u33m7;revJz7)">
+                                                            <value name="IF0">
+                                                              <block type="collidepoint" id="p2A(2qa.,YzuQ%MaCZ,m">
+                                                                <value name="RECT">
+                                                                  <block type="variables_get" id="9:LF!n![KI7HT*Q]A$:*">
+                                                                    <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">rect</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSITION">
+                                                                  <block type="mouseposition" id="!.pTP;K9Ds|WN%%NLqPH"></block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="text_print" id="m3hBUq{JT!$I@[}g^-/(">
+                                                                <value name="TEXT">
+                                                                  <shadow type="text" id="0n9g5!=6^2rgBJz3K(P?">
+                                                                    <field name="TEXT">Ok Collision detected</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="variables_set" id="Q:CI@n2nYwxw|AYz~^Z/">
+                                                                <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">rect</field>
+                                                                <value name="VALUE">
+                                                                  <block type="imagetorect" id=",=cq-7Obm5!OHq!(2Loa">
+                                                                    <value name="IMAGE">
+                                                                      <block type="variables_get" id="{ipD%$_lZx4=G`OkJ_+{">
+                                                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">cancelImage</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="POSITION">
+                                                                      <block type="position" id="FJiX5WL_TNuWS%Zh~{5k">
+                                                                        <value name="X">
+                                                                          <block type="math_number" id="1Q@t*:?IkF^t81M$QL*o">
+                                                                            <field name="NUM">300</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="Y">
+                                                                          <block type="math_number" id="KN^J|)Ax~dU|P!J.eVHt">
+                                                                            <field name="NUM">300</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="controls_if" id="/Py5!X+W#Lv.E-D$;4E#">
+                                                                    <value name="IF0">
+                                                                      <block type="collidepoint" id="pz|LyNb2Gyv,|#|Qv[M8">
+                                                                        <value name="RECT">
+                                                                          <block type="variables_get" id="tV}Ci-VWe=`EyW~oSOye">
+                                                                            <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">rect</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="POSITION">
+                                                                          <block type="mouseposition" id="O@^Tx=aw-N@m,gWXe6fc"></block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="text_print" id="EXi]Q`k*2ED56=I%ZJ!:">
+                                                                        <value name="TEXT">
+                                                                          <shadow type="text" id="hR_R!D!.N/Bs_W3%Jnrm">
+                                                                            <field name="TEXT">Cancel Collision detected</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

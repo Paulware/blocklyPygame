@@ -73,10 +73,10 @@
                   </block>
                 </value>
                 <next>
-                  <block type="wait" id="2=`U*U#]3#:voP@9DOl9">
-                    <value name="SECONDS">
-                      <block type="math_number" id="v}^$+1$^|l#-ZXikwX)~">
-                        <field name="NUM">5</field>
+                  <block type="waitevent" id="1z`-g]{M2v/dovQ4t.Id">
+                    <value name="EVENT">
+                      <block type="events" id="a!LOn_lbOL(c/+`4`;4c">
+                        <field name="EVENT">MOUSEBUTTONUP</field>
                       </block>
                     </value>
                   </block>

@@ -88,9 +88,12 @@ Blockly.Blocks['events']={
         .appendField("Pygame Event:")        
         .appendField(new Blockly.FieldDropdown([
                                                 ["key down",   "KEYDOWN"],
+                                                ["key up",     "KEYUP"],
                                                 ["mouse down", "MOUSEBUTTONDOWN"],
-                                                ["mouse move", "MOUSEMOTION"],
-                                                ["quit",       "QUIT"]
+                                                ["mouse up",   "MOUSEBUTTONUP"],
+                                                ["mouse move", "MOUSEMOTION"],                                                
+                                                ["quit",       "QUIT"],
+                                                ["resize",     "VIDEORESIZE"]
                                                ]), "EVENT");       
    this.setOutput(true, null);
    this.setTooltip('');
@@ -531,6 +534,90 @@ Blockly.Blocks['toradians']={
    this.appendValueInput("DEGREE")
        .appendField("Get radians from degree");                                        
    this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['imports'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Imports");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['waitevent'] = {
+  init: function() {   
+    this.appendValueInput("EVENT")
+        .appendField("Wait for Event");                                                                                                   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);     
+    this.setColour(290);   
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['clearevents'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Clear Events");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['imagetorect']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("IMAGE")
+       .appendField ("Make rectangle from image:")
+   this.appendValueInput("POSITION")
+       .appendField("Centered at position: ");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['collisiondetected']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("RECT1")
+       .appendField ("Collision detected between rectangle:")
+   this.appendValueInput("RECT2")
+       .appendField("and rectangle: ");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['collidepoint']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("RECT")
+       .appendField ("Collision detected between rectangle:")
+   this.appendValueInput("POSITION")
+       .appendField("and position ");  
+   this.setInputsInline(true);         
    this.setOutput(true, null);
    this.setTooltip('');
    this.setHelpUrl('http://www.example.com/');

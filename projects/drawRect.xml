@@ -8,7 +8,7 @@
       <block type="setcaption" id="b5jWu-r9EzE_!D7,fmk-">
         <value name="TITLE">
           <block type="text" id="61uv^4N;oT+-CHBtnpV6">
-            <field name="TEXT">Line Draw Application</field>
+            <field name="TEXT">Rect Draw Application</field>
           </block>
         </value>
         <next>
@@ -86,10 +86,10 @@
                       </block>
                     </value>
                     <next>
-                      <block type="wait" id="2=`U*U#]3#:voP@9DOl9">
-                        <value name="SECONDS">
-                          <block type="math_number" id="v}^$+1$^|l#-ZXikwX)~">
-                            <field name="NUM">5</field>
+                      <block type="waitevent" id="ItdU*wZ4LKR1ig+zCn)r">
+                        <value name="EVENT">
+                          <block type="events" id="etbueyMv^dO973*6T3sd">
+                            <field name="EVENT">KEYDOWN</field>
                           </block>
                         </value>
                       </block>

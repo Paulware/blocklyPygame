@@ -1,6 +1,15 @@
-
 Blockly.Python['pygameinit'] = function(block) {  
-  var code = 'import pygame\nimport math\nimport time\nimport threading\npygame.init()\nfrom math import atan2, degrees, pi\n';
+  var code = 'import pygame\npygame.init()\n';
+  return code;
+};
+
+Blockly.Python['imports'] = function(block) {  
+  var code = 'import pygame\nimport math\nimport time\nimport threading\nfrom math import atan2, degrees, pi\n';
+  return code;
+};
+
+Blockly.Python['clearevents'] = function(block) {  
+  var code = 'pygame.event.clear()\n';
   return code;
 };
 
@@ -76,7 +85,8 @@ Blockly.Python['colors'] = function(block) {
 
 Blockly.Python['rendertext'] = function(block) {
   var text  = Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC)
-  var color = Blockly.Python.valueToCode(block, "COLOR", Blockly.Python.ORDER_ATOMIC)
+  var color     = Blockly.Python.valueToCode(block, "COLOR",     Blockly.Python.ORDER_ATOMIC)
+  color = 'pygame.Color(' + color + ')'
   
   var code = 'pygame.font.Font(\'freesansbold.ttf\', 32).render (' + text + ',True,' + color + ')' 
   return [code, Blockly.Python.ORDER_NONE]; 
@@ -258,3 +268,35 @@ Blockly.Python['toradians'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
+Blockly.Python['waitevent'] = function(block) {  
+  var event      = Blockly.Python.valueToCode (block, "EVENT", Blockly.Python.ORDER_ATOMIC)
+  var code = 
+     '_quitEvent = False\n' + 
+     'while not _quitEvent:\n' + 
+     '   for event in (pygame.event.get()):\n' + 
+     '      if (event.type) == ' + event + ':\n' +
+     '         _quitEvent = True\n' + 
+     '         break\n'      
+  return code;
+};
+
+Blockly.Python['imagetorect'] = function(block) {
+  var image    = Blockly.Python.valueToCode (block, "IMAGE", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode (block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.Rect(' + position + '[0]-' + image + '.get_size()[0]//2,' + position + '[1]-' + image + '.get_size()[1]//2,' + image + '.get_size()[0],' + image + '.get_size()[1])'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['collisiondetected'] = function(block) {
+  var rect1    = Blockly.Python.valueToCode (block, "RECT1", Blockly.Python.ORDER_ATOMIC)
+  var rect2 = Blockly.Python.valueToCode (block, "RECT2", Blockly.Python.ORDER_ATOMIC)
+  var code =  rect1 + '.colliderect(' + rect2 + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['collidepoint'] = function(block) {
+  var rect     = Blockly.Python.valueToCode (block, "RECT", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode (block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code     = rect + '.collidepoint(' + position + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
