@@ -167,15 +167,36 @@
       <!block type="includedef"><!/block>
       <block type="getangle"></block>
       <block type="imports"></block>
-    </category>  
+      <block type="import"></block>
+      <block type="getkey"></block>
+      <block type="pygamekey"></block>
+      <block type="playsound"></block>
+    </category> 
+    <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="getattribute"></block>
+      <block type="setattribute"></block>
+      <block type="mouseposition"></block>
+      <block type="position"></block>
+      <block type="subpositions"></block>
+      <block type="rectposition"></block>
+    </category>
+    <category name="Sprites" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="sprite"></block>
+      <block type="spritegroup"></block>
+      <block type="addsprite"></block>
+      <block type="drawsprites"></block>
+      <block type="spritecollide"></block>
+    </category>
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
       <block type="fullscreen"></block>
       <block type="screenmode"></block>
       <block type="partialscreen"></block>
+      <block type="partialsurface"></block>
       <block type="setcaption"></block>
       <block type="rotatesurface"></block>
       <block type="fillsurface"></block>
       <block type="drawsurface"></block>
+      <block type="screensize"></block>
     </category>      
     <category name="Events" colour="%{BKY_PROCEDURES_HUE}">
       <block type="pygameevent"></block>
@@ -183,8 +204,9 @@
       <block type="events"></block>
       <block type="waitevent"></block>
       <block type="clearevents"></block>
+      <block type="eventkey"></block>
+      <block type="pollevent"></block>
       <category name="Mouse" colour="%{BKY_PROCEDURES_HUE}">
-         <block type="mouseposition"></block>
       </category>
     </category>
     <category name="Time" colour="%{BKY_PROCEDURES_HUE}">
@@ -194,10 +216,10 @@
     </category>
     <category name="Draw" colour="%{BKY_PROCEDURES_HUE}">
       <block type="loadimage"></block>
+      <block type="fillobject"></block>
       <block type="imagesize"></block>
       <block type="drawimage"></block>
       <block type="drawtext"></block>
-      <block type="position"></block>
       <block type="drawrect"></block>
       <block type="drawline"></block>
       <block type="drawcircle"></block>
@@ -210,6 +232,8 @@
       <block type="centerrect"></block>
       <block type="makerectangle"></block>
       <block type="rectcenter"></block>
+      <block type="moverect"></block>
+      <block type="inflaterect"></block>
       <block type="imagetorect"></block>
       <block type="collisiondetected"></block>
       <block type="collidepoint"></block>

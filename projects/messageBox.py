@@ -13,6 +13,7 @@ def messageBox(message):
   pygame.display.update()
   text = pygame.font.Font('freesansbold.ttf', 32).render (message,True,pygame.Color('#ff0000'))
   rect = text.get_rect()
+  rect.center = (200,100)
   surface.blit (text,rect)
   pygame.display.update()
   okImage = pygame.image.load ('ok.jpg').convert()
@@ -38,5 +39,5 @@ import time
 import threading
 from math import atan2, degrees, pi
 pygame.display.set_caption('Message Box')
-surface = pygame.display.set_mode ((500,400), (pygame.DOUBLEBUF))
+surface = pygame.display.set_mode ((500,400), (pygame.RESIZABLE))
 messageBox('Hello From Message Box Yo')

@@ -194,7 +194,10 @@ Blockly.Blocks['rendertext']={
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
    this.setColour(0);
     this.appendValueInput("TEXT")
-        .appendField("Render Text");        
+        .appendField("Render Text");
+    this.appendDummyInput()
+        .appendField ("with fontsize ")
+        .appendField (new Blockly.FieldTextInput ( "12"), "SIZE")           
     this.appendValueInput("COLOR")
         .appendField("in color");
     this.setInputsInline(true);         
@@ -237,7 +240,7 @@ Blockly.Blocks['centerrect'] = {
 Blockly.Blocks['drawtext'] = {
   init: function() {  
     this.appendValueInput("TEXT")
-        .appendField("Draw Rendered Text ");   
+        .appendField("Draw Rendered Text ");     
     this.appendValueInput("RECT")
         .appendField("using rectangle ");         
     this.appendValueInput("SURFACE")
@@ -617,6 +620,300 @@ Blockly.Blocks['collidepoint']={
        .appendField ("Collision detected between rectangle:")
    this.appendValueInput("POSITION")
        .appendField("and position ");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['getkey']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Get Key from User");
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['import'] = {
+  init: function() {   
+    this.appendValueInput("LIBRARY")
+        .appendField ("Import Library");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pygamekey']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Pygame Key") 
+        .appendField(new Blockly.FieldDropdown([
+                                                ["Backspace",       "K_BACKSPACE"],
+                                                ["Carriage Return", "K_RETURN"]
+                                               ]), "KEY");
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['screensize']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Get") 
+        .appendField(new Blockly.FieldDropdown([
+                                                ["width",  "width"],
+                                                ["height", "height"]
+                                               ]), "WIDTHHEIGHT");
+   this.appendValueInput("SURFACE")
+        .appendField ("of surface");
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['moverect']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("RECT")
+        .appendField("Move rect ");   
+    this.appendValueInput("POSITION")
+        .appendField ( "by offset"); 
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['inflaterect']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("RECT")
+        .appendField("Inflate rect ");   
+    this.appendValueInput("POSITION")
+        .appendField ( "by x/y position"); 
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['eventkey']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("EVENT")
+        .appendField("Key associated with event ");   
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pollevent']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendDummyInput()
+        .appendField("Poll for event ");   
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['playsound'] = {
+  init: function() {   
+    this.appendValueInput("FILENAME")
+        .appendField ("Play .wav file: ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['subpositions']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Subtract 2 positions: ")
+   this.appendValueInput("POSITION1")
+       .appendField("Position1:"); 
+   this.appendValueInput("POSITION2")
+       .appendField("- Position2:");  
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['rectposition']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("RECT")
+       .appendField("Position (left,top) of rect"); 
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['getattribute']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField ("Get attribute ")
+        .appendField (new Blockly.FieldTextInput ( "width"), "ATTRIBUTE")   
+   this.appendValueInput("OBJECT")
+       .appendField("from object"); 
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['sprite']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Sprite")
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['spritegroup']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField ("Sprite Group")
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['addsprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField ("Add sprite ");
+    this.appendValueInput("GROUP")
+        .appendField ("to sprite group");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawsprites'] = {
+  init: function() {   
+    this.appendValueInput("GROUP")
+        .appendField ("Draw all sprites in group");
+    this.appendValueInput("SURFACE")
+        .appendField ("on surface");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['setattribute'] = {
+  init: function() {   
+    this.appendValueInput("OBJECT")
+        .appendField("Set object");
+    this.appendDummyInput()
+        .appendField (".attribute ")
+        .appendField (new Blockly.FieldTextInput ( "width"), "ATTRIBUTE")    
+    this.appendValueInput("VALUE")
+        .appendField("to ");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['partialsurface']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("POSITION")
+       .appendField("Get a surface with width,height ");
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['fillobject'] = {
+  init: function() {   
+    this.appendValueInput("OBJECT")
+        .appendField("Fill object");   
+    this.appendValueInput("COLOR")
+        .appendField("with color ");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['spritecollide']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("SPRITE")
+       .appendField("Return collisions between sprite ");
+   this.appendValueInput("GROUP")
+       .appendField("and group ");       
    this.setInputsInline(true);         
    this.setOutput(true, null);
    this.setTooltip('');

@@ -1,0 +1,14 @@
+# --index-url https://pypi.python.org/simple/
+
+# -e .
+
+flake8   >= 2.4.0
+pep8     == 1.5.7
+doublex  >= 1.8.1
+pexpect  >= 3.3
+coverage >=3.7.1,<4.0a1
+
+pytest     >= 2.6.2
+pytest-cov >= 1.8.0,<2.6.0
+
+wheel >= 0.24.0

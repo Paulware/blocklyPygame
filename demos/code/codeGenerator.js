@@ -4,7 +4,34 @@ Blockly.Python['pygameinit'] = function(block) {
 };
 
 Blockly.Python['imports'] = function(block) {  
-  var code = 'import pygame\nimport math\nimport time\nimport threading\nfrom math import atan2, degrees, pi\n';
+  var code = 'import pygame\nimport math\nimport time\nimport threading\nfrom math import atan2, degrees, pi\n'; 
+  return code;
+};
+
+Blockly.Python['import'] = function(block) { 
+  var library = Blockly.Python.valueToCode(block, "LIBRARY", Blockly.Python.ORDER_ATOMIC)   
+  library = library.substring (1,library.length-1)
+  var code;
+  if (library == 'get_key') { 
+     code =        'def get_key():\n' + 
+                   '   src  = r\"`1234567890-=qwertyuiop[]\\asdfghjkl;\'zxcvbnm,./\"\n' + 
+                   '   dest = r\'~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?\'\n' +                   
+                   '   while 1:\n' + 
+                   '      try: \n' + 
+                   '         event = pygame.event.poll()\n' +
+                   '         if event.type == pygame.KEYDOWN:\n' +                    
+                   '            _ch = chr(event.key)\n' +
+                   '            if ord(_ch) != 304:\n' + 
+                   '               pressed = pygame.key.get_pressed()\n' +
+                   '               if pressed[pygame.K_RSHIFT] or pressed[pygame.K_LSHIFT] and _ch in src:\n' +
+                   '                  _ch = dest[src.index(_ch)]\n' +
+                   '               break\n' + 
+                   '      except Exception as ex:\n' + 
+                   '         pass\n' + 
+                   '   return _ch\n'; 
+  } else { 
+     code = 'import ' + library + '\n'
+  }
   return code;
 };
 
@@ -85,10 +112,11 @@ Blockly.Python['colors'] = function(block) {
 
 Blockly.Python['rendertext'] = function(block) {
   var text  = Blockly.Python.valueToCode(block, "TEXT", Blockly.Python.ORDER_ATOMIC)
-  var color     = Blockly.Python.valueToCode(block, "COLOR",     Blockly.Python.ORDER_ATOMIC)
+  var color = Blockly.Python.valueToCode(block, "COLOR",     Blockly.Python.ORDER_ATOMIC)
+  var size  = block.getFieldValue ("SIZE");  
   color = 'pygame.Color(' + color + ')'
   
-  var code = 'pygame.font.Font(\'freesansbold.ttf\', 32).render (' + text + ',True,' + color + ')' 
+  var code = 'pygame.font.Font(\'freesansbold.ttf\',' + size + ').render (' + text + ',True,' + color + ')' 
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -112,6 +140,7 @@ Blockly.Python['drawtext'] = function(block) {
   var rect    = Blockly.Python.valueToCode(block, "RECT",    Blockly.Python.ORDER_ATOMIC)
   var txt     = Blockly.Python.valueToCode(block, "TEXT",    Blockly.Python.ORDER_ATOMIC)
   var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)  
+  
   var code = surface + '.blit (' + txt + ',' + rect + ')\npygame.display.update()\n';
   return code;
 };
@@ -235,7 +264,7 @@ Blockly.Python['includedef'] = function(block) {
 Blockly.Python['getangle'] = function(block) {
   var position1 = Blockly.Python.valueToCode (block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
   var position2 = Blockly.Python.valueToCode (block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
-  var code = 'degrees(atan2(-(' + position2 + '[1] - ' + position1 + '[1]),' + position2 + '[0]-' + position1 + '[0]) % (2*pi))'
+  var code = 'math.degrees(math.atan2(-(' + position2 + '[1] - ' + position1 + '[1]),' + position2 + '[0]-' + position1 + '[0]) % (2*math.pi))'
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -299,4 +328,125 @@ Blockly.Python['collidepoint'] = function(block) {
   var position = Blockly.Python.valueToCode (block, "POSITION", Blockly.Python.ORDER_ATOMIC)
   var code     = rect + '.collidepoint(' + position + ')'
   return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['getkey'] = function(block) {
+  var code = 'get_key()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['pygamekey'] = function(block) {
+  var key = block.getFieldValue ("KEY");  
+  var code = 'chr(pygame.' + key + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['screensize'] = function(block) {
+  var widthHeight = block.getFieldValue ("WIDTHHEIGHT");  
+  var surface     = Blockly.Python.valueToCode (block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+  var code = surface + '.get_' + widthHeight + '()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['moverect'] = function(block) {  
+  var rect     = Blockly.Python.valueToCode(block, "RECT", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code = rect + '.move (' + position + '[0],' + position + '[1])';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['inflaterect'] = function(block) {  
+  var rect     = Blockly.Python.valueToCode(block, "RECT", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code = rect + '.inflate (' + position + '[0],' + position + '[1])';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['eventkey'] = function(block) {  
+  var event = Blockly.Python.valueToCode(block, "EVENT", Blockly.Python.ORDER_ATOMIC)
+  var code = 'chr(' + event + '.key)';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['pollevent'] = function(block) {  
+  var code = 'pygame.event.poll()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['playsound'] = function(block) {  
+  var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.mixer.Sound(' + filename + ').play()\n';
+  return code; 
+};
+
+Blockly.Python['subpositions'] = function(block) {
+  var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
+  var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
+  var code = '(' + position1 + '[0]-' + position2 + '[0],' + position1 + '[1]-' + position2 + '[1])'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['rectposition'] = function(block) {
+  var rect = Blockly.Python.valueToCode(block, "RECT", Blockly.Python.ORDER_ATOMIC)
+  var code = '(' + rect + '.left,' + rect + '.top)'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['getattribute'] = function(block) {
+  var attribute = block.getFieldValue ("ATTRIBUTE"); 
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  var code = obj + '.' + attribute;
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['sprite'] = function(block) {
+  var code = 'pygame.sprite.Sprite()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['spritegroup'] = function(block) {
+  var code = 'pygame.sprite.Group()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['addsprite'] = function(block) {  
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var group = Blockly.Python.valueToCode(block, "GROUP", Blockly.Python.ORDER_ATOMIC)
+  var code = group + '.add(' + sprite + ')\n';
+  return code; 
+};
+
+Blockly.Python['drawsprites'] = function(block) {  
+  var group = Blockly.Python.valueToCode(block, "GROUP", Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+  var code = group + '.draw(' + surface + ')\npygame.display.update()\n';
+  return code; 
+};
+
+Blockly.Python['setattribute'] = function(block) {
+  var attribute = block.getFieldValue ("ATTRIBUTE"); 
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  var code = obj + '.' + attribute + '=' + value + '\n';
+  return code; 
+};
+
+Blockly.Python['partialsurface'] = function(block) {
+  var widthHeight = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.Surface([' + widthHeight + '[0],' + widthHeight + '[1]])';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['fillobject'] = function(block) {
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  var color = Blockly.Python.valueToCode(block, "COLOR", Blockly.Python.ORDER_ATOMIC)
+  var code = obj + '.fill(pygame.Color(' + color + '));\n';
+  return code; 
+};
+
+Blockly.Python['spritecollide'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var group = Blockly.Python.valueToCode(block, "GROUP", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.sprite.spritecollide(' + sprite + ',' + group + ',False)';
+  return [code, Blockly.Python.ORDER_NONE];
 };

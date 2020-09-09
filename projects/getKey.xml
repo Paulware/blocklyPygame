@@ -1,0 +1,91 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="~Jh{D][Ya94!)J5K+:v/">surface</variable>
+    <variable id="{Sn!5W9a1weTUb=E!zGf">ch</variable>
+  </variables>
+  <block type="pygameinit" id="K;6:k^E$@AQci.ZcI[{$" x="88" y="38">
+    <next>
+      <block type="import" id=",wK%Vz.C[PYsWG5oCzaf">
+        <value name="LIBRARY">
+          <block type="text" id="(Ss9m2|yXTTSNY4gmT{D">
+            <field name="TEXT">get_key</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id=".^Wme}?_/pdg8pwWJ.*:">
+            <field name="VAR" id="~Jh{D][Ya94!)J5K+:v/">surface</field>
+            <value name="VALUE">
+              <block type="partialscreen" id="UJ_cKgzN=dSf?qR6M9_Q">
+                <value name="WIDTH">
+                  <block type="math_number" id="IEA3F7#(ablNU`B?-HQ/">
+                    <field name="NUM">123</field>
+                  </block>
+                </value>
+                <value name="HEIGHT">
+                  <block type="math_number" id="^.Qk%-DAVPjwnH0ZkXHa">
+                    <field name="NUM">123</field>
+                  </block>
+                </value>
+                <value name="MODE">
+                  <block type="screenmode" id="2B!:M~[H)[gqEsu,oZ9H">
+                    <field name="MODE">RESIZABLE</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_whileUntil" id="[0A,(P-LSYVXEOdCCX[S">
+                <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="logic_compare" id="t`zslq2{|6bA!`b!O#EP">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="4mQua5sEN{ZrFA{Xv@Mj">
+                        <field name="VAR" id="{Sn!5W9a1weTUb=E!zGf">ch</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="S:/;E0W9hr;x3^PAQWzj">
+                        <field name="TEXT">q</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set" id="Luy0VAoj}A;.hdjHgB@=">
+                    <field name="VAR" id="{Sn!5W9a1weTUb=E!zGf">ch</field>
+                    <value name="VALUE">
+                      <block type="getkey" id="HzjpD75TC@0-=?s)3q#."></block>
+                    </value>
+                    <next>
+                      <block type="text_print" id="=OqYLcQYP0z@{82u?-99">
+                        <value name="TEXT">
+                          <shadow type="text" id="d-T3pN?-__XCb(B^]Z?(">
+                            <field name="TEXT">got key</field>
+                          </shadow>
+                          <block type="text_join" id="*+u|AG%a(jZ4O+jH5N@Y">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="9L:oJ*1}-eM/.f]{ouK4">
+                                <field name="TEXT">got key:</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="EapT^YxUJ%eB##.FE`:x">
+                                <field name="VAR" id="{Sn!5W9a1weTUb=E!zGf">ch</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
