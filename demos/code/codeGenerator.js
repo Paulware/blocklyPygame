@@ -450,3 +450,15 @@ Blockly.Python['spritecollide'] = function(block) {
   var code = 'pygame.sprite.spritecollide(' + sprite + ',' + group + ',False)';
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Python['include'] = function(block) {
+  var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
+  var code = 'from ' + filename.substring(1,filename.length-1) + ' import *\n';
+  return code;
+};
+
+Blockly.Python['exec'] = function(block) {
+  var expression = Blockly.Python.valueToCode(block, "EXPRESSION", Blockly.Python.ORDER_ATOMIC)
+  var code = expression.substring(1,expression.length-1) + '\n';
+  return code;
+};

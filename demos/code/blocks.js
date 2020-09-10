@@ -920,3 +920,29 @@ Blockly.Blocks['spritecollide']={
    this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['include'] = {
+  init: function() {   
+    this.appendValueInput("FILENAME")
+        .appendField("Include .py file:");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['exec'] = {
+  init: function() {   
+    this.appendValueInput("EXPRESSION")
+        .appendField("Execute expression");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
