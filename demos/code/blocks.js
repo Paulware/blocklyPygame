@@ -946,3 +946,22 @@ Blockly.Blocks['exec'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['movesprite'] = {
+  init: function() {  
+    this.appendDummyInput()
+        .appendField ("Move")  
+    this.appendValueInput("SPRITE")
+        .appendField("sprite");   
+    this.appendValueInput("DELTAX")
+        .appendField("x-offset");        
+    this.appendValueInput("DELTAY")
+        .appendField("y-offset");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

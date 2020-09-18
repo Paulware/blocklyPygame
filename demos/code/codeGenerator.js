@@ -462,3 +462,10 @@ Blockly.Python['exec'] = function(block) {
   var code = expression.substring(1,expression.length-1) + '\n';
   return code;
 };
+
+Blockly.Python['movesprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var deltaX = Blockly.Python.valueToCode(block, "DELTAX", Blockly.Python.ORDER_ATOMIC)
+  var deltaY = Blockly.Python.valueToCode(block, "DELTAY", Blockly.Python.ORDER_ATOMIC)
+  return sprite + '.rect.move(' + deltaX + ',' + deltaY + ')\n';
+};
