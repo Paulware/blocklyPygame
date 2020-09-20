@@ -1,117 +1,69 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="o@(`i}sg3!g$:MC=*F_I">text</variable>
-    <variable id="=G0#(s?Sg?iC*b@4vX~t">rect</variable>
-    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="W14:KPV%MwT}enfj1WC#">surface</variable>
   </variables>
-  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="38" y="63">
+  <block type="variables_set" id="L)pNU8KoYOp8kxd$={:{" x="-637" y="-238">
+    <field name="VAR" id="W14:KPV%MwT}enfj1WC#">surface</field>
+    <value name="VALUE">
+      <block type="getscreen" id="Mw)3(8KaAkDrM1CqZSBn">
+        <value name="WIDTH">
+          <block type="math_number" id="p}B2bH#7nuk40Ha3;DAP">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number" id="j[JP`t1T|?jKRmDVmmFi">
+            <field name="NUM">400</field>
+          </block>
+        </value>
+      </block>
+    </value>
     <next>
-      <block type="setcaption" id="b5jWu-r9EzE_!D7,fmk-">
+      <block type="setcaption" id="rDoz4Vu*)Ca=!_zHbM49">
         <value name="TITLE">
-          <block type="text" id="61uv^4N;oT+-CHBtnpV6">
-            <field name="TEXT">My First PyGame Application</field>
+          <block type="text" id=".#0xtwV5}%=,us+WpkI7">
+            <field name="TEXT">Pygame Text Drawing</field>
           </block>
         </value>
         <next>
-          <block type="variables_set" id="5hh/|(r.v[zXD8IT{i52">
-            <field name="VAR" id="o@(`i}sg3!g$:MC=*F_I">text</field>
-            <value name="VALUE">
-              <block type="rendertext" id="TB5_q%S*Jy+Tl@P%.BDy">
-                <value name="TEXT">
-                  <block type="text" id="!CU1F;+eQF2:[XMMWd4R">
-                    <field name="TEXT">Hello World</field>
-                  </block>
-                </value>
-                <value name="COLOR">
-                  <block type="colors" id="nMR};HDD_`hqaCCC1$PT">
-                    <field name="COLOR">0,0,128</field>
-                  </block>
-                </value>
+          <block type="drawsurfacetext" id="ex2c=M*Z|9]!Dk5c~1_]">
+            <value name="TEXT">
+              <block type="text" id="k2!yEGtoGZvfFUf*7Zek">
+                <field name="TEXT">Hello BCC</field>
+              </block>
+            </value>
+            <value name="SIZE">
+              <block type="math_number" id=",`uT}9ST5HQH0Wvw|F6w">
+                <field name="NUM">24</field>
+              </block>
+            </value>
+            <value name="X">
+              <block type="math_number" id="5p]ljSln`mxEMhGWl`+7">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <value name="Y">
+              <block type="math_number" id="S4Jw@0BV_]MC|D#39yIY">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <value name="COLOR">
+              <block type="colour_picker" id="q6`TOy-Nsf(]DHE.%e,D">
+                <field name="COLOUR">#3333ff</field>
+              </block>
+            </value>
+            <value name="SURFACE">
+              <block type="variables_get" id="S+e.K2iPfUErHG5d[C5d">
+                <field name="VAR" id="W14:KPV%MwT}enfj1WC#">surface</field>
               </block>
             </value>
             <next>
-              <block type="variables_set" id="@8-:[ZU/Iymx_|5v33[!">
-                <field name="VAR" id="=G0#(s?Sg?iC*b@4vX~t">rect</field>
-                <value name="VALUE">
-                  <block type="getrect" id="X.5?dm]ar_KQ:WuE{yt*">
-                    <value name="OBJECT">
-                      <block type="variables_get" id="p?qH]C9{P|Kqn+toNt#:">
-                        <field name="VAR" id="o@(`i}sg3!g$:MC=*F_I">text</field>
-                      </block>
-                    </value>
+              <block type="waitevent" id=".RP}_R5e;H:Dq|Rm1ufM">
+                <value name="EVENT">
+                  <block type="events" id="[DqvC=UqZaO^7`_]$Y;S">
+                    <field name="EVENT">QUIT</field>
                   </block>
                 </value>
-                <next>
-                  <block type="centerrect" id=")v2A/q^l9#4O}@{bg`D$">
-                    <value name="RECT">
-                      <block type="variables_get" id="kHOjb47C=:c2Xm:$N]Z3">
-                        <field name="VAR" id="=G0#(s?Sg?iC*b@4vX~t">rect</field>
-                      </block>
-                    </value>
-                    <value name="X">
-                      <block type="math_number" id="!amM8%~PM*6d:Yrn!O[W">
-                        <field name="NUM">200</field>
-                      </block>
-                    </value>
-                    <value name="Y">
-                      <block type="math_number" id="d%w$Lp4%wZbNhHBcEi;U">
-                        <field name="NUM">100</field>
-                      </block>
-                    </value>
-                    <next>
-                      <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
-                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                        <value name="VALUE">
-                          <block type="partialscreen" id=".}4HvY/E$PJ[c+AtH{jj">
-                            <value name="WIDTH">
-                              <block type="math_number" id="4}5usR(PSgrJ}F:+2|x%">
-                                <field name="NUM">400</field>
-                              </block>
-                            </value>
-                            <value name="HEIGHT">
-                              <block type="math_number" id="fl/VtohnXzN?#/z[i$m*">
-                                <field name="NUM">200</field>
-                              </block>
-                            </value>
-                            <value name="MODE">
-                              <block type="screenmode" id="zgA+U]3SRVvRuRjHod2M">
-                                <field name="MODE">RESIZABLE</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="drawtext" id=":w]qBC;gwHXxJqK/jrv/">
-                            <value name="TEXT">
-                              <block type="variables_get" id="XePkK4%%7X3d)VPmGuK`">
-                                <field name="VAR" id="o@(`i}sg3!g$:MC=*F_I">text</field>
-                              </block>
-                            </value>
-                            <value name="RECT">
-                              <block type="variables_get" id="X],6l8Z6EAz%K1iRj7y]">
-                                <field name="VAR" id="=G0#(s?Sg?iC*b@4vX~t">rect</field>
-                              </block>
-                            </value>
-                            <value name="SURFACE">
-                              <block type="variables_get" id="s_zRW@xuS]Xx;ALUo%_l">
-                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="wait" id="2=`U*U#]3#:voP@9DOl9">
-                                <value name="SECONDS">
-                                  <block type="math_number" id="v}^$+1$^|l#-ZXikwX)~">
-                                    <field name="NUM">5</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
               </block>
             </next>
           </block>

@@ -3,87 +3,74 @@
     <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
     <variable id="p,O8Cz=b07Ei@/~W$_k`">image</variable>
   </variables>
-  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="137" y="88">
+  <block type="setcaption" id="kXNunFv[gN,5dc{#crn=" x="-337" y="-137">
+    <value name="TITLE">
+      <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
+        <field name="TEXT">Van Gogh self portrait</field>
+      </block>
+    </value>
     <next>
-      <block type="imports" id="Tm!Z)x[(;M#2Lfc:h=A}">
+      <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+        <value name="VALUE">
+          <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
+            <value name="WIDTH">
+              <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
+                <field name="NUM">600</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
+                <field name="NUM">600</field>
+              </block>
+            </value>
+          </block>
+        </value>
         <next>
-          <block type="setcaption" id="kXNunFv[gN,5dc{#crn=">
-            <value name="TITLE">
-              <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
-                <field name="TEXT">Van Gogh self portrait</field>
+          <block type="variables_set" id="Vx`ia{#C.J6raBtXG?K4">
+            <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+            <value name="VALUE">
+              <block type="loadimage" id="Wk#G*:R5`bey7{+[4+bK">
+                <value name="FILENAME">
+                  <block type="text" id="%-E|qZ2R4H43c^epENN_">
+                    <field name="TEXT">vangogh.jpg</field>
+                  </block>
+                </value>
               </block>
             </value>
             <next>
-              <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
-                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                <value name="VALUE">
-                  <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
-                    <value name="WIDTH">
-                      <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
-                        <field name="NUM">600</field>
+              <block type="drawimage" id="g-@5d^~I:N[K~$Q]b!30">
+                <value name="IMAGE">
+                  <block type="variables_get" id="hMJ~Zz2MHLjVNbojZ5nU">
+                    <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                  </block>
+                </value>
+                <value name="SURFACE">
+                  <block type="variables_get" id="ap^]$7/#Meq)*tw2wg;3">
+                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                  </block>
+                </value>
+                <value name="POSITION">
+                  <block type="position" id="/pv.yK9}APTpS-*hm#BM">
+                    <value name="X">
+                      <block type="math_number" id="E`St_bNl6Z-1o#WCfBye">
+                        <field name="NUM">300</field>
                       </block>
                     </value>
-                    <value name="HEIGHT">
-                      <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
-                        <field name="NUM">600</field>
-                      </block>
-                    </value>
-                    <value name="MODE">
-                      <block type="screenmode" id="uuyO;e|8d2gEWNK./)SF">
-                        <field name="MODE">RESIZABLE</field>
+                    <value name="Y">
+                      <block type="math_number" id="-.oym{x9/3jep8s:)q@)">
+                        <field name="NUM">300</field>
                       </block>
                     </value>
                   </block>
                 </value>
                 <next>
-                  <block type="variables_set" id="Vx`ia{#C.J6raBtXG?K4">
-                    <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
-                    <value name="VALUE">
-                      <block type="loadimage" id="Wk#G*:R5`bey7{+[4+bK">
-                        <value name="FILENAME">
-                          <block type="text" id="%-E|qZ2R4H43c^epENN_">
-                            <field name="TEXT">vangogh.jpg</field>
-                          </block>
-                        </value>
+                  <block type="waitevent" id="10f2N1b+/_?OR,Oc75VT">
+                    <value name="EVENT">
+                      <block type="events" id="?=C6q9%X*a4#T@ZM~jc@">
+                        <field name="EVENT">MOUSEBUTTONDOWN</field>
                       </block>
                     </value>
-                    <next>
-                      <block type="drawimage" id="g-@5d^~I:N[K~$Q]b!30">
-                        <value name="IMAGE">
-                          <block type="variables_get" id="hMJ~Zz2MHLjVNbojZ5nU">
-                            <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
-                          </block>
-                        </value>
-                        <value name="SURFACE">
-                          <block type="variables_get" id="ap^]$7/#Meq)*tw2wg;3">
-                            <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                          </block>
-                        </value>
-                        <value name="POSITION">
-                          <block type="position" id="/pv.yK9}APTpS-*hm#BM">
-                            <value name="X">
-                              <block type="math_number" id="E`St_bNl6Z-1o#WCfBye">
-                                <field name="NUM">300</field>
-                              </block>
-                            </value>
-                            <value name="Y">
-                              <block type="math_number" id="-.oym{x9/3jep8s:)q@)">
-                                <field name="NUM">300</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="waitevent" id="10f2N1b+/_?OR,Oc75VT">
-                            <value name="EVENT">
-                              <block type="events" id="?=C6q9%X*a4#T@ZM~jc@">
-                                <field name="EVENT">MOUSEBUTTONDOWN</field>
-                              </block>
-                            </value>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
                   </block>
                 </next>
               </block>

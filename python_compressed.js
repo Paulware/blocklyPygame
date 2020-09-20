@@ -14,9 +14,42 @@
 Blockly.Python.ORDER_ATOMIC=0;Blockly.Python.ORDER_COLLECTION=1;Blockly.Python.ORDER_STRING_CONVERSION=1;Blockly.Python.ORDER_MEMBER=2.1;Blockly.Python.ORDER_FUNCTION_CALL=2.2;Blockly.Python.ORDER_EXPONENTIATION=3;Blockly.Python.ORDER_UNARY_SIGN=4;Blockly.Python.ORDER_BITWISE_NOT=4;Blockly.Python.ORDER_MULTIPLICATIVE=5;Blockly.Python.ORDER_ADDITIVE=6;Blockly.Python.ORDER_BITWISE_SHIFT=7;Blockly.Python.ORDER_BITWISE_AND=8;Blockly.Python.ORDER_BITWISE_XOR=9;Blockly.Python.ORDER_BITWISE_OR=10;
 Blockly.Python.ORDER_RELATIONAL=11;Blockly.Python.ORDER_LOGICAL_NOT=12;Blockly.Python.ORDER_LOGICAL_AND=13;Blockly.Python.ORDER_LOGICAL_OR=14;Blockly.Python.ORDER_CONDITIONAL=15;Blockly.Python.ORDER_LAMBDA=16;Blockly.Python.ORDER_NONE=99;
 Blockly.Python.ORDER_OVERRIDES=[[Blockly.Python.ORDER_FUNCTION_CALL,Blockly.Python.ORDER_MEMBER],[Blockly.Python.ORDER_FUNCTION_CALL,Blockly.Python.ORDER_FUNCTION_CALL],[Blockly.Python.ORDER_MEMBER,Blockly.Python.ORDER_MEMBER],[Blockly.Python.ORDER_MEMBER,Blockly.Python.ORDER_FUNCTION_CALL],[Blockly.Python.ORDER_LOGICAL_NOT,Blockly.Python.ORDER_LOGICAL_NOT],[Blockly.Python.ORDER_LOGICAL_AND,Blockly.Python.ORDER_LOGICAL_AND],[Blockly.Python.ORDER_LOGICAL_OR,Blockly.Python.ORDER_LOGICAL_OR]];
-Blockly.Python.init=function(a){Blockly.Python.PASS=this.INDENT+"pass\n";Blockly.Python.definitions_=Object.create(null);Blockly.Python.functionNames_=Object.create(null);Blockly.Python.variableDB_?Blockly.Python.variableDB_.reset():Blockly.Python.variableDB_=new Blockly.Names(Blockly.Python.RESERVED_WORDS_);Blockly.Python.variableDB_.setVariableMap(a.getVariableMap());for(var b=[],c=Blockly.Variables.allDeveloperVariables(a),d=0;d<c.length;d++)b.push(Blockly.Python.variableDB_.getName(c[d],Blockly.Names.DEVELOPER_VARIABLE_TYPE)+
-" = None");a=Blockly.Variables.allUsedVarModels(a);for(d=0;d<a.length;d++)b.push(Blockly.Python.variableDB_.getName(a[d].getId(),Blockly.VARIABLE_CATEGORY_NAME)+" = None");Blockly.Python.definitions_.variables=b.join("\n")};
-Blockly.Python.finish=function(a){var b=[],c=[],d;for(d in Blockly.Python.definitions_){var e=Blockly.Python.definitions_[d];e.match(/^(from\s+\S+\s+)?import\s+\S+/)?b.push(e):c.push(e)}delete Blockly.Python.definitions_;delete Blockly.Python.functionNames_;Blockly.Python.variableDB_.reset();return(b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a};Blockly.Python.scrubNakedValue=function(a){return a+"\n"};
+Blockly.Python.init=function(a){
+ // alert ( 'init happening')
+ Blockly.Python.PASS=this.INDENT+"pass\n";
+ Blockly.Python.definitions_=Object.create(null);
+ Blockly.Python.functionNames_=Object.create(null);
+ Blockly.Python.variableDB_?Blockly.Python.variableDB_.reset():Blockly.Python.variableDB_=new Blockly.Names(Blockly.Python.RESERVED_WORDS_);
+ Blockly.Python.variableDB_.setVariableMap(a.getVariableMap());
+ for(var b=[],c=Blockly.Variables.allDeveloperVariables(a),d=0;d<c.length;d++)
+  b.push(Blockly.Python.variableDB_.getName(c[d],Blockly.Names.DEVELOPER_VARIABLE_TYPE)+ " = None");
+ a=Blockly.Variables.allUsedVarModels(a);
+ for(d=0;d<a.length;d++)
+  b.push(Blockly.Python.variableDB_.getName(a[d].getId(),Blockly.VARIABLE_CATEGORY_NAME)+" = None");
+ Blockly.Python.definitions_.variables=b.join("\n")
+};
+Blockly.Python.finish=function(a){
+ // c is initialization
+ // a is values of the variables 
+ // b is ? 
+ var b=[],c=[],d;
+ for(d in Blockly.Python.definitions_){
+  var e=Blockly.Python.definitions_[d];
+  e.match(/^(from\s+\S+\s+)?import\s+\S+/)?b.push(e):c.push(e)
+ }
+ var debugIt = false;
+ if (debugIt) {
+    alert ( 'c: ' + c);
+    alert ( 'b: ' + b);
+    alert ( 'a: ' + a);
+ }
+ delete Blockly.Python.definitions_;
+ delete Blockly.Python.functionNames_;
+ Blockly.Python.variableDB_.reset();
+ var imports = "import pygame\nimport time\nimport threading\n"
+ return(imports + "pygame.init()\n" + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a
+};
+Blockly.Python.scrubNakedValue=function(a){return a+"\n"};
 Blockly.Python.quote_=function(a){a=a.replace(/\\/g,"\\\\").replace(/\n/g,"\\\n");var b="'";-1!==a.indexOf("'")&&(-1===a.indexOf('"')?b='"':a=a.replace(/'/g,"\\'"));return b+a+b};Blockly.Python.multiline_quote_=function(a){a=a.replace(/'''/g,"\\'\\'\\'");return"'''"+a+"'''"};
 Blockly.Python.scrub_=function(a,b,c){var d="";if(!a.outputConnection||!a.outputConnection.targetConnection){var e=a.getCommentText();e&&(e=Blockly.utils.string.wrap(e,Blockly.Python.COMMENT_WRAP-3),d+=Blockly.Python.prefixLines(e+"\n","# "));for(var f=0;f<a.inputList.length;f++)a.inputList[f].type==Blockly.INPUT_VALUE&&(e=a.inputList[f].connection.targetBlock())&&(e=Blockly.Python.allNestedComments(e))&&(d+=Blockly.Python.prefixLines(e,"# "))}a=a.nextConnection&&a.nextConnection.targetBlock();c=
 c?"":Blockly.Python.blockToCode(a);return d+b+c};Blockly.Python.getAdjustedInt=function(a,b,c,d){c=c||0;a.workspace.options.oneBasedIndex&&c--;var e=a.workspace.options.oneBasedIndex?"1":"0";a=Blockly.Python.valueToCode(a,b,c?Blockly.Python.ORDER_ADDITIVE:Blockly.Python.ORDER_NONE)||e;Blockly.isNumber(a)?(a=parseInt(a,10)+c,d&&(a=-a)):(a=0<c?"int("+a+" + "+c+")":0>c?"int("+a+" - "+-c+")":"int("+a+")",d&&(a="-"+a));return a};Blockly.Python.colour={};Blockly.Python.colour_picker=function(a){return[Blockly.Python.quote_(a.getFieldValue("COLOUR")),Blockly.Python.ORDER_ATOMIC]};Blockly.Python.colour_random=function(a){Blockly.Python.definitions_.import_random="import random";return["'#%06x' % random.randint(0, 2**24 - 1)",Blockly.Python.ORDER_FUNCTION_CALL]};

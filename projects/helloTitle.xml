@@ -1,0 +1,40 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="9s/uw/0+RktYE(yNI:J}">screen</variable>
+  </variables>
+  <block type="variables_set" id="9}56}CoWeEI--jQfgq-d" x="37" y="63">
+    <field name="VAR" id="9s/uw/0+RktYE(yNI:J}">screen</field>
+    <value name="VALUE">
+      <block type="getscreen" id="{znwcE}(%W^5fw|($X$t">
+        <value name="WIDTH">
+          <block type="math_number" id="Bv:{_.AZO0]GfS+=1lP-">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number" id="O~YjGSShjea[K_T/desw">
+            <field name="NUM">400</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="setcaption" id=".3@4xU+iy$4N@uh5T27(">
+        <value name="TITLE">
+          <block type="text" id="F+)blxo]4lT1sg|ivYsu">
+            <field name="TEXT">Hello BCC</field>
+          </block>
+        </value>
+        <next>
+          <block type="waitevent" id="iS)x6bS{VmSAF)C:v~M_">
+            <value name="EVENT">
+              <block type="events" id="PV1gazE!zap|6UaG+S)i">
+                <field name="EVENT">QUIT</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

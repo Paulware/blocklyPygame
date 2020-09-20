@@ -24,7 +24,7 @@ import pygame
 pygame.init()
 from movePlayer import *
 pygame.display.set_caption('Blasteroids')
-surface = pygame.display.set_mode ((800,600), (pygame.RESIZABLE))
+surface = pygame.display.set_mode ((800,600), )
 obstacle = pygame.sprite.Sprite()
 obstacle.image=(pygame.Surface([((100,100))[0],((100,100))[1]]))
 (obstacle.image).fill(pygame.Color('#33cc00'));
@@ -55,9 +55,12 @@ while True:
   elif (event.type) == (pygame.KEYDOWN) or (event.type) == (pygame.KEYUP):
     if (event.type) == (pygame.KEYDOWN) and (chr(event.key)) == ' ':
       cannonBallImage.deltaX=(math.cos(degree / 180.0 * math.pi) * 10)
-      cannonBallImage.deltaY=(math.sin(degree / 180.0 * math.pi) * 10)
+      cannonBallImage.deltaY=(math.sin((degree + 180) / 180.0 * math.pi) * 10)
+      cannonBallImage.rect.y=(playerImage.rect.center[1])
+      cannonBallImage.rect.x=(playerImage.rect.center[0])
       drawList.add(cannonBallImage)
       print("deltaX: " + str(cannonBallImage.deltaX))
+      print("deltaY: " + str(cannonBallImage.deltaY))
     else:
       movePlayer(event,playerImage)
       surface.fill (0Xffffff)
@@ -75,9 +78,10 @@ while True:
     playerImage.image=(pygame.transform.rotate(image,degree))
     drawList.draw(surface)
     pygame.display.update()
-  elif (time.time() - cannonBallMoveTime) > 0.5:
+  elif (time.time() - cannonBallMoveTime) > 0.01:
     cannonBallMoveTime = time.time()
-    cannonBallImage.rect.move((cannonBallImage.deltaX),(cannonBallImage.deltaY))
+    cannonBallImage.rect.x=((cannonBallImage.rect.x) + (cannonBallImage.deltaX))
+    cannonBallImage.rect.y=((cannonBallImage.rect.y) + (cannonBallImage.deltaY))
     drawList.draw(surface)
     pygame.display.update()
 from movePlayer import *

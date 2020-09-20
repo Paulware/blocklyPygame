@@ -1,0 +1,578 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="p,O8Cz=b07Ei@/~W$_k`">image</variable>
+  </variables>
+  <block type="setcaption" id="kXNunFv[gN,5dc{#crn=" x="-337" y="-137">
+    <value name="TITLE">
+      <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
+        <field name="TEXT">Mario and Luigi Story</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+        <value name="VALUE">
+          <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
+            <value name="WIDTH">
+              <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
+                <field name="NUM">800</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
+                <field name="NUM">600</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="Vx`ia{#C.J6raBtXG?K4">
+            <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+            <value name="VALUE">
+              <block type="loadimage" id="Wk#G*:R5`bey7{+[4+bK">
+                <value name="FILENAME">
+                  <block type="text" id="%-E|qZ2R4H43c^epENN_">
+                    <field name="TEXT">marioLuigi.png</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="drawimage" id="g-@5d^~I:N[K~$Q]b!30">
+                <value name="IMAGE">
+                  <block type="variables_get" id="hMJ~Zz2MHLjVNbojZ5nU">
+                    <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                  </block>
+                </value>
+                <value name="SURFACE">
+                  <block type="variables_get" id="ap^]$7/#Meq)*tw2wg;3">
+                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                  </block>
+                </value>
+                <value name="POSITION">
+                  <block type="position" id="/pv.yK9}APTpS-*hm#BM">
+                    <value name="X">
+                      <block type="math_number" id="E`St_bNl6Z-1o#WCfBye">
+                        <field name="NUM">300</field>
+                      </block>
+                    </value>
+                    <value name="Y">
+                      <block type="math_number" id="-.oym{x9/3jep8s:)q@)">
+                        <field name="NUM">300</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="waitevent" id="10f2N1b+/_?OR,Oc75VT">
+                    <value name="EVENT">
+                      <block type="events" id="?=C6q9%X*a4#T@ZM~jc@">
+                        <field name="EVENT">MOUSEBUTTONDOWN</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="fillsurface" id="e0$pymQ9t}Fx@g17.5^c">
+                        <value name="SURFACE">
+                          <block type="variables_get" id="aqMU71KebPCMD0(PstT^">
+                            <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                          </block>
+                        </value>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="mpe:d|~PVA5q^cFcl9Fi">
+                            <field name="COLOUR">#000000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="drawsurfacetext" id="ep8W+f,yLnlrX`0jD.1D">
+                            <value name="TEXT">
+                              <block type="text" id="qgGqhydjC7d1zC=.ppo6">
+                                <field name="TEXT">Plumber brothers Mario and Luigi from Brooklyn</field>
+                              </block>
+                            </value>
+                            <value name="SIZE">
+                              <block type="math_number" id="VvBI0?p}#y/D_8YqJqSN">
+                                <field name="NUM">24</field>
+                              </block>
+                            </value>
+                            <value name="X">
+                              <block type="math_number" id="-X7LuymPQbh]R,asY*%9">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="Y">
+                              <block type="math_number" id="8-zP~p,n-8YpEi8DVmE.">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="COLOR">
+                              <block type="colour_picker" id="vrqXAPNHsrqt)97T3F6i">
+                                <field name="COLOUR">#33ffff</field>
+                              </block>
+                            </value>
+                            <value name="SURFACE">
+                              <block type="variables_get" id="BL(7=E]Z|*arTZ080v/z">
+                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="ozT$ub]49IEGr-Itq_DS">
+                                <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                <value name="VALUE">
+                                  <block type="loadimage" id="$6$BC_UO6e@U:aKZ2QWo">
+                                    <value name="FILENAME">
+                                      <block type="text" id="Riv9j*i~,*/.4ONmQ:Tu">
+                                        <field name="TEXT">brooklyn.jpg</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="drawimage" id="f58qOo?RdD*5Oq?#;$Ik">
+                                    <value name="IMAGE">
+                                      <block type="variables_get" id="k(H|1nqc-tgiRc?OeAKm">
+                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                      </block>
+                                    </value>
+                                    <value name="SURFACE">
+                                      <block type="variables_get" id="^D0n!7fhlPL~WlJL9[3f">
+                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                      </block>
+                                    </value>
+                                    <value name="POSITION">
+                                      <block type="position" id="}BUfre5oiq#gok8ovp{6">
+                                        <value name="X">
+                                          <block type="math_number" id="[iMPjN3=xA]hz)c;XyYS">
+                                            <field name="NUM">300</field>
+                                          </block>
+                                        </value>
+                                        <value name="Y">
+                                          <block type="math_number" id="1AP1SmJg:.|;GE5@yEgJ">
+                                            <field name="NUM">300</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="waitevent" id="6Y2d+Suz^1iu!OxWnIfW">
+                                        <value name="EVENT">
+                                          <block type="events" id="RMkFY3{p+v;t|OI7EeVf">
+                                            <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="fillsurface" id="r[:G;D3l:jKrT#%2z00U">
+                                            <value name="SURFACE">
+                                              <block type="variables_get" id="`h4ZwY@I1P0dePh7iwvz">
+                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                              </block>
+                                            </value>
+                                            <value name="COLOR">
+                                              <block type="colour_picker" id="^*kKKj$Q?PcF%h$,v?dd">
+                                                <field name="COLOUR">#000000</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="drawsurfacetext" id="YI0nyjZ5m=n=W^KJFpN=">
+                                                <value name="TEXT">
+                                                  <block type="text" id="+5|*R2O5X4uJQq_A?,ZF">
+                                                    <field name="TEXT">have just arrived in an outlandish realm </field>
+                                                  </block>
+                                                </value>
+                                                <value name="SIZE">
+                                                  <block type="math_number" id="sU%UluR]RCy54{z+rkUK">
+                                                    <field name="NUM">24</field>
+                                                  </block>
+                                                </value>
+                                                <value name="X">
+                                                  <block type="math_number" id="g]C7/z@;~p)Y6aA|@~~U">
+                                                    <field name="NUM">10</field>
+                                                  </block>
+                                                </value>
+                                                <value name="Y">
+                                                  <block type="math_number" id="y#U~QWLYkm2MV:DcC_m)">
+                                                    <field name="NUM">10</field>
+                                                  </block>
+                                                </value>
+                                                <value name="COLOR">
+                                                  <block type="colour_picker" id="M_5eAr^`%W|?6rOlh;mu">
+                                                    <field name="COLOUR">#33ffff</field>
+                                                  </block>
+                                                </value>
+                                                <value name="SURFACE">
+                                                  <block type="variables_get" id="2CO4q::l!G1J2K#:?Htf">
+                                                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="drawsurfacetext" id="6#!75e~oN~Wm2px7!^xc">
+                                                    <value name="TEXT">
+                                                      <block type="text" id="8OskgJeN}_(o3oxp:+[K">
+                                                        <field name="TEXT">called the Mushroom Kingdom</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="SIZE">
+                                                      <block type="math_number" id="28pw}:sz;^[{f%id-%u~">
+                                                        <field name="NUM">24</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="X">
+                                                      <block type="math_number" id="MXtO_Az$M.tCbXs7GY%u">
+                                                        <field name="NUM">10</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="Y">
+                                                      <block type="math_number" id="Ei;X`^sZu9^`KK*sS8PT">
+                                                        <field name="NUM">35</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="COLOR">
+                                                      <block type="colour_picker" id="w+V5UKgaFMpFdA-R1UfY">
+                                                        <field name="COLOUR">#33ffff</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="SURFACE">
+                                                      <block type="variables_get" id="jF`w!Bc9Uw{Ww-p#M#Zx">
+                                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="variables_set" id="[i_9xN~Aq#-)y/THsDzT">
+                                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                        <value name="VALUE">
+                                                          <block type="loadimage" id=")wU=9ppcIsvt3)j7)ucM">
+                                                            <value name="FILENAME">
+                                                              <block type="text" id="M.GB9MeCLh3cDt-)ac7b">
+                                                                <field name="TEXT">mushroomKingdom.png</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="drawimage" id="D|K08;qfC,])vl,#+;[R">
+                                                            <value name="IMAGE">
+                                                              <block type="variables_get" id="IU114/_|B9yF*Tawri8k">
+                                                                <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="SURFACE">
+                                                              <block type="variables_get" id="uQk2g6q!=i|W$@@k)l!]">
+                                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSITION">
+                                                              <block type="position" id="9LMp}ZBS7?bI=2tM,lis">
+                                                                <value name="X">
+                                                                  <block type="math_number" id="5h!4(?kScvrENVbK.=N+">
+                                                                    <field name="NUM">300</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="Y">
+                                                                  <block type="math_number" id="udcp4:W-)SD5c%/BUh%0">
+                                                                    <field name="NUM">350</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="waitevent" id="h7}=Ty_rd5}$N/{_q~Xp">
+                                                                <value name="EVENT">
+                                                                  <block type="events" id="XR]Me`c?U6Z;bmeVQ2ub">
+                                                                    <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="fillsurface" id="0OqmY36d?+X2vPUM(,5;">
+                                                                    <value name="SURFACE">
+                                                                      <block type="variables_get" id="0UC{,qn:r-YIH;zE]gpW">
+                                                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="COLOR">
+                                                                      <block type="colour_picker" id="`+Z;TW3l!Y3)-ZLnie$6">
+                                                                        <field name="COLOUR">#000000</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="drawsurfacetext" id="DGF!lq15w+XbH|{JoL`!">
+                                                                        <value name="TEXT">
+                                                                          <block type="text" id="~NUPvG*b/yBwVrxEh0!$">
+                                                                            <field name="TEXT">To save princess Peach</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="SIZE">
+                                                                          <block type="math_number" id="z_wQ,r`m2SCpy2R1!41i">
+                                                                            <field name="NUM">24</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="X">
+                                                                          <block type="math_number" id="ayh=2b9%(H[WQKA#@rNH">
+                                                                            <field name="NUM">10</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="Y">
+                                                                          <block type="math_number" id="p!yd^t#8ixdtSJ~#r}@_">
+                                                                            <field name="NUM">10</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="COLOR">
+                                                                          <block type="colour_picker" id=",ZJe.#*BeinrheMLvoCU">
+                                                                            <field name="COLOUR">#33ffff</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="SURFACE">
+                                                                          <block type="variables_get" id="=YDH2$qG2jQ4Mr24do!n">
+                                                                            <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="variables_set" id="XEC%u5]Gw0XcC?|%ZV#P">
+                                                                            <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                            <value name="VALUE">
+                                                                              <block type="loadimage" id="yW4bj5LY8}!oDyZX1i@@">
+                                                                                <value name="FILENAME">
+                                                                                  <block type="text" id="-rXi2zqq`j%i6JB=qqBa">
+                                                                                    <field name="TEXT">princessPeach.jpg</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="drawimage" id="hfT~~91A7!DTHQd:_N~}">
+                                                                                <value name="IMAGE">
+                                                                                  <block type="variables_get" id="hjOBB~%rSO)xh(Y}@ZOK">
+                                                                                    <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="SURFACE">
+                                                                                  <block type="variables_get" id="D@Z)8(3r50?SsnTL7KXk">
+                                                                                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="POSITION">
+                                                                                  <block type="position" id="X!Xu34WYKk9tHV^,]~wG">
+                                                                                    <value name="X">
+                                                                                      <block type="math_number" id="AJbWVrK(E)FwBS8(t..d">
+                                                                                        <field name="NUM">300</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="Y">
+                                                                                      <block type="math_number" id="%giD=`HuNiVI+_t#yR(S">
+                                                                                        <field name="NUM">400</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="waitevent" id="pPDCI{hjWZ+)Fjj^If#/">
+                                                                                    <value name="EVENT">
+                                                                                      <block type="events" id="g.Z$8YMy$UH09.qs2fya">
+                                                                                        <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="fillsurface" id="0cimALub:yCiA:U(zg3%">
+                                                                                        <value name="SURFACE">
+                                                                                          <block type="variables_get" id="+M4Ns+6odsvpR}G}7Rb$">
+                                                                                            <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="COLOR">
+                                                                                          <block type="colour_picker" id="x.0%BIJf#lvgMy69}p.P">
+                                                                                            <field name="COLOUR">#000000</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="drawsurfacetext" id="r|Ob5qNWd^+N.cDqgG0;">
+                                                                                            <value name="TEXT">
+                                                                                              <block type="text" id="n@K-Rfi-O@.k#W|3f0cc">
+                                                                                                <field name="TEXT">But Bowser had other ideas</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="SIZE">
+                                                                                              <block type="math_number" id="wUZS[@@=,8P`eONH@.:c">
+                                                                                                <field name="NUM">24</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="X">
+                                                                                              <block type="math_number" id="g06q}U+tFzFBL}BzUodW">
+                                                                                                <field name="NUM">10</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="Y">
+                                                                                              <block type="math_number" id="QET:V}*88;XjKV7}_++i">
+                                                                                                <field name="NUM">10</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="COLOR">
+                                                                                              <block type="colour_picker" id="3hkt[{mm.O+N.hwN~Q|k">
+                                                                                                <field name="COLOUR">#33ffff</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <value name="SURFACE">
+                                                                                              <block type="variables_get" id="poX5}c5:1N()o9*ctEmv">
+                                                                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <next>
+                                                                                              <block type="variables_set" id="pGlK}GUJz_7Jx)j|Fyo=">
+                                                                                                <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                                                <value name="VALUE">
+                                                                                                  <block type="loadimage" id="wj=.oZNnf]zIJ{e*L$;w">
+                                                                                                    <value name="FILENAME">
+                                                                                                      <block type="text" id="I}Ahx^QsgF*K*w=7Z%1%">
+                                                                                                        <field name="TEXT">bowser.png</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="drawimage" id="T-R%kzU[wFR7tq%mYWy7">
+                                                                                                    <value name="IMAGE">
+                                                                                                      <block type="variables_get" id="r;`Jp)SL@s1sQq-{k_-9">
+                                                                                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="SURFACE">
+                                                                                                      <block type="variables_get" id="pHQA)Zw.1SVZd6WsevXE">
+                                                                                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <value name="POSITION">
+                                                                                                      <block type="position" id="Roye;aYqDHJgxW1k{wdt">
+                                                                                                        <value name="X">
+                                                                                                          <block type="math_number" id="$KeYZQx+`2t=JwnV7eY*">
+                                                                                                            <field name="NUM">300</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <value name="Y">
+                                                                                                          <block type="math_number" id="a;i.b*qo!tUC/^Z~v|q(">
+                                                                                                            <field name="NUM">400</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <next>
+                                                                                                      <block type="waitevent" id="YimuouZ{kn,VmmHlsst~">
+                                                                                                        <value name="EVENT">
+                                                                                                          <block type="events" id="P/J1dwrXPFfBn2_t@s7w">
+                                                                                                            <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="fillsurface" id="6i0O)LtN?$rqY4m;.Q3h">
+                                                                                                            <value name="SURFACE">
+                                                                                                              <block type="variables_get" id="l7yks`(Au8tpe)8=Q{ns">
+                                                                                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <value name="COLOR">
+                                                                                                              <block type="colour_picker" id="Nv?~l%A;sp*M2?2(@v/8">
+                                                                                                                <field name="COLOUR">#000000</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <next>
+                                                                                                              <block type="variables_set" id="B)#Slf}5)8Flz@wSqBDV">
+                                                                                                                <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                                                                <value name="VALUE">
+                                                                                                                  <block type="loadimage" id="=B1-QW0)*H:3gTJyxV2v">
+                                                                                                                    <value name="FILENAME">
+                                                                                                                      <block type="text" id="[wJRrti*?s2[C@6a^emy">
+                                                                                                                        <field name="TEXT">toBeContinued.jpg</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <next>
+                                                                                                                  <block type="drawimage" id="ZT}@[=SB`M4+VdpCs^;_">
+                                                                                                                    <value name="IMAGE">
+                                                                                                                      <block type="variables_get" id="VYL;3q2x-XYcvY{L5wh*">
+                                                                                                                        <field name="VAR" id="p,O8Cz=b07Ei@/~W$_k`">image</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <value name="SURFACE">
+                                                                                                                      <block type="variables_get" id="fHm`iCfD}p#%g_QbqADF">
+                                                                                                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <value name="POSITION">
+                                                                                                                      <block type="position" id="m@u7#vh{:CnZFSg=QNs[">
+                                                                                                                        <value name="X">
+                                                                                                                          <block type="math_number" id="6or$KrbW1?y]_v;=^P#O">
+                                                                                                                            <field name="NUM">300</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <value name="Y">
+                                                                                                                          <block type="math_number" id="`J!*#zCYgZxg:faow^s_">
+                                                                                                                            <field name="NUM">350</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <next>
+                                                                                                                      <block type="waitevent" id="*s;}[v$vF;0n4Db(Amn+">
+                                                                                                                        <value name="EVENT">
+                                                                                                                          <block type="events" id="Q/FHt(E!bbvC$.$])Bv4">
+                                                                                                                            <field name="EVENT">MOUSEBUTTONDOWN</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                      </block>
+                                                                                                                    </next>
+                                                                                                                  </block>
+                                                                                                                </next>
+                                                                                                              </block>
+                                                                                                            </next>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </next>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

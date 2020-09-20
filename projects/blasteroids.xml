@@ -61,11 +61,6 @@
                                 <field name="NUM">600</field>
                               </block>
                             </value>
-                            <value name="MODE">
-                              <block type="screenmode" id="zgA+U]3SRVvRuRjHod2M">
-                                <field name="MODE">RESIZABLE</field>
-                              </block>
-                            </value>
                           </block>
                         </value>
                         <next>
@@ -551,8 +546,21 @@
                                                                                                                                                       <shadow type="math_number">
                                                                                                                                                         <field name="NUM">45</field>
                                                                                                                                                       </shadow>
-                                                                                                                                                      <block type="variables_get" id="fp`0MA[5uxdnl1$)F}/0">
-                                                                                                                                                        <field name="VAR" id="=fGb@Zm^/0Scs5ks):a]">degree</field>
+                                                                                                                                                      <block type="math_arithmetic" id="3[4;!)FgDi5G8f,FGed#">
+                                                                                                                                                        <field name="OP">ADD</field>
+                                                                                                                                                        <value name="A">
+                                                                                                                                                          <shadow type="math_number" id="F6xh5f_*SgB^vm$SS0[R">
+                                                                                                                                                            <field name="NUM">1</field>
+                                                                                                                                                          </shadow>
+                                                                                                                                                          <block type="variables_get" id="fp`0MA[5uxdnl1$)F}/0">
+                                                                                                                                                            <field name="VAR" id="=fGb@Zm^/0Scs5ks):a]">degree</field>
+                                                                                                                                                          </block>
+                                                                                                                                                        </value>
+                                                                                                                                                        <value name="B">
+                                                                                                                                                          <shadow type="math_number" id="zA4pEO$s~B.@H7fGoK-y">
+                                                                                                                                                            <field name="NUM">180</field>
+                                                                                                                                                          </shadow>
+                                                                                                                                                        </value>
                                                                                                                                                       </block>
                                                                                                                                                     </value>
                                                                                                                                                   </block>
@@ -565,31 +573,87 @@
                                                                                                                                               </block>
                                                                                                                                             </value>
                                                                                                                                             <next>
-                                                                                                                                              <block type="addsprite" id="cJ[}0,NsogPWE.D@VvW3">
-                                                                                                                                                <value name="SPRITE">
+                                                                                                                                              <block type="setattribute" id="/DV5VHT#I.BV7jNB2NJB">
+                                                                                                                                                <field name="ATTRIBUTE">rect.y</field>
+                                                                                                                                                <value name="OBJECT">
                                                                                                                                                   <block type="variables_get" id="j]6DA(0V`}3u^t(Yb9F5">
                                                                                                                                                     <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
                                                                                                                                                   </block>
                                                                                                                                                 </value>
-                                                                                                                                                <value name="GROUP">
-                                                                                                                                                  <block type="variables_get" id="$QEJBi$EhnBOx|0T{AdC">
-                                                                                                                                                    <field name="VAR" id="g!8?#9?VH9!Z$1JS#+-X">drawList</field>
+                                                                                                                                                <value name="VALUE">
+                                                                                                                                                  <block type="getattribute" id="sZwiwK%?puqJN|y9KC9h">
+                                                                                                                                                    <field name="ATTRIBUTE">rect.center[1]</field>
+                                                                                                                                                    <value name="OBJECT">
+                                                                                                                                                      <block type="variables_get" id="ePz7541$pZGFaF~XFuBb">
+                                                                                                                                                        <field name="VAR" id="K!lW_c,JWo_gXlFk%,aM">playerImage</field>
+                                                                                                                                                      </block>
+                                                                                                                                                    </value>
                                                                                                                                                   </block>
                                                                                                                                                 </value>
                                                                                                                                                 <next>
-                                                                                                                                                  <block type="text_print" id="EdZ?xd2Lj6Z!E{3sYW7p">
-                                                                                                                                                    <value name="TEXT">
-                                                                                                                                                      <shadow type="text" id="Hf+Y^G4ilo%@Tv#,kbF)">
-                                                                                                                                                        <field name="TEXT"></field>
-                                                                                                                                                      </shadow>
-                                                                                                                                                      <block type="expression" id="2VDkXsPJX-KLNr*Q+QYA">
-                                                                                                                                                        <value name="EXPRESSION">
-                                                                                                                                                          <block type="text" id=",3l}g+tS+X1du4eGqu*3">
-                                                                                                                                                            <field name="TEXT">"deltaX: " + str(cannonBallImage.deltaX)</field>
+                                                                                                                                                  <block type="setattribute" id="r2H5%y=li*dJ+WgT/vdX">
+                                                                                                                                                    <field name="ATTRIBUTE">rect.x</field>
+                                                                                                                                                    <value name="OBJECT">
+                                                                                                                                                      <block type="variables_get" id="DV=MwU{BI5m@+jL)Yp7R">
+                                                                                                                                                        <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                      </block>
+                                                                                                                                                    </value>
+                                                                                                                                                    <value name="VALUE">
+                                                                                                                                                      <block type="getattribute" id="r%X}129hkKgGRD(.aS7i">
+                                                                                                                                                        <field name="ATTRIBUTE">rect.center[0]</field>
+                                                                                                                                                        <value name="OBJECT">
+                                                                                                                                                          <block type="variables_get" id="!SDa$a1]aU%KDAX7]A7}">
+                                                                                                                                                            <field name="VAR" id="K!lW_c,JWo_gXlFk%,aM">playerImage</field>
                                                                                                                                                           </block>
                                                                                                                                                         </value>
                                                                                                                                                       </block>
                                                                                                                                                     </value>
+                                                                                                                                                    <next>
+                                                                                                                                                      <block type="addsprite" id="cJ[}0,NsogPWE.D@VvW3">
+                                                                                                                                                        <value name="SPRITE">
+                                                                                                                                                          <block type="variables_get" id="NO)^ky.t8,4HJ2^sJaD}">
+                                                                                                                                                            <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                          </block>
+                                                                                                                                                        </value>
+                                                                                                                                                        <value name="GROUP">
+                                                                                                                                                          <block type="variables_get" id="$QEJBi$EhnBOx|0T{AdC">
+                                                                                                                                                            <field name="VAR" id="g!8?#9?VH9!Z$1JS#+-X">drawList</field>
+                                                                                                                                                          </block>
+                                                                                                                                                        </value>
+                                                                                                                                                        <next>
+                                                                                                                                                          <block type="text_print" id="EdZ?xd2Lj6Z!E{3sYW7p">
+                                                                                                                                                            <value name="TEXT">
+                                                                                                                                                              <shadow type="text" id="Hf+Y^G4ilo%@Tv#,kbF)">
+                                                                                                                                                                <field name="TEXT"></field>
+                                                                                                                                                              </shadow>
+                                                                                                                                                              <block type="expression" id="2VDkXsPJX-KLNr*Q+QYA">
+                                                                                                                                                                <value name="EXPRESSION">
+                                                                                                                                                                  <block type="text" id=",3l}g+tS+X1du4eGqu*3">
+                                                                                                                                                                    <field name="TEXT">"deltaX: " + str(cannonBallImage.deltaX)</field>
+                                                                                                                                                                  </block>
+                                                                                                                                                                </value>
+                                                                                                                                                              </block>
+                                                                                                                                                            </value>
+                                                                                                                                                            <next>
+                                                                                                                                                              <block type="text_print" id="z!?)X[F`$zobtSc,s=xm">
+                                                                                                                                                                <value name="TEXT">
+                                                                                                                                                                  <shadow type="text">
+                                                                                                                                                                    <field name="TEXT"></field>
+                                                                                                                                                                  </shadow>
+                                                                                                                                                                  <block type="expression" id="bvBmNjDbvuYYQM).^Qbt">
+                                                                                                                                                                    <value name="EXPRESSION">
+                                                                                                                                                                      <block type="text" id=";@?VsrgWc+?Xt9Qo((vx">
+                                                                                                                                                                        <field name="TEXT">"deltaY: " + str(cannonBallImage.deltaY)</field>
+                                                                                                                                                                      </block>
+                                                                                                                                                                    </value>
+                                                                                                                                                                  </block>
+                                                                                                                                                                </value>
+                                                                                                                                                              </block>
+                                                                                                                                                            </next>
+                                                                                                                                                          </block>
+                                                                                                                                                        </next>
+                                                                                                                                                      </block>
+                                                                                                                                                    </next>
                                                                                                                                                   </block>
                                                                                                                                                 </next>
                                                                                                                                               </block>
@@ -810,7 +874,7 @@
                                                                                                                                     </value>
                                                                                                                                     <value name="B">
                                                                                                                                       <block type="math_number" id="5v*}A=%ai:B$KpBjhMz)">
-                                                                                                                                        <field name="NUM">0.5</field>
+                                                                                                                                        <field name="NUM">0.01</field>
                                                                                                                                       </block>
                                                                                                                                     </value>
                                                                                                                                   </block>
@@ -822,44 +886,97 @@
                                                                                                                                       <block type="currenttime" id="t~QaImP-L-mo5FMX8@`S"></block>
                                                                                                                                     </value>
                                                                                                                                     <next>
-                                                                                                                                      <block type="movesprite" id="%N,BOJa$1m6nd)Y6(qX_">
-                                                                                                                                        <value name="SPRITE">
+                                                                                                                                      <block type="setattribute" id="wW+R2:jH7L:PPc[W}IZL">
+                                                                                                                                        <field name="ATTRIBUTE">rect.x</field>
+                                                                                                                                        <value name="OBJECT">
                                                                                                                                           <block type="variables_get" id="oiOOgS;ey6MfjBkUVp?m">
                                                                                                                                             <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
                                                                                                                                           </block>
                                                                                                                                         </value>
-                                                                                                                                        <value name="DELTAX">
-                                                                                                                                          <block type="getattribute" id="$oa~3uBZSTuqX.*9m#fa">
-                                                                                                                                            <field name="ATTRIBUTE">deltaX</field>
-                                                                                                                                            <value name="OBJECT">
-                                                                                                                                              <block type="variables_get" id=",T;ye!-!`3d-Wh}b`,pj">
-                                                                                                                                                <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                        <value name="VALUE">
+                                                                                                                                          <block type="math_arithmetic" id="yKZv_E64v.+[;Z*R@K2^">
+                                                                                                                                            <field name="OP">ADD</field>
+                                                                                                                                            <value name="A">
+                                                                                                                                              <shadow type="math_number" id="riO|_vN{Z!ygt%S|1s@!">
+                                                                                                                                                <field name="NUM">1</field>
+                                                                                                                                              </shadow>
+                                                                                                                                              <block type="getattribute" id="6HT%;iI`3$mF2i)Uf45[">
+                                                                                                                                                <field name="ATTRIBUTE">rect.x</field>
+                                                                                                                                                <value name="OBJECT">
+                                                                                                                                                  <block type="variables_get" id="+;@crGSS7d3ZI@$GCz;9">
+                                                                                                                                                    <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
                                                                                                                                               </block>
                                                                                                                                             </value>
-                                                                                                                                          </block>
-                                                                                                                                        </value>
-                                                                                                                                        <value name="DELTAY">
-                                                                                                                                          <block type="getattribute" id="M-]_uhN)C,)C*6[MKcmc">
-                                                                                                                                            <field name="ATTRIBUTE">deltaY</field>
-                                                                                                                                            <value name="OBJECT">
-                                                                                                                                              <block type="variables_get" id="mh+EP=ZhPNQ~8W.Y$y|N">
-                                                                                                                                                <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                            <value name="B">
+                                                                                                                                              <shadow type="math_number" id="Ud`A1$(*{eYmuczbxba2">
+                                                                                                                                                <field name="NUM">1</field>
+                                                                                                                                              </shadow>
+                                                                                                                                              <block type="getattribute" id="M-]_uhN)C,)C*6[MKcmc">
+                                                                                                                                                <field name="ATTRIBUTE">deltaX</field>
+                                                                                                                                                <value name="OBJECT">
+                                                                                                                                                  <block type="variables_get" id="mh+EP=ZhPNQ~8W.Y$y|N">
+                                                                                                                                                    <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
                                                                                                                                               </block>
                                                                                                                                             </value>
                                                                                                                                           </block>
                                                                                                                                         </value>
                                                                                                                                         <next>
-                                                                                                                                          <block type="drawsprites" id="}K*by_plO,`|ed[75e3n">
-                                                                                                                                            <value name="GROUP">
-                                                                                                                                              <block type="variables_get" id="_v8`lR#6HR~Q5)a#Vo-S">
-                                                                                                                                                <field name="VAR" id="g!8?#9?VH9!Z$1JS#+-X">drawList</field>
+                                                                                                                                          <block type="setattribute" id="}hi:ln:?y1xcC};#%l~A">
+                                                                                                                                            <field name="ATTRIBUTE">rect.y</field>
+                                                                                                                                            <value name="OBJECT">
+                                                                                                                                              <block type="variables_get" id="C6;EVTwQv7=0AmQ]u)4~">
+                                                                                                                                                <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
                                                                                                                                               </block>
                                                                                                                                             </value>
-                                                                                                                                            <value name="SURFACE">
-                                                                                                                                              <block type="variables_get" id="q$bhH]vixq-ITr8bDG.`">
-                                                                                                                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                                                                            <value name="VALUE">
+                                                                                                                                              <block type="math_arithmetic" id="h9JK_sl~lyG^rB#rS6Z.">
+                                                                                                                                                <field name="OP">ADD</field>
+                                                                                                                                                <value name="A">
+                                                                                                                                                  <shadow type="math_number">
+                                                                                                                                                    <field name="NUM">1</field>
+                                                                                                                                                  </shadow>
+                                                                                                                                                  <block type="getattribute" id="Q1_}mx[4`HuK5NGeSW2i">
+                                                                                                                                                    <field name="ATTRIBUTE">rect.y</field>
+                                                                                                                                                    <value name="OBJECT">
+                                                                                                                                                      <block type="variables_get" id="oke,sCYo7mL,o!N1h4Ko">
+                                                                                                                                                        <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                      </block>
+                                                                                                                                                    </value>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
+                                                                                                                                                <value name="B">
+                                                                                                                                                  <shadow type="math_number">
+                                                                                                                                                    <field name="NUM">1</field>
+                                                                                                                                                  </shadow>
+                                                                                                                                                  <block type="getattribute" id="JRb0Ux,TweW$=8S|SYVj">
+                                                                                                                                                    <field name="ATTRIBUTE">deltaY</field>
+                                                                                                                                                    <value name="OBJECT">
+                                                                                                                                                      <block type="variables_get" id="ecYLX~of-5(8cF/gF.*.">
+                                                                                                                                                        <field name="VAR" id="ElV.w:+[R},5/ttizTnd">cannonBallImage</field>
+                                                                                                                                                      </block>
+                                                                                                                                                    </value>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
                                                                                                                                               </block>
                                                                                                                                             </value>
+                                                                                                                                            <next>
+                                                                                                                                              <block type="drawsprites" id="}K*by_plO,`|ed[75e3n">
+                                                                                                                                                <value name="GROUP">
+                                                                                                                                                  <block type="variables_get" id="_v8`lR#6HR~Q5)a#Vo-S">
+                                                                                                                                                    <field name="VAR" id="g!8?#9?VH9!Z$1JS#+-X">drawList</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
+                                                                                                                                                <value name="SURFACE">
+                                                                                                                                                  <block type="variables_get" id="q$bhH]vixq-ITr8bDG.`">
+                                                                                                                                                    <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
+                                                                                                                                              </block>
+                                                                                                                                            </next>
                                                                                                                                           </block>
                                                                                                                                         </next>
                                                                                                                                       </block>

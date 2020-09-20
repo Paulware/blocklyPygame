@@ -1,18 +1,22 @@
-text = None
-rect = None
-surface = None
-continue2 = None
-
-
 import pygame
 import time
+import threading
 pygame.init()
-pygame.display.set_caption('My First PyGame Application')
-text = pygame.font.Font('freesansbold.ttf', 32).render ('Hello World',True,((0,0,128)))
-rect = text.get_rect()
-rect.center = (200,100)
-surface = pygame.display.set_mode ((400,200), (pygame.RESIZABLE))
-continue2 = True
-surface.blit (text,rect)
+
+surface = None
+
+
+surface = pygame.display.set_mode((600,400),pygame.RESIZABLE)
+pygame.display.set_caption('Pygame Text Drawing')
+_text = pygame.font.Font('freesansbold.ttf',24).render ('Hello BCC',True,pygame.Color('#3333ff'))
+_rect = _text.get_rect()
+_rect.x = 100
+_rect.y = 200
+surface.blit (_text,_rect)
 pygame.display.update()
-time.sleep (5)
+_quitEvent = False
+while not _quitEvent:
+   for event in (pygame.event.get()):
+      if (event.type) == (pygame.QUIT):
+         _quitEvent = True
+         break

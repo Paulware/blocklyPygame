@@ -175,6 +175,7 @@ Blockly.Python.init = function(workspace) {
  */
 Blockly.Python.finish = function(code) {
   // Convert the definitions dictionary into a list.
+  alert ( 'python finish')
   var imports = [];
   var definitions = [];
   for (var name in Blockly.Python.definitions_) {

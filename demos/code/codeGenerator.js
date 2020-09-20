@@ -88,7 +88,7 @@ Blockly.Python['partialscreen'] = function(block) {
   var width = Blockly.Python.valueToCode(block, "WIDTH", Blockly.Python.ORDER_ATOMIC)
   var height = Blockly.Python.valueToCode(block, "HEIGHT", Blockly.Python.ORDER_ATOMIC)
   var mode = Blockly.Python.valueToCode(block, "MODE", Blockly.Python.ORDER_ATOMIC)
-  var code = 'pygame.display.set_mode ((' + width + ',' + height + '), ' + mode + ')';
+  var code = 'pygame.display.set_mode ((' + width + ',' + height + '), pygame.RESIZABLE)';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -431,9 +431,10 @@ Blockly.Python['setattribute'] = function(block) {
   return code; 
 };
 
-Blockly.Python['partialsurface'] = function(block) {
-  var widthHeight = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
-  var code = 'pygame.Surface([' + widthHeight + '[0],' + widthHeight + '[1]])';
+Blockly.Python['getscreen'] = function(block) {
+  var width = Blockly.Python.valueToCode(block, "WIDTH", Blockly.Python.ORDER_ATOMIC)
+  var height = Blockly.Python.valueToCode(block, "HEIGHT", Blockly.Python.ORDER_ATOMIC)  
+  var code = 'pygame.display.set_mode((' + width + ',' + height + '),pygame.RESIZABLE)';
   return [code, Blockly.Python.ORDER_NONE];
 };
 
@@ -468,4 +469,35 @@ Blockly.Python['movesprite'] = function(block) {
   var deltaX = Blockly.Python.valueToCode(block, "DELTAX", Blockly.Python.ORDER_ATOMIC)
   var deltaY = Blockly.Python.valueToCode(block, "DELTAY", Blockly.Python.ORDER_ATOMIC)
   return sprite + '.rect.move(' + deltaX + ',' + deltaY + ')\n';
+};
+
+Blockly.Python['drawsurfacetext'] = function(block) {  
+  var x       = Blockly.Python.valueToCode(block, "X",    Blockly.Python.ORDER_ATOMIC)
+  var y       = Blockly.Python.valueToCode(block, "Y",    Blockly.Python.ORDER_ATOMIC)
+  var color   = Blockly.Python.valueToCode(block, "COLOR",    Blockly.Python.ORDER_ATOMIC)
+  var size    = Blockly.Python.valueToCode(block, "SIZE",    Blockly.Python.ORDER_ATOMIC)  
+  var txt     = Blockly.Python.valueToCode(block, "TEXT",    Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)  
+  color = 'pygame.Color(' + color + ')'
+  var code = 
+      "_text = pygame.font.Font('freesansbold.ttf'," + size + ").render (" + txt + ",True," + color + ")\n" + 
+      "_rect = _text.get_rect()\n" + 
+      "_rect.x = " + x + "\n" + 
+      "_rect.y = " + y + "\n" +        
+      surface + ".blit (_text,_rect)\n" + 
+      "pygame.display.update()\n";   
+  
+  return code;
+};
+
+Blockly.Python['positionpart'] = function(block) {
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var xy = block.getFieldValue ("XY")
+  var code;
+  if (xy == 'X') {
+    code = position + '[0]' + '# ' + xy;   
+  } else { // y
+    code = position + '[1]' + '# ' + xy;
+  }
+  return [code, Blockly.Python.ORDER_NONE];
 };

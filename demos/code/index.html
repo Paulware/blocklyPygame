@@ -162,7 +162,6 @@
     <category name="Setup" colour="%{BKY_PROCEDURES_HUE}">
       <block type="pygameinit"></block>
       <block type="colors"></block>
-      <block type="rendertext"></block>
       <block type="expression"></block>
       <block type="exec"></block>
       <!block type="includedef"><!/block>
@@ -177,11 +176,14 @@
     <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
       <block type="getattribute"></block>
       <block type="setattribute"></block>
-      <block type="mouseposition"></block>
-      <block type="position"></block>
-      <block type="subpositions"></block>
       <block type="rectposition"></block>
-    </category>
+      <category name="Position" colour="%{BKY_PROCEDURES_HUE}">
+         <block type="mouseposition"></block>      
+         <block type="position"></block>
+         <block type="positionpart"></block>
+         <block type="subpositions"></block>
+      </category>
+    </category>      
     <category name="Sprites" colour="%{BKY_PROCEDURES_HUE}">
       <block type="sprite"></block>
       <block type="spritegroup"></block>
@@ -191,10 +193,10 @@
       <block type="spritecollide"></block>
     </category>
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="fullscreen"></block>
-      <block type="screenmode"></block>
-      <block type="partialscreen"></block>
-      <block type="partialsurface"></block>
+      <!block type="fullscreen"><!/block>
+      <!block type="screenmode"><!/block>
+      <!block type="partialscreen"><!/block>
+      <block type="getscreen"></block>
       <block type="setcaption"></block>
       <block type="rotatesurface"></block>
       <block type="fillsurface"></block>
@@ -222,7 +224,9 @@
       <block type="fillobject"></block>
       <block type="imagesize"></block>
       <block type="drawimage"></block>
-      <block type="drawtext"></block>
+      <block type="drawsurfacetext"></block>
+      <!block type="drawtext"><!/block>
+      <block type="rendertext"></block>      
       <block type="drawrect"></block>
       <block type="drawline"></block>
       <block type="drawcircle"></block>

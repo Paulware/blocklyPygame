@@ -108,7 +108,7 @@ Blockly.Blocks['drawimage'] = {
     this.appendValueInput("SURFACE")
         .appendField("on surface");        
     this.appendValueInput("POSITION")
-        .appendField("at Position:");                
+        .appendField("centered at Position:");                
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(290);
@@ -123,13 +123,13 @@ Blockly.Blocks['partialscreen']={
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
    this.setColour(0);
    this.appendDummyInput()
-       .appendField("Get Partial Screen Surface");       
+       .appendField("Screen Surface");       
    this.appendValueInput("WIDTH")
-       .appendField("width");
+       .appendField("with width");
    this.appendValueInput("HEIGHT")
-       .appendField("height");
-   this.appendValueInput("MODE")
-       .appendField("screen mode");
+       .appendField("and height");
+   //this.appendValueInput("and MODE")
+   //    .appendField("screen mode");
    this.setInputsInline(true);        
    this.setOutput(true, null);
    this.setTooltip('');
@@ -298,6 +298,7 @@ Blockly.Blocks['drawline'] = {
         .appendField("with color");        
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setInputsInline(true);     
     this.setColour(290);   
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -878,12 +879,16 @@ Blockly.Blocks['setattribute'] = {
   }
 };
 
-Blockly.Blocks['partialsurface']={
+Blockly.Blocks['getscreen']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
    this.setColour(0);
-   this.appendValueInput("POSITION")
-       .appendField("Get a surface with width,height ");
+   this.appendValueInput("WIDTH")
+       .appendField("Get a screen with width");
+   this.appendValueInput("HEIGHT")
+       .appendField("pixels and height");
+   this.appendDummyInput ()
+       .appendField ("pixels");
    this.setInputsInline(true);         
    this.setOutput(true, null);
    this.setTooltip('');
@@ -965,3 +970,49 @@ Blockly.Blocks['movesprite'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['drawsurfacetext'] = {
+  init: function() {  
+    this.appendValueInput("TEXT")
+        .appendField("Display Text ");
+    this.appendValueInput("SIZE")
+        .appendField("size ")    
+    this.appendValueInput("X")
+        .appendField("at x");         
+    this.appendValueInput("Y")
+        .appendField("and y ");
+    this.appendValueInput("COLOR")
+        .appendField("in color");
+    this.appendValueInput("SURFACE")
+        .appendField("on surface")    
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['positionpart']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput ()
+       .appendField ( "Get part")
+       .appendField(new Blockly.FieldDropdown([
+                                                ["x","X"],
+                                                ["y","Y"]
+                                               ]), "XY");
+   this.appendValueInput("POSITION")
+       .appendField("of position");                                               
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+
