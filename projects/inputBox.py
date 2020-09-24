@@ -1,64 +1,67 @@
-# by Timothy Downs, inputbox written for my map editor
+import pygame
+import time
+import threading
+import math
+pygame.init()
 
-# This program needs a little cleaning up
-# It ignores the shift key
-# And, for reasons of my own, this program converts "-" to "_"
+screen = None
+message = None
+question = None
+boxX = None
+response = None
+surface = None
+boxY = None
+answer = None
+boxText = None
+ch = None
+boxRect = None
 
-# A program to get user input, allowing backspace etc
-# shown in a box in the middle of the screen
-# Called by:
-# import inputbox
-# answer = inputbox.ask(screen, "Your name")
-#
-# Only near the center of the screen is blitted to
+# Describe this function...
+def display_box(screen, message):
+  global question, boxX, response, surface, boxY, answer, boxText, ch, boxRect
+  boxX = (surface.get_width()) / 2 - 102
+  boxY = (surface.get_height()) / 2 - 12
+  if len(message) > 0:
+    boxText = pygame.font.Font('freesansbold.ttf',12).render (message,True,pygame.Color('#3366ff'))
+    boxRect = boxText.get_rect()
+    boxRect = boxRect.move (((boxX,boxY))[0],((boxX,boxY))[1])
+    pygame.draw.rect(surface,0Xffff66,(boxRect.inflate (((50,0))[0],((50,0))[1])))
+    pygame.display.update()
+    surface.blit (boxText,boxRect)
+    pygame.display.update()
 
-import pygame, pygame.font, pygame.event, pygame.draw, string
-from pygame.locals import *
+# Describe this function...
+def ask(screen, question):
+  global message, boxX, response, surface, boxY, answer, boxText, ch, boxRect
+  response = ''
+  while ch != (chr(pygame.K_RETURN)):
+    display_box(surface, str(question) + str(response))
+    ch = get_key()
+    print('got key:' + str(ch))
+    if ch == (chr(pygame.K_BACKSPACE)):
+      response = response[ : -1]
+      print('Got a backspace yo')
+    else:
+      response = str(response) + str(ch)
+  return response
+
 
 def get_key():
-  while 1:
-    event = pygame.event.poll()
-    if event.type == KEYDOWN:
-      return event.key
-    else:
-      pass
-
-def display_box(screen, message):
-  "Print a message in a box in the middle of the screen"
-  fontobject = pygame.font.Font(None,18)
-  #pygame.draw.rect(screen, (0,0,0),
-  #                 ((screen.get_width() / 2) - 100,
-  #                  (screen.get_height() / 2) - 10,
-  #                  200,20), 0)
-  pygame.draw.rect(screen, (255,255,255),
-                   ((screen.get_width() / 2) - 102,
-                    (screen.get_height() / 2) - 12,
-                    204,24), 1)
-  if len(message) != 0:
-    screen.blit(fontobject.render(message, 1, (255,255,255)),
-                ((screen.get_width() / 2) - 100, (screen.get_height() / 2) - 10))
-  pygame.display.flip()
-
-def ask(screen, question):
-  "ask(screen, question) -> answer"
-  pygame.font.init()
-  current_string = []
-  display_box(screen, question + ": " + "".join(current_string))
-  while 1:
-    inkey = get_key()
-    if inkey == K_BACKSPACE:
-      current_string = current_string[0:-1]
-    elif inkey == K_RETURN:
-      break
-    elif inkey == K_MINUS:
-      current_string.append("_")
-    elif inkey <= 127:
-      current_string.append(chr(inkey))
-    display_box(screen, question + ": " + "".join(current_string))
-  return "".join(current_string)
-
-def main():
-  screen = pygame.display.set_mode((320,240))
-  print (ask(screen, "Name that is your question") + " was entered")
-
-if __name__ == '__main__': main()
+   src  = r"`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./"
+   dest = r'~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'
+   while 1:
+      try:
+         event = pygame.event.poll()
+         if event.type == pygame.KEYDOWN:
+            _ch = chr(event.key)
+            if ord(_ch) != 304:
+               pressed = pygame.key.get_pressed()
+               if pressed[pygame.K_RSHIFT] or pressed[pygame.K_LSHIFT] and _ch in src:
+                  _ch = dest[src.index(_ch)]
+               break
+      except Exception as ex:
+         pass
+   return _ch
+surface = pygame.display.set_mode ((423,333), pygame.RESIZABLE)
+answer = ask(surface, 'What is up yo?')
+print('Answer:' + str(answer))

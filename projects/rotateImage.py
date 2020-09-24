@@ -1,3 +1,8 @@
+import pygame
+import time
+import threading
+pygame.init()
+
 startTime = None
 surface = None
 elapsedTime = None
@@ -6,16 +11,9 @@ degree = None
 img = None
 
 
-import pygame
-pygame.init()
-import pygame
-import math
-import time
-import threading
-from math import atan2, degrees, pi
 pygame.display.set_caption('Rotate Image Application')
 startTime = time.time()
-surface = pygame.display.set_mode ((600,600), (pygame.RESIZABLE))
+surface = pygame.display.set_mode ((600,600), pygame.RESIZABLE)
 elapsedTime = 0
 image = pygame.image.load ('vangogh.jpg').convert()
 degree = 0

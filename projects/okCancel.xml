@@ -7,13 +7,12 @@
     <variable id="g~t7!eA0W4f7m.`}EodA">text</variable>
     <variable id="]soY?@.`N=XxpIdjkrdu">textRect</variable>
     <variable id=",8@j[{VlR6KlIbXas$HS">event</variable>
-    <variable id="!HY#?-^9e=|JJjW{x[yl">quit</variable>
     <variable id="R*EH{=GlxH94L:OEds6l">okImage</variable>
     <variable id="a$P6J;`WCREKo}H9Pxz.">okRect</variable>
     <variable id=":]LR,WUHceI+ipfffT]f">cancelRect</variable>
     <variable id="FplgO8m*~Efxd*o@a!ub">cancelImage</variable>
   </variables>
-  <block type="procedures_defnoreturn" id="09xa#3s`vrqh:`yuucA4" x="-63" y="-488">
+  <block type="procedures_defnoreturn" id="09xa#3s`vrqh:`yuucA4" x="-37" y="-537">
     <mutation>
       <arg name="msg" varid="*3q)~_P6:r?%:(rw*f}q"></arg>
     </mutation>
@@ -36,6 +35,7 @@
             <field name="VAR" id="g~t7!eA0W4f7m.`}EodA">text</field>
             <value name="VALUE">
               <block type="rendertext" id="0)-QP(y9UoYhnf6jt4BW">
+                <field name="SIZE">12</field>
                 <value name="TEXT">
                   <block type="variables_get" id="O$94tx*:23G}cP1cp087">
                     <field name="VAR" id="*3q)~_P6:r?%:(rw*f}q">msg</field>
@@ -222,16 +222,6 @@
                                                     </value>
                                                   </block>
                                                 </value>
-                                                <next>
-                                                  <block type="variables_set" id="y@Da,M`Cg|t%mX9wq2x;">
-                                                    <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
-                                                    <value name="VALUE">
-                                                      <block type="logic_boolean" id="A(q:HM*Dw!d%[H+z5aFC">
-                                                        <field name="BOOL">FALSE</field>
-                                                      </block>
-                                                    </value>
-                                                  </block>
-                                                </next>
                                               </block>
                                             </next>
                                           </block>
@@ -255,7 +245,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defreturn" id="Eh{=O6y4At~JD0^T({bb" x="-63" y="38">
+  <block type="procedures_defreturn" id="Eh{=O6y4At~JD0^T({bb" x="-37" y="-12">
     <mutation>
       <arg name="message" varid="B(7vTce8Gz)h443fNs.;"></arg>
     </mutation>
@@ -272,98 +262,89 @@
           </block>
         </value>
         <next>
-          <block type="controls_whileUntil" id="~^OW6NW-bfsoh*Vo[o-.">
-            <field name="MODE">WHILE</field>
-            <value name="BOOL">
-              <block type="logic_negate" id="9PnH4z=rv%7IY6y}h/nA">
-                <value name="BOOL">
-                  <block type="variables_get" id="KdUvH/w911Llg1kJ?BxV">
-                    <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
-                  </block>
-                </value>
+          <block type="variables_set" id="K;_lkT!onh4_xN5@IerO">
+            <field name="VAR" id="A-;yMmc@7[%8}{/_-(RB">ok</field>
+            <value name="VALUE">
+              <block type="logic_boolean" id="hj?NeoLxhfx];H%CnET1">
+                <field name="BOOL">FALSE</field>
               </block>
             </value>
-            <statement name="DO">
-              <block type="controls_forEach" id="i^Bx}FitJWmiM_{)eVj_">
-                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
-                <value name="LIST">
-                  <block type="pygameevent" id="2:OGt(koP4$sTuoa@^Nf"></block>
+            <next>
+              <block type="controls_whileUntil" id="~^OW6NW-bfsoh*Vo[o-.">
+                <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="logic_boolean" id="DbtHNQN=!O*L}#tZS8Os">
+                    <field name="BOOL">TRUE</field>
+                  </block>
                 </value>
                 <statement name="DO">
-                  <block type="controls_if" id="+#ZD9_Ue]-1B8?xM2G)f">
-                    <mutation elseif="1"></mutation>
-                    <value name="IF0">
-                      <block type="logic_compare" id="}`_awM(saOxXm.*`4Er]">
-                        <field name="OP">EQ</field>
-                        <value name="A">
-                          <block type="eventtype" id="~Tny~owz#aM8gSzT4rr-">
-                            <value name="EVENT">
-                              <block type="variables_get" id="a$RC6{Sk;n}C@S1~A3j^">
-                                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="events" id="d7vn)q^mAz%`P60[-0{B">
-                            <field name="EVENT">QUIT</field>
-                          </block>
-                        </value>
-                      </block>
+                  <block type="variables_set" id="OEC_Cdfb4$eW6W:DZ.Xf">
+                    <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                    <value name="VALUE">
+                      <block type="pollevent" id="lIa=GYSux.E`T;X01Y=a"></block>
                     </value>
-                    <statement name="DO0">
-                      <block type="variables_set" id="W#)XrGeO`QH~0FN8pEHW">
-                        <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
-                        <value name="VALUE">
-                          <block type="logic_boolean" id="S|W+GjNUH4*=7K*Eti3m">
-                            <field name="BOOL">TRUE</field>
-                          </block>
-                        </value>
-                      </block>
-                    </statement>
-                    <value name="IF1">
-                      <block type="logic_compare" id="q`q9Nxn_{jF!aOfhz-L_">
-                        <field name="OP">EQ</field>
-                        <value name="A">
-                          <block type="eventtype" id="Zw~FLCwo{nK`ZmP,Z3dQ">
-                            <value name="EVENT">
-                              <block type="variables_get" id="boZ/h@C8v-D6;)hO:y2b">
-                                <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="events" id="7*`?~I.|jcs-r4%K5D%W">
-                            <field name="EVENT">MOUSEBUTTONDOWN</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO1">
-                      <block type="controls_if" id="ig]zAV-u33m7;revJz7)">
+                    <next>
+                      <block type="controls_if" id="+#ZD9_Ue]-1B8?xM2G)f">
                         <mutation elseif="1"></mutation>
                         <value name="IF0">
-                          <block type="collidepoint" id="p2A(2qa.,YzuQ%MaCZ,m">
-                            <value name="RECT">
-                              <block type="variables_get" id="9:LF!n![KI7HT*Q]A$:*">
-                                <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">okRect</field>
+                          <block type="logic_compare" id="}`_awM(saOxXm.*`4Er]">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="eventtype" id="~Tny~owz#aM8gSzT4rr-">
+                                <value name="EVENT">
+                                  <block type="variables_get" id="a$RC6{Sk;n}C@S1~A3j^">
+                                    <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                                  </block>
+                                </value>
                               </block>
                             </value>
-                            <value name="POSITION">
-                              <block type="mouseposition" id="!.pTP;K9Ds|WN%%NLqPH"></block>
+                            <value name="B">
+                              <block type="events" id="d7vn)q^mAz%`P60[-0{B">
+                                <field name="EVENT">QUIT</field>
+                              </block>
                             </value>
                           </block>
                         </value>
                         <statement name="DO0">
-                          <block type="variables_set" id="iyF7SUm|iQ1sOjl|(36S">
-                            <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
-                            <value name="VALUE">
-                              <block type="logic_boolean" id="eZG%z)6*(WHK5/7i)2]f">
-                                <field name="BOOL">TRUE</field>
+                          <block type="controls_flow_statements" id="v;Q{|:}9+^kR`S+82F{z">
+                            <field name="FLOW">BREAK</field>
+                          </block>
+                        </statement>
+                        <value name="IF1">
+                          <block type="logic_compare" id="q`q9Nxn_{jF!aOfhz-L_">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="eventtype" id="Zw~FLCwo{nK`ZmP,Z3dQ">
+                                <value name="EVENT">
+                                  <block type="variables_get" id="boZ/h@C8v-D6;)hO:y2b">
+                                    <field name="VAR" id=",8@j[{VlR6KlIbXas$HS">event</field>
+                                  </block>
+                                </value>
                               </block>
                             </value>
-                            <next>
+                            <value name="B">
+                              <block type="events" id="7*`?~I.|jcs-r4%K5D%W">
+                                <field name="EVENT">MOUSEBUTTONDOWN</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO1">
+                          <block type="controls_if" id="ig]zAV-u33m7;revJz7)">
+                            <mutation elseif="1"></mutation>
+                            <value name="IF0">
+                              <block type="collidepoint" id="p2A(2qa.,YzuQ%MaCZ,m">
+                                <value name="RECT">
+                                  <block type="variables_get" id="9:LF!n![KI7HT*Q]A$:*">
+                                    <field name="VAR" id="a$P6J;`WCREKo}H9Pxz.">okRect</field>
+                                  </block>
+                                </value>
+                                <value name="POSITION">
+                                  <block type="mouseposition" id="!.pTP;K9Ds|WN%%NLqPH"></block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
                               <block type="variables_set" id="*tib+7oQmh!C}~9%)g2/">
                                 <field name="VAR" id="A-;yMmc@7[%8}{/_-(RB">ok</field>
                                 <value name="VALUE">
@@ -371,38 +352,38 @@
                                     <field name="BOOL">TRUE</field>
                                   </block>
                                 </value>
+                                <next>
+                                  <block type="controls_flow_statements" id="k?$q=914U^PKdGS^)fov">
+                                    <field name="FLOW">BREAK</field>
+                                  </block>
+                                </next>
                               </block>
-                            </next>
-                          </block>
-                        </statement>
-                        <value name="IF1">
-                          <block type="collidepoint" id="qy?t]Jo!c=0]{PYMCOcL">
-                            <value name="RECT">
-                              <block type="variables_get" id="2Y!FNl4XZP~M@x.8BcJP">
-                                <field name="VAR" id=":]LR,WUHceI+ipfffT]f">cancelRect</field>
-                              </block>
-                            </value>
-                            <value name="POSITION">
-                              <block type="mouseposition" id="+=;{?w{Is:ANSQB*Ovs)"></block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO1">
-                          <block type="variables_set" id="M/a{GTJL1qoc:lb#~qJ%">
-                            <field name="VAR" id="!HY#?-^9e=|JJjW{x[yl">quit</field>
-                            <value name="VALUE">
-                              <block type="logic_boolean" id="h~3[QH|qtHJ6^R=2Nz=s">
-                                <field name="BOOL">TRUE</field>
+                            </statement>
+                            <value name="IF1">
+                              <block type="collidepoint" id="qy?t]Jo!c=0]{PYMCOcL">
+                                <value name="RECT">
+                                  <block type="variables_get" id="2Y!FNl4XZP~M@x.8BcJP">
+                                    <field name="VAR" id=":]LR,WUHceI+ipfffT]f">cancelRect</field>
+                                  </block>
+                                </value>
+                                <value name="POSITION">
+                                  <block type="mouseposition" id="+=;{?w{Is:ANSQB*Ovs)"></block>
+                                </value>
                               </block>
                             </value>
+                            <statement name="DO1">
+                              <block type="controls_flow_statements" id="P25*=#?V~fuCEXpi*c*q">
+                                <field name="FLOW">BREAK</field>
+                              </block>
+                            </statement>
                           </block>
                         </statement>
                       </block>
-                    </statement>
+                    </next>
                   </block>
                 </statement>
               </block>
-            </statement>
+            </next>
           </block>
         </next>
       </block>
@@ -413,75 +394,62 @@
       </block>
     </value>
   </block>
-  <block type="pygameinit" id="67_yvU@DD/@3j@uv=+%a" x="-62" y="513">
+  <block type="setcaption" id="kXNunFv[gN,5dc{#crn=" x="-62" y="513">
+    <value name="TITLE">
+      <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
+        <field name="TEXT">Ok-Cancel Box</field>
+      </block>
+    </value>
     <next>
-      <block type="imports" id="Tm!Z)x[(;M#2Lfc:h=A}">
-        <next>
-          <block type="setcaption" id="kXNunFv[gN,5dc{#crn=">
-            <value name="TITLE">
-              <block type="text" id="eLY,`X8-8TWd4#^g!k_e">
-                <field name="TEXT">Message Box</field>
+      <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+        <value name="VALUE">
+          <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
+            <value name="WIDTH">
+              <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
+                <field name="NUM">500</field>
               </block>
             </value>
-            <next>
-              <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
-                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                <value name="VALUE">
-                  <block type="partialscreen" id="F@t]+Cn1y7:U$]OAf,.Q">
-                    <value name="WIDTH">
-                      <block type="math_number" id="O]_h3hweT$25:2BfvZZ~">
-                        <field name="NUM">500</field>
-                      </block>
-                    </value>
-                    <value name="HEIGHT">
-                      <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
-                        <field name="NUM">400</field>
-                      </block>
-                    </value>
-                    <value name="MODE">
-                      <block type="screenmode" id="uuyO;e|8d2gEWNK./)SF">
-                        <field name="MODE">RESIZABLE</field>
-                      </block>
-                    </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="JIdhr^%9B(?!l1y[~]x_">
+                <field name="NUM">400</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="e-yTPSH60?S:KU?_cUcP">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="procedures_callreturn" id="gcP;!17N#3.IG]OUd(P5">
+                <mutation name="okCancel">
+                  <arg name="message"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="text" id="Q.O]R9]i!(Ya^Lhn7D:Y">
+                    <field name="TEXT">Continue?</field>
                   </block>
                 </value>
-                <next>
-                  <block type="controls_if" id="e-yTPSH60?S:KU?_cUcP">
-                    <mutation else="1"></mutation>
-                    <value name="IF0">
-                      <block type="procedures_callreturn" id="gcP;!17N#3.IG]OUd(P5">
-                        <mutation name="okCancel">
-                          <arg name="message"></arg>
-                        </mutation>
-                        <value name="ARG0">
-                          <block type="text" id="Q.O]R9]i!(Ya^Lhn7D:Y">
-                            <field name="TEXT">Continue?</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO0">
-                      <block type="text_print" id="1.PhRqhlift$XEyLWcc[">
-                        <value name="TEXT">
-                          <shadow type="text" id="o7ROZg3iIu:h-AQKpX[=">
-                            <field name="TEXT">You would like to continue</field>
-                          </shadow>
-                        </value>
-                      </block>
-                    </statement>
-                    <statement name="ELSE">
-                      <block type="text_print" id="_TH`HiFZ?3d;R7cwc~=?">
-                        <value name="TEXT">
-                          <shadow type="text" id=".U^g(Iw]X0WD|aw`%Ms3">
-                            <field name="TEXT">You are done</field>
-                          </shadow>
-                        </value>
-                      </block>
-                    </statement>
-                  </block>
-                </next>
               </block>
-            </next>
+            </value>
+            <statement name="DO0">
+              <block type="text_print" id="1.PhRqhlift$XEyLWcc[">
+                <value name="TEXT">
+                  <shadow type="text" id="o7ROZg3iIu:h-AQKpX[=">
+                    <field name="TEXT">You would like to continue</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="text_print" id="_TH`HiFZ?3d;R7cwc~=?">
+                <value name="TEXT">
+                  <shadow type="text" id=".U^g(Iw]X0WD|aw`%Ms3">
+                    <field name="TEXT">You are done</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
           </block>
         </next>
       </block>

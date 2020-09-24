@@ -4,117 +4,104 @@
     <variable id="y%qJ[;(kMgRfwLm[hd:e">event</variable>
     <variable id="BV$Q*H6N)UM!XW:o2p)d">quit</variable>
   </variables>
-  <block type="pygameinit" id="1tz4CTNkjk(%kvZa|w{2" x="162" y="112">
+  <block type="variables_set" id="cN(P@#m~|FGWF:bR(`c0" x="162" y="138">
+    <field name="VAR" id="VHu?|Hd]K3;3HEWg%u|h">surface</field>
+    <value name="VALUE">
+      <block type="partialscreen" id=".PShD|x}@4+ctc,+=oph">
+        <value name="WIDTH">
+          <block type="math_number" id="oqN97JeqS3Zv.GFU2K*S">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number" id="+TPJW8hGyf1W#^JHHhsF">
+            <field name="NUM">400</field>
+          </block>
+        </value>
+      </block>
+    </value>
     <next>
-      <block type="imports" id="JsK[U6=-e{sh82OjtvG|">
-        <next>
-          <block type="variables_set" id="cN(P@#m~|FGWF:bR(`c0">
-            <field name="VAR" id="VHu?|Hd]K3;3HEWg%u|h">surface</field>
-            <value name="VALUE">
-              <block type="partialscreen" id=".PShD|x}@4+ctc,+=oph">
-                <value name="WIDTH">
-                  <block type="math_number" id="oqN97JeqS3Zv.GFU2K*S">
-                    <field name="NUM">600</field>
-                  </block>
-                </value>
-                <value name="HEIGHT">
-                  <block type="math_number" id="+TPJW8hGyf1W#^JHHhsF">
-                    <field name="NUM">400</field>
-                  </block>
-                </value>
-                <value name="MODE">
-                  <block type="screenmode" id="RFzJu=e)RZc.d,L(XXRC">
-                    <field name="MODE">RESIZABLE</field>
-                  </block>
-                </value>
+      <block type="controls_whileUntil" id="F:%ql8KrxBz?cU!WX6,x">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <block type="logic_negate" id="IQ7v%jhzX?@ckuV.kEZ7">
+            <value name="BOOL">
+              <block type="variables_get" id=".W}qT(^{_/8GodS|%Ufj">
+                <field name="VAR" id="BV$Q*H6N)UM!XW:o2p)d">quit</field>
               </block>
             </value>
-            <next>
-              <block type="controls_whileUntil" id="F:%ql8KrxBz?cU!WX6,x">
-                <field name="MODE">WHILE</field>
-                <value name="BOOL">
-                  <block type="logic_negate" id="IQ7v%jhzX?@ckuV.kEZ7">
-                    <value name="BOOL">
-                      <block type="variables_get" id=".W}qT(^{_/8GodS|%Ufj">
-                        <field name="VAR" id="BV$Q*H6N)UM!XW:o2p)d">quit</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="controls_forEach" id="1A_MQ[F;~EguYtM~Nnj9">
+            <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
+            <value name="LIST">
+              <block type="pygameevent" id="yJ_n}8_c3M#P}O_hNHS7"></block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if" id="`0-)Y7,9gt0x#]n}S0|f">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="FL2g79G9}*0y#61@{Ao[">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="eventtype" id="zUz#K.hNfW5{/WMJ]KVn">
+                        <value name="EVENT">
+                          <block type="variables_get" id="u*[57,(YS(afTc4DIX|5">
+                            <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="events" id="zc+}[SdaDb2=}@xd=)Ju">
+                        <field name="EVENT">MOUSEBUTTONDOWN</field>
                       </block>
                     </value>
                   </block>
                 </value>
-                <statement name="DO">
-                  <block type="controls_forEach" id="1A_MQ[F;~EguYtM~Nnj9">
-                    <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
-                    <value name="LIST">
-                      <block type="pygameevent" id="yJ_n}8_c3M#P}O_hNHS7"></block>
-                    </value>
-                    <statement name="DO">
-                      <block type="controls_if" id="`0-)Y7,9gt0x#]n}S0|f">
-                        <mutation elseif="1"></mutation>
-                        <value name="IF0">
-                          <block type="logic_compare" id="FL2g79G9}*0y#61@{Ao[">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="eventtype" id="zUz#K.hNfW5{/WMJ]KVn">
-                                <value name="EVENT">
-                                  <block type="variables_get" id="u*[57,(YS(afTc4DIX|5">
-                                    <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="events" id="zc+}[SdaDb2=}@xd=)Ju">
-                                <field name="EVENT">MOUSEBUTTONDOWN</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO0">
-                          <block type="playsound" id=";^iwTy~?dWxa|?ml?ig|">
-                            <value name="FILENAME">
-                              <block type="text" id="G4D_Z=%M~=5JkZ)#?W(I">
-                                <field name="TEXT">doorTrek.wav</field>
-                              </block>
-                            </value>
-                          </block>
-                        </statement>
-                        <value name="IF1">
-                          <block type="logic_compare" id="rZ8RfbBB$]{3cZ4{uXC^">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="eventtype" id="Puch2@?abtP6`cq}ek%E">
-                                <value name="EVENT">
-                                  <block type="variables_get" id="Hrq7zbgf2nG26v*5zYoT">
-                                    <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="events" id="%,kv68!p6DT!W:Z?Wgzo">
-                                <field name="EVENT">QUIT</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO1">
-                          <block type="variables_set" id="*ko{OZg`ASq??iWLxGK{">
-                            <field name="VAR" id="BV$Q*H6N)UM!XW:o2p)d">quit</field>
-                            <value name="VALUE">
-                              <block type="logic_boolean" id="ZW7tuYsMR^$+2AjD%V,+">
-                                <field name="BOOL">TRUE</field>
-                              </block>
-                            </value>
-                          </block>
-                        </statement>
+                <statement name="DO0">
+                  <block type="playsound" id=";^iwTy~?dWxa|?ml?ig|">
+                    <value name="FILENAME">
+                      <block type="text" id="G4D_Z=%M~=5JkZ)#?W(I">
+                        <field name="TEXT">doorTrek.wav</field>
                       </block>
-                    </statement>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="rZ8RfbBB$]{3cZ4{uXC^">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="eventtype" id="Puch2@?abtP6`cq}ek%E">
+                        <value name="EVENT">
+                          <block type="variables_get" id="Hrq7zbgf2nG26v*5zYoT">
+                            <field name="VAR" id="y%qJ[;(kMgRfwLm[hd:e">event</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="events" id="%,kv68!p6DT!W:Z?Wgzo">
+                        <field name="EVENT">QUIT</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="variables_set" id="*ko{OZg`ASq??iWLxGK{">
+                    <field name="VAR" id="BV$Q*H6N)UM!XW:o2p)d">quit</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="ZW7tuYsMR^$+2AjD%V,+">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
                   </block>
                 </statement>
               </block>
-            </next>
+            </statement>
           </block>
-        </next>
+        </statement>
       </block>
     </next>
   </block>

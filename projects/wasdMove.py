@@ -1,3 +1,9 @@
+import pygame
+import time
+import threading
+import math
+pygame.init()
+
 event = None
 surface = None
 ch = None
@@ -8,13 +14,13 @@ aPressed = None
 sPressed = None
 dPressed = None
 cannonY = None
+quit2 = None
 degree = None
 taskTimer = None
-quit2 = None
 
 # Describe this function...
 def handleKey(event):
-  global surface, ch, image, cannonX, wPressed, aPressed, sPressed, dPressed, cannonY, degree, taskTimer, quit2
+  global surface, ch, image, cannonX, wPressed, aPressed, sPressed, dPressed, cannonY, quit2, degree, taskTimer
   if (event.type) == (pygame.KEYDOWN):
     ch = chr(event.key)
     if ch == 'w':
@@ -38,8 +44,8 @@ def handleKey(event):
 
 # Describe this function...
 def initVariables():
-  global event, surface, ch, image, cannonX, wPressed, aPressed, sPressed, dPressed, cannonY, degree, taskTimer, quit2
-  surface = pygame.display.set_mode ((600,600), (pygame.RESIZABLE))
+  global event, surface, ch, image, cannonX, wPressed, aPressed, sPressed, dPressed, cannonY, quit2, degree, taskTimer
+  surface = pygame.display.set_mode ((600,600), pygame.RESIZABLE)
   image = pygame.image.load ('cannon.jpg').convert()
   cannonX = 100
   cannonY = 100
@@ -47,10 +53,6 @@ def initVariables():
   taskTimer = time.time()
 
 
-import pygame
-pygame.init()
-import time
-import math
 pygame.display.set_caption('Move image based on wasd')
 initVariables()
 while not quit2:

@@ -1,31 +1,30 @@
+import pygame
+import time
+import threading
+import math
+pygame.init()
+
 elapsedTime = None
-quit2 = None
-event = None
 startTime = None
-ballFired = None
+event = None
 moveBallTime = None
+ballFired = None
 surface = None
 cannonBallPosition = None
 mousePosition = None
 img = None
-degree = None
 image = None
+degree = None
 cannonBall = None
+quit2 = None
 
 # Describe this function...
 def initialize():
-  global elapsedTime, quit2, event, startTime, ballFired, moveBallTime, surface, cannonBallPosition, mousePosition, img, degree, image, cannonBall
-  import pygame
-  import math
-  import time
-  import threading
-  from math import atan2, degrees, pi
-  import pygame
-  pygame.init()
+  global elapsedTime, startTime, event, moveBallTime, ballFired, surface, cannonBallPosition, mousePosition, img, image, degree, cannonBall, quit2
   pygame.display.set_caption('Rotate Image pointed at Mouse and fire on key down')
   startTime = time.time()
   moveBallTime = time.time()
-  surface = pygame.display.set_mode ((300,300), (pygame.RESIZABLE))
+  surface = pygame.display.set_mode ((300,300), pygame.RESIZABLE)
   elapsedTime = 0
   image = pygame.image.load ('cannon.jpg').convert()
   cannonBall = pygame.image.load ('cannonBall.jpg').convert()
@@ -35,12 +34,7 @@ def initialize():
 
 # Describe this function...
 def moveBall():
-  global elapsedTime, quit2, event, startTime, ballFired, moveBallTime, surface, cannonBallPosition, mousePosition, img, degree, image, cannonBall
-  import pygame
-  import math
-  import time
-  import threading
-  from math import atan2, degrees, pi
+  global elapsedTime, startTime, event, moveBallTime, ballFired, surface, cannonBallPosition, mousePosition, img, image, degree, cannonBall, quit2
   if (time.time() - moveBallTime) > 0.05:
     if ballFired:
       surface.fill (0Xffffff)
@@ -55,12 +49,7 @@ def moveBall():
 
 
 initialize()
-import pygame
-import math
-import time
-import threading
-from math import atan2, degrees, pi
-while not quit2:
+while True:
   elapsedTime = time.time() - startTime
   for event in (pygame.event.get()):
     if (event.type) == (pygame.MOUSEMOTION):
@@ -74,5 +63,5 @@ while not quit2:
       moveBallTime = time.time()
       ballFired = True
     elif (event.type) == (pygame.QUIT):
-      quit2 = True
+      break
   moveBall()

@@ -1,9 +1,13 @@
+import pygame
+import time
+import threading
+import math
+pygame.init()
+
 surface = None
 ch = None
 
 
-import pygame
-pygame.init()
 def get_key():
    src  = r"`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./"
    dest = r'~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'
@@ -20,7 +24,7 @@ def get_key():
       except Exception as ex:
          pass
    return _ch
-surface = pygame.display.set_mode ((123,123), (pygame.RESIZABLE))
+surface = pygame.display.set_mode ((123,123), pygame.RESIZABLE)
 while ch != 'q':
   ch = get_key()
   print('got key:' + str(ch))

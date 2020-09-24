@@ -193,7 +193,7 @@ Blockly.Python['drawcircle'] = function(block) {
   var radius    = Blockly.Python.valueToCode (block, "RADIUS",  Blockly.Python.ORDER_ATOMIC)
   color = color.substring (2,color.length-1)
   
-  var code = 'pygame.draw.circle(' + surface + ',0X' + color + ',' + position + ',' + radius + ')\npygame.display.update()\n';
+  var code = 'pygame.draw.circle(' + surface + ',0X' + color + ',' + position + ',' + radius + ',1)\npygame.display.update()\n';
   return code;
 };
 

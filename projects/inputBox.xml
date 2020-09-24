@@ -5,14 +5,14 @@
     <variable id="6p~yAeJTY#~winC#^VzT">question</variable>
     <variable id="zr$xMpQcI?wMEnzg|lz$">boxX</variable>
     <variable id="vZeT-BLY7{#Q*v[Pf}AL">response</variable>
-    <variable id="mgaa`)HBW)!PImzG+Lpk">boxY</variable>
     <variable id="~Jh{D][Ya94!)J5K+:v/">surface</variable>
+    <variable id="mgaa`)HBW)!PImzG+Lpk">boxY</variable>
     <variable id="Tl{-IT~hH{0Cws5d{_nG">answer</variable>
     <variable id="T@;B5`*U3D/n_THB;2`d">boxText</variable>
     <variable id="{Sn!5W9a1weTUb=E!zGf">ch</variable>
     <variable id="sbpT}0j29@j#ih]-SEK6">boxRect</variable>
   </variables>
-  <block type="procedures_defnoreturn" id="!sNpr9lPBdk1,i.sJ[x}" x="88" y="-162">
+  <block type="procedures_defnoreturn" id="!sNpr9lPBdk1,i.sJ[x}" x="88" y="-163">
     <mutation>
       <arg name="screen" varid="ECloLY~!p+YYuOd]yYh%"></arg>
       <arg name="message" varid="qru+9ST2bFevd-0S]31@"></arg>
@@ -411,79 +411,70 @@
       </block>
     </value>
   </block>
-  <block type="pygameinit" id="K;6:k^E$@AQci.ZcI[{$" x="88" y="763">
+  <block type="import" id=",wK%Vz.C[PYsWG5oCzaf" x="88" y="789">
+    <value name="LIBRARY">
+      <block type="text" id="(Ss9m2|yXTTSNY4gmT{D">
+        <field name="TEXT">get_key</field>
+      </block>
+    </value>
     <next>
-      <block type="import" id=",wK%Vz.C[PYsWG5oCzaf">
-        <value name="LIBRARY">
-          <block type="text" id="(Ss9m2|yXTTSNY4gmT{D">
-            <field name="TEXT">get_key</field>
+      <block type="variables_set" id=".^Wme}?_/pdg8pwWJ.*:">
+        <field name="VAR" id="~Jh{D][Ya94!)J5K+:v/">surface</field>
+        <value name="VALUE">
+          <block type="partialscreen" id="UJ_cKgzN=dSf?qR6M9_Q">
+            <value name="WIDTH">
+              <block type="math_number" id="IEA3F7#(ablNU`B?-HQ/">
+                <field name="NUM">423</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="^.Qk%-DAVPjwnH0ZkXHa">
+                <field name="NUM">333</field>
+              </block>
+            </value>
           </block>
         </value>
         <next>
-          <block type="variables_set" id=".^Wme}?_/pdg8pwWJ.*:">
-            <field name="VAR" id="~Jh{D][Ya94!)J5K+:v/">surface</field>
+          <block type="variables_set" id="h_=3,%Gc5,|UZF7|HC/s">
+            <field name="VAR" id="Tl{-IT~hH{0Cws5d{_nG">answer</field>
             <value name="VALUE">
-              <block type="partialscreen" id="UJ_cKgzN=dSf?qR6M9_Q">
-                <value name="WIDTH">
-                  <block type="math_number" id="IEA3F7#(ablNU`B?-HQ/">
-                    <field name="NUM">423</field>
+              <block type="procedures_callreturn" id="h[C4#31S5G$%:UD7%@ko">
+                <mutation name="ask">
+                  <arg name="screen"></arg>
+                  <arg name="question"></arg>
+                </mutation>
+                <value name="ARG0">
+                  <block type="variables_get" id="(#olK-Q_R5yYEv/.cH@i">
+                    <field name="VAR" id="~Jh{D][Ya94!)J5K+:v/">surface</field>
                   </block>
                 </value>
-                <value name="HEIGHT">
-                  <block type="math_number" id="^.Qk%-DAVPjwnH0ZkXHa">
-                    <field name="NUM">333</field>
-                  </block>
-                </value>
-                <value name="MODE">
-                  <block type="screenmode" id="2B!:M~[H)[gqEsu,oZ9H">
-                    <field name="MODE">RESIZABLE</field>
+                <value name="ARG1">
+                  <block type="text" id="3CS{Cb4oJ!!H^_`R45A:">
+                    <field name="TEXT">What is up yo?</field>
                   </block>
                 </value>
               </block>
             </value>
             <next>
-              <block type="variables_set" id="h_=3,%Gc5,|UZF7|HC/s">
-                <field name="VAR" id="Tl{-IT~hH{0Cws5d{_nG">answer</field>
-                <value name="VALUE">
-                  <block type="procedures_callreturn" id="h[C4#31S5G$%:UD7%@ko">
-                    <mutation name="ask">
-                      <arg name="screen"></arg>
-                      <arg name="question"></arg>
-                    </mutation>
-                    <value name="ARG0">
-                      <block type="variables_get" id="(#olK-Q_R5yYEv/.cH@i">
-                        <field name="VAR" id="~Jh{D][Ya94!)J5K+:v/">surface</field>
+              <block type="text_print" id="F$qpMM%sv|3wcvp`_GK;">
+                <value name="TEXT">
+                  <shadow type="text" id="d5gdGG!/ZT;tuY/aG|-:">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                  <block type="text_join" id="UJ#9DWx?96b1o^w9AS8q">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="@A[~aYID.j.aSX3pveld">
+                        <field name="TEXT">Answer:</field>
                       </block>
                     </value>
-                    <value name="ARG1">
-                      <block type="text" id="3CS{Cb4oJ!!H^_`R45A:">
-                        <field name="TEXT">What is up yo?</field>
+                    <value name="ADD1">
+                      <block type="variables_get" id=";ND!b7*tc%]`nK~m4MdU">
+                        <field name="VAR" id="Tl{-IT~hH{0Cws5d{_nG">answer</field>
                       </block>
                     </value>
                   </block>
                 </value>
-                <next>
-                  <block type="text_print" id="F$qpMM%sv|3wcvp`_GK;">
-                    <value name="TEXT">
-                      <shadow type="text" id="d5gdGG!/ZT;tuY/aG|-:">
-                        <field name="TEXT">abc</field>
-                      </shadow>
-                      <block type="text_join" id="UJ#9DWx?96b1o^w9AS8q">
-                        <mutation items="2"></mutation>
-                        <value name="ADD0">
-                          <block type="text" id="@A[~aYID.j.aSX3pveld">
-                            <field name="TEXT">Answer:</field>
-                          </block>
-                        </value>
-                        <value name="ADD1">
-                          <block type="variables_get" id=";ND!b7*tc%]`nK~m4MdU">
-                            <field name="VAR" id="Tl{-IT~hH{0Cws5d{_nG">answer</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                  </block>
-                </next>
               </block>
             </next>
           </block>

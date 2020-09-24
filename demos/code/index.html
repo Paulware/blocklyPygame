@@ -160,7 +160,7 @@
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
     <category name="Setup" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="pygameinit"></block>
+      <!block type="pygameinit"><!/block>
       <block type="colors"></block>
       <block type="expression"></block>
       <block type="exec"></block>
@@ -177,8 +177,7 @@
       <block type="getattribute"></block>
       <block type="setattribute"></block>
       <block type="rectposition"></block>
-      <category name="Position" colour="%{BKY_PROCEDURES_HUE}">
-         <block type="mouseposition"></block>      
+      <category name="Position" colour="%{BKY_PROCEDURES_HUE}">     
          <block type="position"></block>
          <block type="positionpart"></block>
          <block type="subpositions"></block>
@@ -212,6 +211,7 @@
       <block type="eventkey"></block>
       <block type="pollevent"></block>
       <category name="Mouse" colour="%{BKY_PROCEDURES_HUE}">
+         <block type="mouseposition"></block>       
       </category>
     </category>
     <category name="Time" colour="%{BKY_PROCEDURES_HUE}">
