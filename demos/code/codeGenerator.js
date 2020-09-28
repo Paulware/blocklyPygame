@@ -648,12 +648,12 @@ Blockly.Python['createsprite'] = function(block) {
      variable + ".rect = (" + variable + ".image.get_rect())\n" +
      variable + ".rect.left = 0\n" + 
      variable + ".rect.top = 0\n" + 
-     variable + ".newX = 0\n" + 
      variable + ".deltaAngle = 0\n" + 
      variable + ".deltaX = 0\n" + 
      variable + ".deltaY = 0\n" + 
      variable + ".rotation = 0\n" + 
      variable + ".rectOffset = (0,0)\n" + 
+     variable + ".newX = 0\n" + 
      variable + ".newY = 0\n";          
   return code;
 };

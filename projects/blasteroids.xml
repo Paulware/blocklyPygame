@@ -20,7 +20,7 @@
   </variables>
   <block type="procedures_defnoreturn" id=",mgI3o/A.(8=4C[s]_S_" x="-237" y="1713">
     <field name="NAME">init</field>
-    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <comment pinned="false" h="80" w="160">Initialize Variables</comment>
     <statement name="STACK">
       <block type="variables_set" id="IKk7;gm$HWD*)~*::N^R">
         <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
@@ -610,7 +610,7 @@
       </block>
     </value>
   </block>
-  <block type="procedures_defreturn" id="xzdeycWu0w+:0.|ZF=@E" x="-237" y="3138">
+  <block type="procedures_defreturn" id="xzdeycWu0w+:0.|ZF=@E" x="-238" y="3138">
     <field name="NAME">playerWasHit</field>
     <comment pinned="false" h="80" w="160">Describe this function...</comment>
     <statement name="STACK">
@@ -951,20 +951,6 @@
                     </value>
                   </block>
                 </statement>
-                <next>
-                  <block type="dospriterotation" id=":EGUV!Mif~I|}/:)@xLh">
-                    <value name="SPRITE">
-                      <block type="variables_get" id="?}vf#:N3pU=z%OT%qEkz">
-                        <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
-                      </block>
-                    </value>
-                    <value name="SURFACE">
-                      <block type="variables_get" id="]7z^yt[yv)JAp~u7K3rb">
-                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
               </block>
             </next>
           </block>

@@ -23,7 +23,7 @@ asteroid1 = None
 degree = None
 asteroid2 = None
 
-# Describe this function...
+# Initialize Variables
 def init():
   global surface, quitDetected, playerHit, obs, event, obstacleList, cannonBallImage, hitList, hit, pressedKeys, mousePosition, frameTime, playerImage, position, asteroid1, degree, asteroid2
   surface = pygame.display.set_mode ((800,600), pygame.RESIZABLE)
@@ -179,14 +179,6 @@ def drawAsteroids():
       obs.newY=0
     elif (obs.rect.top) < 0:
       obs.newY=(surface.get_height())
-    obs.rotation = obs.rotation + obs.deltaAngle
-    obs.image      = pygame.transform.rotate (obs.baseImage,obs.rotation)
-    obs.rectOffset = obs.image.get_rect(center=obs.baseImage.get_rect().center)
-    obs.rect.left = obs.rect.left + obs.rectOffset[0]
-    obs.rect.top = obs.rect.top + obs.rectOffset[1]
-    surface.blit (obs.image, (obs.rect.left,obs.rect.top ))
-    obs.rect.left = obs.rect.left - obs.rectOffset[0]
-    obs.rect.top = obs.rect.top - obs.rectOffset[1]
 
 # Describe this function...
 def drawCannonBall():

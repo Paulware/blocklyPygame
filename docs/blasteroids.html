@@ -1,0 +1,66 @@
+<h1>Blasteroids</h1>
+This game, patterned after the classic <a href="https://en.wikipedia.org/wiki/Asteroids_(video_game)">asteroids</a><br>
+It is composed of 6 functions: <br>
+<ul>
+  <li>init</li>
+  <li>quitEventDetected</li>
+  <li>playerWasHit</li>
+  <li>drawAsteroids</li>
+  <li>drawCannonBall</li>
+  <li>main loop</li>  
+</ul>
+There are also 2 external functions that are called:<br>
+<ul>
+  <li>movePlayer</li>
+  <li>handleKey</li>
+</ul>
+<hr>
+<h2>Functions<h2>
+<h3>init</h3>
+   This function will initialize and define variables used later<br>
+<img src="images/blasteroidsInit.jpg"><br>
+<h3>quitEventDetected</h3>
+   Function features<br>
+   <ul>
+      <li>Return True when the user closes the window</li>
+      <li>"Fire" the cannonball when the player presses the space key</li>
+      <li>Rotate the playerImage (ship) to face the mouse, when the mouse moves</li>
+   </ul>
+<img src="images/quitEventDetection.jpg"><br>
+<h3>playerWasHit</h3>
+   Function features<br>
+   <ul>
+      <li>Return True when the player sprite collides with an asteroid sprite</li>
+      <li>Play a sound "bangLarge.wav" when the player collides with an asteroid sprite</li>
+      <li>Display the text: Asteroid Collision Detected when the player collides with an asteroid sprite</li>
+   </ul>
+<img src="images/playerWasHit.jpg"><br>
+<h3>drawAsteroids</h3>
+   Function features<br>
+   <ul>
+      <li>Move and rotate the asteroids</li>
+      <li>If the asteroid moves off the screen, have it reappear on the "other" side</li>
+   </ul>
+<img src="images/drawAsteroids.jpg"><br>
+<h3>drawCannonBall</h3>
+   Function features<br>
+   <ul>
+      <li>Move the cannonBall on the surface</li>
+      <li>If the cannonBall hits an asteroid, remove the asteroid and play the .wav file: "bangLarge.wav"</li>
+      <li>If all the asteroids are destroyed display the text: "Level Cleared"</li>
+   </ul>
+<img src="images/drawCannonBall.jpg"><br>
+<h3>main loop</h3>
+   Function features<br>
+   <ul>
+      <li>Initialize variables by calling the init function</li>
+      <li>End the program if the pygame window close,quit event is detected</li>
+      <li>End the program if all asteroids are destroyed</li>
+      <li>End the program if the player runs into an asteroid</li>
+      <li>Clear the surface before drawing, 100 times a second</li>
+      <li>Draw all asteroids, cannonBalls, and the player</li>
+   </ul>
+<img src="images/blasteroidsMain.jpg"><br>
+Here is a video capturing the game play: <a href="https://www.youtube.com/watch?v=g-hKeveW0CM">video</a><br>
+<hr>
+<center><img src="images/ironGolemRose.jpg"></center>
