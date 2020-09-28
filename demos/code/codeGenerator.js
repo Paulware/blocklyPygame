@@ -213,7 +213,7 @@ Blockly.Python['fillsurface'] = function(block) {
   var color     = Blockly.Python.valueToCode (block, "COLOR",   Blockly.Python.ORDER_ATOMIC)
   color = color.substring (2,color.length-1)
   
-  var code = surface + '.fill (0X' + color + ')\npygame.display.update()\n';
+  var code = surface + '.fill (0X' + color + ')\n' // pygame.display.update()\n';
   return code;
 };
 
@@ -468,7 +468,10 @@ Blockly.Python['movesprite'] = function(block) {
   var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
   var deltaX = Blockly.Python.valueToCode(block, "DELTAX", Blockly.Python.ORDER_ATOMIC)
   var deltaY = Blockly.Python.valueToCode(block, "DELTAY", Blockly.Python.ORDER_ATOMIC)
-  return sprite + '.rect.move(' + deltaX + ',' + deltaY + ')\n';
+  var code = 
+                 sprite + '.rect.left = ' + sprite + '.rect.left + ' + deltaX + '\n' + 
+                 sprite + '.rect.top = ' + sprite + '.rect.top + ' + deltaY + '\n'
+  return code
 };
 
 Blockly.Python['drawsurfacetext'] = function(block) {  
@@ -499,5 +502,176 @@ Blockly.Python['positionpart'] = function(block) {
   } else { // y
     code = position + '[1]' + '# ' + xy;
   }
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['setspriteimage'] = function(block) {  
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE",    Blockly.Python.ORDER_ATOMIC)
+  var image  = Blockly.Python.valueToCode(block, "IMAGE",    Blockly.Python.ORDER_ATOMIC)
+  var code = 
+      sprite + ".image =" + image + "\n" + 
+      sprite + ".rect=(" + image + ".get_rect())\n" +
+      sprite + ".rect.left = 0\n" + 
+      sprite + ".rect.top = 0\n" + 
+      sprite + ".newX = 0\n" + 
+      sprite + ".rotation = 0\n" + 
+      sprite + ".newY = 0\n";
+      
+  
+  return code;
+};
+
+Blockly.Python['locatesprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var code = 
+             sprite + '.newX =' + position + '[0]\n' + 
+             sprite + '.newY  =' + position + '[1]\n' +
+             sprite + '.rect.left =' + position + '[0]\n' + 
+             sprite + '.rect.top  =' + position + '[1]\n';
+  return code;
+};
+
+Blockly.Python['rotatesprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var angle = Blockly.Python.valueToCode(block, "ANGLE", Blockly.Python.ORDER_ATOMIC)
+  var image = Blockly.Python.valueToCode(block, "IMAGE", Blockly.Python.ORDER_ATOMIC)
+  var code = sprite + '.image      = pygame.transform.rotate (' + sprite + '.baseImage,'  + angle + ')\n' + 
+             sprite + '.rectOffset = ' + sprite + '.image.get_rect(center=' + sprite + '.baseImage.get_rect().center)\n';
+  return code;
+};
+
+Blockly.Python['drawrotatedsprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 
+             'if not hasattr (' + sprite + ', \'rectOffset\'):\n' + 
+             '   ' + sprite + '.rectOffset = (0,0)\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left + ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top + ' + sprite + '.rectOffset[1]\n' + 
+             surface + '.blit (' + sprite + '.image, (' + sprite + '.rect.left,' + sprite + '.rect.top ))\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left - ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top - ' + sprite + '.rectOffset[1]\n'; 
+             
+  return code;
+};
+
+Blockly.Python['setspritevector'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var x = Blockly.Python.valueToCode(block, "X", Blockly.Python.ORDER_ATOMIC)
+  var y = Blockly.Python.valueToCode(block, "Y", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 
+             sprite + '.newX = ' + sprite + '.rect.left\n' + 
+             sprite + '.newY = ' + sprite + '.rect.top\n' + 
+             sprite + '.deltaX = ' + x + '\n' + 
+             sprite + '.deltaY = ' + y + '\n'
+             
+  return code;
+};
+
+Blockly.Python['setspriterotation'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var angle = Blockly.Python.valueToCode(block, "ANGLE", Blockly.Python.ORDER_ATOMIC)
+
+  var code = sprite + '.rotation = 0\n' + 
+             '# Set rotation to ' + angle + ' yo \n' + 
+             sprite + '.deltaAngle = ' + angle + '\n'; 
+             
+  return code;
+};
+
+Blockly.Python['movespritevector'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode (block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 
+             sprite + '.rotation = ' + sprite + '.rotation + ' + sprite + '.deltaAngle\n' +   
+             sprite + '.image      = pygame.transform.rotate (' + sprite + '.baseImage,'  + sprite + '.rotation)\n' + 
+             sprite + '.rectOffset = ' + sprite + '.image.get_rect(center=' + sprite + '.baseImage.get_rect().center)\n' +   
+             sprite + '.newX = ' + sprite + '.newX + ' + sprite + '.deltaX\n' + 
+             sprite + '.newY = '  + sprite + '.newY + '  + sprite + '.deltaY\n'   +
+             sprite + '.rect.left = ' + sprite + '.newX\n' + 
+             sprite + '.rect.top = '  + sprite + '.newY\n' +
+             'if not hasattr (' + sprite + ', \'rectOffset\'):\n' + 
+             '   ' + sprite + '.rectOffset = (0,0)\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left + ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top + ' + sprite + '.rectOffset[1]\n' + 
+             surface + '.blit (' + sprite + '.image, (' + sprite + '.rect.left,' + sprite + '.rect.top ))\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left - ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top - ' + sprite + '.rectOffset[1]\n';              
+             
+  return code;
+};
+
+Blockly.Python['dospriterotation'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+    
+  var code = sprite + '.rotation = ' + sprite + '.rotation + ' + sprite + '.deltaAngle\n' + 
+             sprite + '.image      = pygame.transform.rotate (' + sprite + '.baseImage,'  + sprite + '.rotation)\n' + 
+             sprite + '.rectOffset = ' + sprite + '.image.get_rect(center=' + sprite + '.baseImage.get_rect().center)\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left + ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top + ' + sprite + '.rectOffset[1]\n' + 
+             surface + '.blit (' + sprite + '.image, (' + sprite + '.rect.left,' + sprite + '.rect.top ))\n' + 
+             sprite + '.rect.left = ' + sprite + '.rect.left - ' + sprite + '.rectOffset[0]\n' + 
+             sprite + '.rect.top = ' + sprite + '.rect.top - ' + sprite + '.rectOffset[1]\n'; 
+             
+  return code;
+};
+
+Blockly.Python['spriteposition'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var code = '(' + sprite + '.rect.left,' + sprite + '.rect.top)';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['spritecenter'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var code = sprite + '.rect.center';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['pygameupdate'] = function(block) {
+  var code = "pygame.display.update()\n"
+  return code;
+};
+
+Blockly.Python['createsprite'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var image    = Blockly.Python.valueToCode(block, "IMAGE",    Blockly.Python.ORDER_ATOMIC)
+  var code = 
+     variable + " = pygame.sprite.Sprite()\n" +
+     variable + ".image = " + image + "\n" + 
+     variable + ".baseImage = " + variable + ".image\n" + 
+     variable + ".rect = (" + variable + ".image.get_rect())\n" +
+     variable + ".rect.left = 0\n" + 
+     variable + ".rect.top = 0\n" + 
+     variable + ".newX = 0\n" + 
+     variable + ".deltaAngle = 0\n" + 
+     variable + ".deltaX = 0\n" + 
+     variable + ".deltaY = 0\n" + 
+     variable + ".rotation = 0\n" + 
+     variable + ".rectOffset = (0,0)\n" + 
+     variable + ".newY = 0\n";          
+  return code;
+};
+
+Blockly.Python['killsprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var code = 
+     sprite + '.kill()\n'           
+  return code;
+};
+
+Blockly.Python['isprogram'] = function(block) {
+  var code = '__name__ == \"__main__\"'
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['isnone'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var code = variable + ' is None'
   return [code, Blockly.Python.ORDER_NONE];
 };

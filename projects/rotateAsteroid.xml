@@ -1,0 +1,427 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="c3R,)6+XZi;/L(x1.T^w">obstacle</variable>
+    <variable id="M7HbGN+S~dy-z74UO[]T">obs</variable>
+    <variable id="*Z+sBXXYd`+dZKXW`f)S">obstacleList</variable>
+    <variable id="3I(#Un`gwl3FxK]lGB_R">frameTime</variable>
+    <variable id="GJP@n#kx6Hbr5I9`QBf2">event</variable>
+  </variables>
+  <block type="setcaption" id="b5jWu-r9EzE_!D7,fmk-" x="113" y="2750">
+    <value name="TITLE">
+      <block type="text" id="61uv^4N;oT+-CHBtnpV6">
+        <field name="TEXT">Rotate and move Asteroid</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="m|306;dc;XQ[:Z4+MtRJ">
+        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+        <value name="VALUE">
+          <block type="partialscreen" id=".}4HvY/E$PJ[c+AtH{jj">
+            <value name="WIDTH">
+              <block type="math_number" id="4}5usR(PSgrJ}F:+2|x%">
+                <field name="NUM">800</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="fl/VtohnXzN?#/z[i$m*">
+                <field name="NUM">600</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="*X#u^[k=8T:_r61=^uGD">
+            <field name="VAR" id="c3R,)6+XZi;/L(x1.T^w">obstacle</field>
+            <value name="VALUE">
+              <block type="sprite" id="@2`hjqqeJ0lek8gZUqfU"></block>
+            </value>
+            <next>
+              <block type="locatesprite" id="XO{QF7TFUF(IP;?_kQtd">
+                <value name="SPRITE">
+                  <block type="variables_get" id="a_F3HR?bN[t|9y`B.T_l">
+                    <field name="VAR" id="c3R,)6+XZi;/L(x1.T^w">obstacle</field>
+                  </block>
+                </value>
+                <value name="POSITION">
+                  <block type="position" id="248yrNNb;eDduhaPqCfH">
+                    <value name="X">
+                      <block type="math_number" id="=?[?hVZLRvItPA8$-!`T">
+                        <field name="NUM">200</field>
+                      </block>
+                    </value>
+                    <value name="Y">
+                      <block type="math_number" id="zBV9/I]^@1C9`k{@;S+w">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="IMAGE">
+                  <block type="loadimage" id="QXAH7v|5NayeZRn(HHzW">
+                    <value name="FILENAME">
+                      <block type="text" id="QW;F2]#Nv]W_*cFEN.Q3">
+                        <field name="TEXT">asteroidSmall.png</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="setspriterotation" id="|8xb2;viAsku{JoX8EZo">
+                    <value name="SPRITE">
+                      <block type="variables_get" id="r/`-L#2l*oy.vWbqv+)A">
+                        <field name="VAR" id="c3R,)6+XZi;/L(x1.T^w">obstacle</field>
+                      </block>
+                    </value>
+                    <value name="ANGLE">
+                      <block type="math_number" id="hPj/Q}]ptRu/WSEQz;ZO">
+                        <field name="NUM">0.5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="setspritevector" id="T3IB0ZdW_nQunx`)16$/">
+                        <value name="SPRITE">
+                          <block type="variables_get" id="%/.*wK4G*Dd7jxF13uhl">
+                            <field name="VAR" id="c3R,)6+XZi;/L(x1.T^w">obstacle</field>
+                          </block>
+                        </value>
+                        <value name="X">
+                          <block type="math_number" id="PW5avxqV5nEeBUKz9xu?">
+                            <field name="NUM">-0.5</field>
+                          </block>
+                        </value>
+                        <value name="Y">
+                          <block type="math_number" id="J=#fnF@`U{0eY%WDfKx:">
+                            <field name="NUM">0.5</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="FEZjXQ:*fb~MuqH8Gg(L">
+                            <field name="VAR" id="*Z+sBXXYd`+dZKXW`f)S">obstacleList</field>
+                            <value name="VALUE">
+                              <block type="spritegroup" id="l_nSGEp+M{86*t2taK2F"></block>
+                            </value>
+                            <next>
+                              <block type="addsprite" id="7i[ZIUIVnG*WlKGkHr@_">
+                                <value name="SPRITE">
+                                  <block type="variables_get" id="p]^t?]nL4opCQQw6RdrT">
+                                    <field name="VAR" id="c3R,)6+XZi;/L(x1.T^w">obstacle</field>
+                                  </block>
+                                </value>
+                                <value name="GROUP">
+                                  <block type="variables_get" id="dsCqztt^Im~O_B3^r.Vb">
+                                    <field name="VAR" id="*Z+sBXXYd`+dZKXW`f)S">obstacleList</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="dLF(im-r~4seT9Xw.jzb">
+                                    <field name="VAR" id="3I(#Un`gwl3FxK]lGB_R">frameTime</field>
+                                    <value name="VALUE">
+                                      <block type="currenttime" id="}|g+;uv_6(N5{hbj55._"></block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_whileUntil" id="gW^EP*YO{PTLWe])reuh">
+                                        <field name="MODE">WHILE</field>
+                                        <value name="BOOL">
+                                          <block type="logic_boolean" id="msygG,8$)%WUClM@jzcI">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                        <statement name="DO">
+                                          <block type="variables_set" id="PYb4gpzh/P|IyyL8Ds`R">
+                                            <field name="VAR" id="GJP@n#kx6Hbr5I9`QBf2">event</field>
+                                            <value name="VALUE">
+                                              <block type="pollevent" id="[rk_*MrKbJTLw0Pjp}l;"></block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_if" id="G^03wG-dy8T@bYJwL3~b">
+                                                <value name="IF0">
+                                                  <block type="logic_compare" id="0m(g+A@r%oBiPMB_5~Lr">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="eventtype" id="$k7rc`Une1v(#Aq[EfT{">
+                                                        <value name="EVENT">
+                                                          <block type="variables_get" id="Ff+.Q}0dXYE:lftQXaq,">
+                                                            <field name="VAR" id="GJP@n#kx6Hbr5I9`QBf2">event</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="events" id="$!%YM|.0GqF}!w)*[D@e">
+                                                        <field name="EVENT">QUIT</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="controls_flow_statements" id="dP0%E%y-oexV^`H;2sv:">
+                                                    <field name="FLOW">BREAK</field>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="controls_if" id="I~f;d9!zgXBI~]y~UNf-">
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="+IL642HN^IFxL#hgDuM/">
+                                                        <field name="OP">GT</field>
+                                                        <value name="A">
+                                                          <block type="currenttime" id=".me^`_xA9;qMr}(,yi%`"></block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="variables_get" id="jSjH1n=p2WQ9L0{MFA3M">
+                                                            <field name="VAR" id="3I(#Un`gwl3FxK]lGB_R">frameTime</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="variables_set" id="o~JGnq/0+qXw5[-GyujL">
+                                                        <field name="VAR" id="3I(#Un`gwl3FxK]lGB_R">frameTime</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_arithmetic" id="3@jgGDAU6Uc##J=}w$0%">
+                                                            <field name="OP">ADD</field>
+                                                            <value name="A">
+                                                              <shadow type="math_number" id="?BhGn-)+_`RMEW/cI~nN">
+                                                                <field name="NUM">1</field>
+                                                              </shadow>
+                                                              <block type="currenttime" id="x2-XdA0]xBIAoVIrx]K="></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <shadow type="math_number" id="nslL#_IYmI1vVO0K@2u]">
+                                                                <field name="NUM">0.01</field>
+                                                              </shadow>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="fillsurface" id="O@TYw]%xx^V}*9^{e0E~">
+                                                            <value name="SURFACE">
+                                                              <block type="variables_get" id="j9|RJqbvRG[p]4qa#Xv^">
+                                                                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="COLOR">
+                                                              <block type="colour_picker" id="@9#0)@jaf`Pzb~Y$A05]">
+                                                                <field name="COLOUR">#ffffff</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="controls_forEach" id="0h(R,oRDX.V0JhIYc*Sv">
+                                                                <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+                                                                <value name="LIST">
+                                                                  <block type="variables_get" id="Z1E6W~@N5wEf?~{C1-gc">
+                                                                    <field name="VAR" id="*Z+sBXXYd`+dZKXW`f)S">obstacleList</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO">
+                                                                  <block type="movespritevector" id="8V;RyJFDEF.C96)Y!j/I">
+                                                                    <value name="SPRITE">
+                                                                      <block type="variables_get" id="OjLrM8C|7U8cNVN]4b+?">
+                                                                        <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="SURFACE">
+                                                                      <block type="variables_get" id="$lK:D.`J8KxGeaJjVz:H">
+                                                                        <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </statement>
+                                                                <next>
+                                                                  <block type="pygameupdate" id="E%dVExFx!9.k`]SuKX`X"></block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="controls_if" id="*b]#JG.!74zHi?P/wbbQ" disabled="true" x="813" y="3013">
+    <mutation elseif="3"></mutation>
+    <value name="IF0">
+      <block type="logic_compare" id="fvp3E,}_t`}NA,M%%D_+">
+        <field name="OP">LT</field>
+        <value name="A">
+          <block type="getattribute" id="bBQV{$T;D}|NmaRV:1_w">
+            <field name="ATTRIBUTE">rect.left</field>
+            <value name="OBJECT">
+              <block type="variables_get" id="eVS,MxX_;0l::*!y(ec6">
+                <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="p,qtr8:dhP/J.B=^[#!*">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO0">
+      <block type="setattribute" id="0de*yGkd~%.UsU`4lp4y">
+        <field name="ATTRIBUTE">newX</field>
+        <value name="OBJECT">
+          <block type="variables_get" id="Nf%#pLT~wE=jAW=~2LwD">
+            <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="screensize" id="*nGHc=OS$jzBWW9@JAHr">
+            <field name="WIDTHHEIGHT">width</field>
+            <value name="SURFACE">
+              <block type="variables_get" id="=+Lr;mB|5W~6pN7lmrD2">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="IF1">
+      <block type="logic_compare" id="KHf:=_OSU;61y:?1LmJ[">
+        <field name="OP">GT</field>
+        <value name="A">
+          <block type="getattribute" id="y`{62RhtykFixsQRhw|W">
+            <field name="ATTRIBUTE">rect.left</field>
+            <value name="OBJECT">
+              <block type="variables_get" id="ev%6)$}h_63bw~Qb{51*">
+                <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="screensize" id="N9%?6c1%h+.$P=L8u%:R">
+            <field name="WIDTHHEIGHT">width</field>
+            <value name="SURFACE">
+              <block type="variables_get" id="!1t!N):$b7xyl:Uk_0gL">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO1">
+      <block type="setattribute" id="?9^5y-|,Xb,1)SgBOa,-">
+        <field name="ATTRIBUTE">newX</field>
+        <value name="OBJECT">
+          <block type="variables_get" id="q51(C9J`nU$oRz~-z)]C">
+            <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number" id=",MtDx}EU5gsDlw{hNA%j">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="IF2">
+      <block type="logic_compare" id="n@T`h86u,bn]Yv1P/6WX">
+        <field name="OP">GT</field>
+        <value name="A">
+          <block type="getattribute" id="9/Vl#X[z=3(dQWbF[i7b">
+            <field name="ATTRIBUTE">rect.top</field>
+            <value name="OBJECT">
+              <block type="variables_get" id="}Na_j|)r1RW;/mx@@9]s">
+                <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="screensize" id="XDlMqOHTM:o!L95)5#uc">
+            <field name="WIDTHHEIGHT">height</field>
+            <value name="SURFACE">
+              <block type="variables_get" id="k9SXb]zc=lLV}.=L:sxs">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO2">
+      <block type="setattribute" id="p`uQ9t,(Irj+u{KLVWd:">
+        <field name="ATTRIBUTE">newY</field>
+        <value name="OBJECT">
+          <block type="variables_get" id="E-6K3TB+1vWs~;jj8noS">
+            <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number" id="_;M,U,?y?8Yb04rytp)J">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="IF3">
+      <block type="logic_compare" id="+5G?x=^|J24{8$r2@Lh6">
+        <field name="OP">LT</field>
+        <value name="A">
+          <block type="getattribute" id="~]o@#XHs.NOXm7:S$qgv">
+            <field name="ATTRIBUTE">rect.top</field>
+            <value name="OBJECT">
+              <block type="variables_get" id="IMd,J7|;|=l4wJ#blG$6">
+                <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="+~vfzgs-;Nzvagj+V;ni">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO3">
+      <block type="setattribute" id=":}g{q8(JH_UVNV!h?Xr$">
+        <field name="ATTRIBUTE">newY</field>
+        <value name="OBJECT">
+          <block type="variables_get" id="R|?-O7U!L7F2sH(lw7h[">
+            <field name="VAR" id="M7HbGN+S~dy-z74UO[]T">obs</field>
+          </block>
+        </value>
+        <value name="VALUE">
+          <block type="screensize" id="J{$/qL7]|q0Ji5#($%zn">
+            <field name="WIDTHHEIGHT">height</field>
+            <value name="SURFACE">
+              <block type="variables_get" id="0~Y@_ljoUBBaqdPI.d*p">
+                <field name="VAR" id="/^mA.iYZEzJE+f@7Bz?`">surface</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

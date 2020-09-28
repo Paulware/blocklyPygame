@@ -1,0 +1,27 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/^mA.iYZEzJE+f@7Bz?`">surface</variable>
+    <variable id="c3R,)6+XZi;/L(x1.T^w">obstacle</variable>
+    <variable id="wIu3D(10J%ahmF:Q=@-,">rect</variable>
+    <variable id="K!lW_c,JWo_gXlFk%,aM">playerImage</variable>
+    <variable id="ElV.w:+[R},5/ttizTnd">cannonBallImage</variable>
+    <variable id="*Bohb3xs4R;,pXMMl?,O">image</variable>
+    <variable id="0[DjT}FMo=ejW][F1njG">img</variable>
+    <variable id="Tk)!!mAExP3F!^DJUhxj">cannonBall</variable>
+    <variable id="g!8?#9?VH9!Z$1JS#+-X">drawList</variable>
+    <variable id="*Z+sBXXYd`+dZKXW`f)S">obstacleList</variable>
+    <variable id="C_R^nDNQ!|0Z;8:0TRd[">cannonBallMoveTime</variable>
+    <variable id="GJP@n#kx6Hbr5I9`QBf2">event</variable>
+    <variable id="UW)R8x91}Ph/o%5=_)T9">mousePosition</variable>
+    <variable id="7GI_drHC-Q~o6U,pqVXl">position</variable>
+    <variable id="=fGb@Zm^/0Scs5ks):a]">degree</variable>
+    <variable id="BOYiV:!Cge1OOyV2.h!x">hitList</variable>
+  </variables>
+  <block type="import" id="vjiV/N@ucOO2Bf2Pw1Zz" x="238" y="913">
+    <value name="LIBRARY">
+      <block type="text" id=";RI7LJ-Vv`x:)YzFJ3$~">
+        <field name="TEXT">time</field>
+      </block>
+    </value>
+  </block>
+</xml>

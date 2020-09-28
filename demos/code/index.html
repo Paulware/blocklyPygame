@@ -164,6 +164,9 @@
       <block type="colors"></block>
       <block type="expression"></block>
       <block type="exec"></block>
+      <block type="isnone"></block>
+      <block type="isprogram"></block>
+      <block type="pygameupdate"></block>
       <!block type="includedef"><!/block>
       <block type="getangle"></block>
       <block type="imports"></block>
@@ -176,21 +179,52 @@
     <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
       <block type="getattribute"></block>
       <block type="setattribute"></block>
-      <block type="rectposition"></block>
       <category name="Position" colour="%{BKY_PROCEDURES_HUE}">     
          <block type="position"></block>
          <block type="positionpart"></block>
          <block type="subpositions"></block>
+         <block type="mouseposition"></block>         
+      </category>
+      <category name="Rectangle" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="getrect"></block>
+        <block type="centerrect"></block>
+        <block type="makerectangle"></block>
+        <block type="rectcenter"></block>
+        <block type="rectposition"></block>
+        <block type="moverect"></block>
+        <block type="inflaterect"></block>
+        <block type="imagetorect"></block>
+        <block type="collisiondetected"></block>
+        <block type="collidepoint"></block>
+      </category>      
+      <category name="Sprites" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="sprite"></block>
+        <block type="createsprite"></block>
+        <block type="setspriteimage"></block>
+        <block type="rotatesprite"></block>
+        <!block type="drawrotatedsprite"><!/block>
+        <block type="setspritevector"></block>
+        <block type="movespritevector"></block>
+        <block type="setspriterotation"></block>
+        <block type="dospriterotation"></block>
+        <block type="spriteposition"></block>
+        <block type="spritecenter"></block>      
+        <block type="drawsprites"></block>
+        <block type="locatesprite"></block>
+        <block type="movesprite"></block>
+        <block type="spritecollide"></block>
+        <category name = "Sprite Group" colour="%{BKY_PROCEDURES_HUE}">
+           <block type="spritegroup"></block>
+           <block type="addsprite"></block>
+           <block type="killsprite"></block>
+        </category>
+      </category>      
+      <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="loadimage"></block>
+        <block type="imagesize"></block>
+        <block type="drawimage"></block>      
       </category>
     </category>      
-    <category name="Sprites" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="sprite"></block>
-      <block type="spritegroup"></block>
-      <block type="addsprite"></block>
-      <block type="drawsprites"></block>
-      <block type="movesprite"></block>
-      <block type="spritecollide"></block>
-    </category>
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
       <!block type="fullscreen"><!/block>
       <!block type="screenmode"><!/block>
@@ -210,9 +244,6 @@
       <block type="clearevents"></block>
       <block type="eventkey"></block>
       <block type="pollevent"></block>
-      <category name="Mouse" colour="%{BKY_PROCEDURES_HUE}">
-         <block type="mouseposition"></block>       
-      </category>
     </category>
     <category name="Time" colour="%{BKY_PROCEDURES_HUE}">
       <block type="currenttime"></block>
@@ -220,10 +251,7 @@
       <block type="wait"></block>
     </category>
     <category name="Draw" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="loadimage"></block>
       <block type="fillobject"></block>
-      <block type="imagesize"></block>
-      <block type="drawimage"></block>
       <block type="drawsurfacetext"></block>
       <!block type="drawtext"><!/block>
       <block type="rendertext"></block>      
@@ -233,19 +261,7 @@
       <block type="rotateimage"></block>
       <block type="translate"></block>
       <block type="toradians"></block>
-    </category>
-    <category name="Rectangle" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="getrect"></block>
-      <block type="centerrect"></block>
-      <block type="makerectangle"></block>
-      <block type="rectcenter"></block>
-      <block type="moverect"></block>
-      <block type="inflaterect"></block>
-      <block type="imagetorect"></block>
-      <block type="collisiondetected"></block>
-      <block type="collidepoint"></block>
-    </category>
-    
+    </category>    
     <category name="%{BKY_CATLOGIC}" colour="%{BKY_LOGIC_HUE}">
       <block type="controls_if"></block>
       <block type="logic_compare"></block>

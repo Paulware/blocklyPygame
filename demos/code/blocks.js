@@ -137,6 +137,27 @@ Blockly.Blocks['partialscreen']={
   }
 };
 
+Blockly.Blocks['partialsurface']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField("Screen Surface");       
+   this.appendValueInput("WIDTH")
+       .appendField("with width");
+   this.appendValueInput("POSITION")
+       .appendField("with position");
+   this.appendValueInput("HEIGHT")
+       .appendField("and height");
+   //this.appendValueInput("and MODE")
+   //    .appendField("screen mode");
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 Blockly.Blocks['screenmode']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
@@ -818,6 +839,24 @@ Blockly.Blocks['sprite']={
   }
 };
 
+Blockly.Blocks['createsprite']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("VARIABLE")
+       .appendField ("Create sprite using variable")
+   this.appendValueInput("IMAGE")
+       .appendField ("and image")
+   this.setInputsInline(true); 
+   this.setPreviousStatement(true, null);
+   this.setNextStatement(true, null);  
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+
 Blockly.Blocks['spritegroup']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
@@ -1014,5 +1053,207 @@ Blockly.Blocks['positionpart']={
   }
 };
 
+Blockly.Blocks['setspriteimage'] = {
+  init: function() {   
+    this.appendValueInput("IMAGE")
+        .appendField("Set image to");   
+    this.appendValueInput("SPRITE")
+        .appendField("for sprite");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['locatesprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Set position of sprite");   
+    this.appendValueInput("POSITION")
+        .appendField("to");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['killsprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Delete sprite ");     
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['rotatesprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Rotate sprite");   
+    this.appendValueInput("ANGLE")
+        .appendField("by degree");   
+    //this.appendValueInput("IMAGE")
+    //    .appendField("using base image");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['drawrotatedsprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Draw rotated sprite");   
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['setspritevector'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Set vector for sprite");   
+    this.appendValueInput("X")
+        .appendField("using change in X");   
+    this.appendValueInput("Y")
+        .appendField("and change in Y");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['movespritevector'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Move and rotate sprite");   
+    this.appendValueInput ("SURFACE")
+        .appendField ("on Surface")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['setspriterotation'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Set rotation for sprite");   
+    this.appendValueInput("ANGLE")
+        .appendField("to angle");     
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['dospriterotation'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Rotate sprite");   
+    //this.appendValueInput("IMAGE")
+    //    .appendField("using base image");     
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");     
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pygameupdate'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Draw images to surface, pygame.display.update()");       
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['spriteposition']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("SPRITE")
+        .appendField("Position of sprite ");   
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['spritecenter']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("SPRITE")
+        .appendField("Center of sprite ");   
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 
 
+Blockly.Blocks['isnone'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("This variable");       
+    this.appendDummyInput()
+        .appendField(" is None");
+    this.setColour(290);
+    this.setOutput(true, null);    
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['isprogram'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("This module is the main program");       
+    this.setColour(290);
+    this.setOutput(true, null);    
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

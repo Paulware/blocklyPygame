@@ -1,12 +1,16 @@
+import pygame
+import time
+import threading
+import math
+pygame.init()
+
 surface = None
 image = None
 cannonX = None
 cannonY = None
 degree = None
-activeKey = None
 taskTimer = None
 event = None
-quit2 = None
 mousePosition = None
 ch = None
 img = None
@@ -16,19 +20,14 @@ sPressed = None
 dPressed = None
 
 
-import pygame
-pygame.init()
-import time
-import math
 pygame.display.set_caption('Point image at mouse, move via wasd')
-surface = pygame.display.set_mode ((600,600), (pygame.RESIZABLE))
+surface = pygame.display.set_mode ((600,600), pygame.RESIZABLE)
 image = pygame.image.load ('cannon.jpg').convert()
 cannonX = 100
 cannonY = 100
 degree = 0
-activeKey = ''
 taskTimer = time.time()
-while not quit2:
+while True:
   event = pygame.event.poll()
   if (event.type) == (pygame.MOUSEMOTION):
     mousePosition = pygame.mouse.get_pos()
@@ -47,7 +46,7 @@ while not quit2:
     elif ch == 'd':
       dPressed = True
   elif (event.type) == (pygame.QUIT):
-    quit2 = True
+    break
   elif (event.type) == (pygame.KEYUP):
     ch = chr(event.key)
     if ch == 'w':
