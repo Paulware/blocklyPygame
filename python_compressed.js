@@ -46,7 +46,7 @@ Blockly.Python.finish=function(a){
  delete Blockly.Python.definitions_;
  delete Blockly.Python.functionNames_;
  Blockly.Python.variableDB_.reset();
- var imports = "import pygame\nimport time\nimport threading\nimport math\n"
+ var imports = "import pygame\nimport time\nimport threading\nimport math\ntry:\n   import pymunk\n   import pymunk.pygame_util\nexcept:\n   pass\n"
  return(imports + "pygame.init()\n" + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a
 };
 Blockly.Python.scrubNakedValue=function(a){return a+"\n"};

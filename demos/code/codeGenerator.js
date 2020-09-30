@@ -675,3 +675,86 @@ Blockly.Python['isnone'] = function(block) {
   var code = variable + ' is None'
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Python['tuple'] = function(block) {
+  var first = Blockly.Python.valueToCode(block, "FIRST", Blockly.Python.ORDER_ATOMIC)
+  var second = Blockly.Python.valueToCode(block, "SECOND", Blockly.Python.ORDER_ATOMIC)
+  var code = "(" + first + "," + second + ")"
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['createspace'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var gravity = Blockly.Python.valueToCode(block, "GRAVITY", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + "=pymunk.Space()\n" + variable + ".gravity=" + gravity + "\n"           
+  return code;
+};
+
+Blockly.Python['getdrawoptions'] = function(block) {
+  var screen = Blockly.Python.valueToCode(block, "SCREEN", Blockly.Python.ORDER_ATOMIC)
+  var code = "pymunk.pygame_util.DrawOptions(" + screen + ")"
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+// space.debug_draw(draw_options)
+Blockly.Python['drawspace'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var options = Blockly.Python.valueToCode(block, "OPTIONS", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = space + ".debug_draw(" + options + ")\n"       
+  return code;
+};
+
+// space.step (value)
+Blockly.Python['stepspace'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = space + ".step(" + value + ")\n"       
+  return code;
+};
+
+// clock = pygame.time.Clock()
+Blockly.Python['createclock'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + "= pygame.time.Clock()\n"       
+  return code;
+};
+
+// clock.tick(rate)
+Blockly.Python['syncclock'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var rate = Blockly.Python.valueToCode(block, "RATE", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + ".tick(" + rate + ")\n"       
+  return code;
+};
+
+    
+Blockly.Python['addball'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var radius = Blockly.Python.valueToCode(block, "RADIUS", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = "mass = 1\n" +
+             "radius = " + radius + "\n" + 
+             "_x=" + position + "[0]\n" +
+             "_y=" + position + "[1]\n" +
+             "moment = pymunk.moment_for_circle(mass,0," + radius + ")\n" + 
+             "body = pymunk.Body(mass,moment)\n" + 
+             "body.position = _x,_y\n" + 
+             "shape = pymunk.Circle(body," + radius + ")\n" + 
+             space + ".add(body,shape)\n"             
+  return code;
+};
+
+    
+Blockly.Python['addtolist'] = function(block) {
+  var item = Blockly.Python.valueToCode(block, "ITEM", Blockly.Python.ORDER_ATOMIC)
+  var list = Blockly.Python.valueToCode(block, "LIST", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = list + ".append (" + item + ")\n"             
+  return code;
+};

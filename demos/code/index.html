@@ -179,6 +179,13 @@
     <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
       <block type="getattribute"></block>
       <block type="setattribute"></block>
+      <category name="Tuple" colour="%{BKY_PROCEDURES_HUE}"> 
+         <block type="tuple"></block>
+      </category>
+      <category name="FPS Clock" colour="%{BKY_PROCEDURES_HUE}">
+         <block type="createclock"></block>
+         <block type="syncclock"></block>
+      </category>
       <category name="Position" colour="%{BKY_PROCEDURES_HUE}">     
          <block type="position"></block>
          <block type="positionpart"></block>
@@ -223,6 +230,13 @@
         <block type="loadimage"></block>
         <block type="imagesize"></block>
         <block type="drawimage"></block>      
+      </category>
+      <category name="Space" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="createspace"></block>
+        <block type="getdrawoptions"></block>
+        <block type="drawspace"></block>
+        <block type="stepspace"></block>
+        <block type="addball"></block>
       </category>
     </category>      
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
@@ -528,6 +542,7 @@
         </value>
       </block>
       <block type="lists_sort"></block>
+      <block type="addtolist"></block>
     </category>
     <category name="%{BKY_CATCOLOUR}" colour="%{BKY_COLOUR_HUE}">
       <block type="colour_picker"></block>

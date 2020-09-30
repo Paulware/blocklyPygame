@@ -1257,3 +1257,146 @@ Blockly.Blocks['isprogram'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['tuple'] = {
+  init: function() {   
+    this.appendValueInput("FIRST")
+        .appendField("(");       
+    this.appendValueInput("SECOND")
+        .appendField(",");
+    this.appendDummyInput()
+        .appendField (")");    
+    this.setColour(290);
+    this.setOutput(true, null);    
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['createspace'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create space variable");       
+    this.appendValueInput("GRAVITY")
+        .appendField("with gravity");       
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+//pymunk.pygame_util.DrawOptions(screen)
+Blockly.Blocks['getdrawoptions'] = {
+  init: function() {   
+    this.appendValueInput("SCREEN")
+        .appendField("pymunk.pygame.util.DrawOptions(");       
+    this.appendDummyInput()
+        .appendField (")")
+    this.setColour(290);
+    this.setOutput(true, null);    
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// space.debug_draw(draw_options)
+Blockly.Blocks['drawspace'] = {
+  init: function() {   
+    this.appendValueInput("SPACE")
+        .appendField("Draw space");       
+    this.appendValueInput("OPTIONS")
+        .appendField("with options");       
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// space.step (value)
+Blockly.Blocks['stepspace'] = {
+  init: function() {   
+    this.appendValueInput("SPACE")
+        .appendField("Step space");       
+    this.appendValueInput("VALUE")
+        .appendField("forward by");  
+    this.appendDummyInput()
+        .appendField("seconds")    
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// clock = pygame.Clock
+Blockly.Blocks['createclock'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create pygame clock using variable");          
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// clock.tick(40)
+Blockly.Blocks['syncclock'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Synchronize clock variable");          
+    this.appendValueInput("RATE")
+        .appendField("on per second frame rate of");          
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+Blockly.Blocks['addball'] = {
+  init: function() {   
+    this.appendValueInput("SPACE")
+        .appendField("Add a ball to space");          
+    this.appendValueInput("RADIUS")
+        .appendField("with radius"); 
+    this.appendValueInput("POSITION")
+        .appendField("and x,y position"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['addtolist'] = {
+  init: function() {   
+    this.appendValueInput("ITEM")
+        .appendField("Add this item");          
+    this.appendValueInput("LIST")
+        .appendField("to list"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

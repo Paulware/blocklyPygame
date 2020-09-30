@@ -2,6 +2,10 @@ import pygame
 import time
 import threading
 import math
+try: 
+   import yoWhatisUP
+except:
+   pass 
 pygame.init()
 
 surface = None
