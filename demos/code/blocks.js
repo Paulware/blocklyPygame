@@ -1996,3 +1996,39 @@ Blockly.Blocks['pymunkcircleoffset']={
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+// var = pymunk.Circle(body, radius,offset)
+Blockly.Blocks['pymunkcircleoffset']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Create pymunk circle using body");          
+    this.appendValueInput("RADIUS")
+        .appendField("with radius");          
+    this.appendValueInput("OFFSET")
+        .appendField("and offset");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.Circle(body, radius,offset)
+Blockly.Blocks['pymunkcircleoffset']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Create pymunk circle using body");          
+    this.appendValueInput("RADIUS")
+        .appendField("with radius");          
+    this.appendValueInput("OFFSET")
+        .appendField("and offset");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+//         .appendField (new Blockly.FieldTextInput ( "\"Hello\""), "MESSAGE"
+//  This field is to access an array/list element
