@@ -13,6 +13,9 @@
    <li>git clone https://www.github.com/Paulware/pyGame</li>
 </ul>
 <hr>
+<hr>
+<h2>Chrome Setup</h2>
+<img src="chromeSetup.jpg"><br>
 <a href="http://Paulware.github.io/blocklyPygame/index.html">Docs</a>
 
        
