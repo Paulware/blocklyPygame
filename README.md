@@ -1,7 +1,7 @@
 
 <h1>Setup</h1>
 <hr>
-<h2>Install Pypthon</h2>
+<h2>Install Python</h2>
 <img src="howInstallPython.jpg">
 <hr>
 <h2>Install Pygame</h2>
