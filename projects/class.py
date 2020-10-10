@@ -10,19 +10,21 @@ except:
 pygame.init()
 
 screen = None
-img = None
+image = None
 
 
+print('asdf')
+print('I like trains')
 screen = pygame.display.set_mode((600,600),pygame.RESIZABLE)
-pygame.display.set_caption('drawing Text')
-_text = pygame.font.Font('freesansbold.ttf',24).render ('Hello from BCC',True,pygame.Color('#ffcc00'))
+pygame.display.set_caption('Hello Class')
+image = pygame.image.load ('vangogh.jpg').convert()
+screen.blit (image,(((300,300))[0]-image.get_size()[0]//2,((300,300))[1]-image.get_size()[1]//2))
+pygame.display.update()
+_text = pygame.font.Font('freesansbold.ttf',26).render ('Hello Again',True,pygame.Color('#cc33cc'))
 _rect = _text.get_rect()
 _rect.x = 100
-_rect.y = 200
+_rect.y = 100
 screen.blit (_text,_rect)
-pygame.display.update()
-img = pygame.image.load ('vangogh.jpg').convert()
-screen.blit (img,(((300,300))[0]-img.get_size()[0]//2,((300,300))[1]-img.get_size()[1]//2))
 pygame.display.update()
 _quitEvent = False
 while not _quitEvent:
