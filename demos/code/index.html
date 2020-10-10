@@ -164,7 +164,6 @@
       <block type="colors"></block>
       <block type="expression"></block>
       <block type="exec"></block>
-      <block type="isnone"></block>
       <block type="isprogram"></block>
       <block type="pygameupdate"></block>
       <!block type="includedef"><!/block>
@@ -179,8 +178,16 @@
     <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
       <block type="getattribute"></block>
       <block type="setattribute"></block>
+      <block type="toshape"></block>
+      <block type="toposition"></block>
+      <block type="tobody"></block>
+      <block type="none"></block>
+      <block type="isnone"></block>
+      <block type="float"></block>
+      <block type="int"></block>
       <category name="Tuple" colour="%{BKY_PROCEDURES_HUE}"> 
          <block type="tuple"></block>
+         <block type="tupleelement"></block>
       </category>
       <category name="FPS Clock" colour="%{BKY_PROCEDURES_HUE}">
          <block type="createclock"></block>
@@ -191,6 +198,8 @@
          <block type="positionpart"></block>
          <block type="subpositions"></block>
          <block type="mouseposition"></block>         
+         <block type="createvec2d"></block>
+         <block type="getdistance"></block>
       </category>
       <category name="Rectangle" colour="%{BKY_PROCEDURES_HUE}">
         <block type="getrect"></block>
@@ -231,12 +240,51 @@
         <block type="imagesize"></block>
         <block type="drawimage"></block>      
       </category>
+      <category name="Line Segment" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="createsegment"></block>
+        <block type="getsegment"></block>
+      </category>
+      <category name="Joints, Springs and Filters" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="createpinjoint"></block>
+        <block type="createpinjointpositions"></block>
+        <block type="createslidejoint"></block>
+        <block type="createdampedspring"></block>
+        <block type="createdampedrotaryspring"></block>
+        <block type="shapefilter"></block>
+        <block type="collisioncategory"></block>
+      </category>
+      <category name="Body" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="bodytype"></block>
+        <block type="createbody"></block>
+        <block type="positionbody"></block>
+        <block type="createbodymassinertia"></block>
+        <block type="bodyposition"></block>
+        <block type="setbodystartposition"></block>
+        <block type="applyimpulse"></block>
+      </category>
       <category name="Space" colour="%{BKY_PROCEDURES_HUE}">
         <block type="createspace"></block>
         <block type="getdrawoptions"></block>
+        <block type="spaceadd"></block>
         <block type="drawspace"></block>
         <block type="stepspace"></block>
         <block type="addball"></block>
+        <block type="spacedamping"></block>
+        <block type="spacestaticbody"></block>
+        <block type="pointquerynearest"></block>
+        <block type="spaceremove"></block>
+      </category>
+      <category name="Pymunk Circle" colour="%{BKY_PROCEDURES_HUE}">
+         <block type="pymunkcircle"></block>
+         <block type="pymunkcircleoffset"></block>
+         <block type="setcircleelasticity"></block>
+      </category>
+      <category name="Pymunk Poly" colour="%{BKY_PROCEDURES_HUE}">
+         <block type="pymunkpoly"></block>
+      </category>
+      <category name="Moment" colour=%{BKY_PROCEDURES_HUE}">
+         <block type="circlemoment"></block>
+         <block type="polymoment"></block>
       </category>
     </category>      
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">

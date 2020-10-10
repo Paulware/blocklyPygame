@@ -1400,3 +1400,599 @@ Blockly.Blocks['addtolist'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['createbody'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create body using variable");          
+    this.appendValueInput("BODYTYPE")
+        .appendField("and body type"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['bodytype']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Body type") 
+        .appendField(new Blockly.FieldDropdown([
+                                                ["Dynamic", "DYNAMIC"],
+                                                ["Kinematic", "KINEMATIC"],
+                                                ["Static", "STATIC"]
+                                               ]), "BODYTYPE");       
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['positionbody'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Set body"); 
+    this.appendValueInput("POSITION")
+        .appendField("\'s position");          
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['createsegment'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create line segment using variable"); 
+    this.appendValueInput("BODY")
+        .appendField("for body variable");          
+    this.appendValueInput("POINT1")
+        .appendField("from point1");          
+    this.appendValueInput("POINT2")
+        .appendField("to point2");          
+    this.appendValueInput("WIDTH")
+        .appendField("with width");          
+        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    // this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['getsegment'] = {
+  init: function() {   
+    this.appendValueInput("BODY")
+        .appendField("Segment for body");          
+    this.appendValueInput("POINT1")
+        .appendField("from point1");          
+    this.appendValueInput("POINT2")
+        .appendField("to point2");          
+    this.appendValueInput("WIDTH")
+        .appendField("with width");          
+        
+    this.setColour(290);
+    this.setOutput(true, null);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+// space.add (segment)
+Blockly.Blocks['spaceadd'] = {
+  init: function() {   
+    this.appendValueInput("OBJECT")
+        .appendField("Add object"); 
+    this.appendValueInput("SPACE")
+        .appendField("to space");          
+        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['createbodymassinertia'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create body using variable");          
+    this.appendValueInput("MASS")
+        .appendField("with mass"); 
+    this.appendValueInput("INERTIA")
+        .appendField("and inertia"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// rotation_center_joint = pymunk.PinJoint(body, rotation_center_body, (0,0), (0,0)) # 3
+Blockly.Blocks['createpinjoint'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create pin/joint using variable");          
+    this.appendValueInput("BODY1")
+        .appendField("between body"); 
+    this.appendValueInput("BODY2")
+        .appendField("and body"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// rotation_limit_joint = pymunk.SlideJoint(body, rotation_limit_body, (-100,0), (0,0), 0, joint_limit) # 2
+Blockly.Blocks['createslidejoint'] = {
+  init: function() {   
+    this.appendValueInput("BODY1")
+        .appendField("Create slide joint between body");          
+    this.appendValueInput("BODY2")
+        .appendField("and body"); 
+    this.appendValueInput("POINT1")
+        .appendField("between position1");
+    this.appendValueInput("POINT2")
+        .appendField("and position2");
+    this.appendValueInput("JOINTLIMIT")
+        .appendField("using joint limit");
+    this.setOutput(true, null); 
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['tupleelement']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Get ")
+        .appendField(new Blockly.FieldDropdown([
+                                                ["First", "[0]"],
+                                                ["Second", "[1]"]
+                                               ]), "TUPLEELEMENT");       
+   this.appendValueInput("TUPLE")
+        .appendField ( "element of tuple")
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+// space.damping = value
+Blockly.Blocks['spacedamping'] = {
+  init: function() {   
+    this.appendValueInput("SPACE")
+        .appendField("Set damping for space");          
+    this.appendValueInput("DAMPING")
+        .appendField("to"); 
+ 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = Vec2d (position)
+Blockly.Blocks['createvec2d']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("POSITION")
+        .appendField("Create Vec2d based on position");          
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = Vec2d (position)
+Blockly.Blocks['bodyposition']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Get position of body");          
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['setbodystartposition'] = {
+  init: function() {   
+    this.appendValueInput("BODY")
+        .appendField("Set body"); 
+    this.appendValueInput("VALUE")
+        .appendField("\'s start position to");          
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.Circle(body, radius)
+Blockly.Blocks['pymunkcircle']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Create pymunk circle using body");          
+    this.appendValueInput("RADIUS")
+        .appendField("and radius");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// circle.elasticity = 0.9999999
+Blockly.Blocks['setcircleelasticity'] = {
+  init: function() {   
+    this.appendValueInput("CIRCLE")
+        .appendField("Set elasticity for circle");          
+    this.appendValueInput("ELASTICITY")
+        .appendField("to"); 
+ 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// rotation_center_joint = pymunk.PinJoint(body, rotation_center_body, (0,0), (0,0)) # 3
+Blockly.Blocks['createpinjointpositions'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField("Create pin/joint using variable");          
+    this.appendValueInput("BODY1")
+        .appendField("between body"); 
+    this.appendValueInput("BODY2")
+        .appendField("and body"); 
+    this.appendValueInput("POSITION1")
+        .appendField("using position1"); 
+    this.appendValueInput("POSITION2")
+        .appendField("and position2"); 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = space.static_body
+Blockly.Blocks['spacestaticbody']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("SPACE")
+        .appendField("Get static body of space");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+Blockly.Blocks['circlemoment']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("MASS")
+        .appendField("Get circle moment using mass");          
+    this.appendValueInput("RADIUS")
+        .appendField("and radius");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['polymoment']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("MASS")
+        .appendField("Get poly moment using mass");          
+    this.appendValueInput("FP")
+        .appendField("and fp");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+  
+// space.point_query_nearest(p, 0, pm.ShapeFilter())
+Blockly.Blocks['pointquerynearest']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("SPACE")
+        .appendField("Get nearest object in space");          
+    this.appendValueInput("POINT")
+        .appendField("to point");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var.shape
+Blockly.Blocks['toshape']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("OBJECT")
+        .appendField("Get shape of object");                   
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var.position
+Blockly.Blocks['toposition']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("OBJECT")
+        .appendField("Get position of object");                   
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// mouse_body.position.get_distance(shape.body.position)
+Blockly.Blocks['getdistance']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("POSITION1")
+        .appendField("Get distance from position1 ");                   
+    this.appendValueInput("POSITION2")
+        .appendField("to position2");                   
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var.body
+Blockly.Blocks['tobody']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("OBJECT")
+        .appendField("Get body of object");                   
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// pymunk.DampedRotarySpring(mouse_body, shape.body, (0,0), (0,0), rest_length, 1000, 10)
+Blockly.Blocks['createdampedrotaryspring']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(290);         
+    this.appendValueInput("BODY1")
+        .appendField("Create a damped rotary spring between body"); 
+    this.appendValueInput("BODY2")
+        .appendField("and body"); 
+    this.appendValueInput("RESTANGLE")
+        .appendField("using rest angle"); 
+    this.appendValueInput("STIFFNESS")
+        .appendField("and stiffness"); 
+    this.appendValueInput("DAMPING")
+        .appendField("with damping");     
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+// pymunk.DampedSpring(mouse_body, shape.body, (0,0), (0,0), rest_length, 1000, 10)
+Blockly.Blocks['createdampedspring']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(290);         
+    this.appendValueInput("BODY1")
+        .appendField("Create a damped spring between  body"); 
+    this.appendValueInput("BODY2")
+        .appendField("and body"); 
+    this.appendValueInput("POSITION1")
+        .appendField("using position1"); 
+    this.appendValueInput("POSITION2")
+        .appendField("and position2"); 
+    this.appendValueInput("LENGTH")
+        .appendField("with length");    
+    this.appendValueInput("INERTIA")
+        .appendField("inertia");    
+    this.appendValueInput("MASS")
+        .appendField("and mass"); 
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// space.remove(item)
+Blockly.Blocks['spaceremove'] = {
+  init: function() {   
+    this.appendValueInput("ITEM")
+        .appendField("Remove this item");          
+    this.appendValueInput("SPACE")
+        .appendField("from space"); 
+ 
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+//None
+Blockly.Blocks['none']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendDummyInput()
+        .appendField("None");                                    
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['float']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("VALUE")
+        .appendField("float (");                                    
+    this.appendDummyInput()
+        .appendField (")");
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['int']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("VALUE")
+        .appendField("int (");                                    
+    this.appendDummyInput()
+        .appendField (")");
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.Poly(body, radius)
+Blockly.Blocks['pymunkpoly']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Create pymunk poly using body");          
+    this.appendValueInput("FP")
+        .appendField("and fp");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+//r_flipper_body.apply_impulse_at_local_point(Vec2d.unit() * 40000, (-100,0))
+Blockly.Blocks['applyimpulse'] = {
+  init: function() {   
+    this.appendValueInput("IMPULSE")
+        .appendField("Apply impulse");
+    this.appendValueInput("BODY")
+        .appendField("to body");          
+    this.appendValueInput("POINT")
+        .appendField("at point");  
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+/*
+    Player        0b00001 (1)     0b11000 (4, 5)       
+    Enemy         0b00010 (2)     0b01110 (2, 3, 4)
+    Player Bullet 0b00100 (3)     0b10001 (1, 5)
+    Enemy Bullet  0b01000 (4)     0b10010 (2, 5)
+    Walls         0b10000 (5)     0b01111 (1, 2, 3, 4)
+*/
+Blockly.Blocks['collisioncategory']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Collision Category") 
+        .appendField(new Blockly.FieldDropdown([
+                                                ["Player",         "0b00001"],
+                                                ["Enemy",          "0b00010"],
+                                                ["Player Bullet",  "0b00100"],
+                                                ["Enemy Bullet",   "0b01000"],
+                                                ["Walls",          "0b10000"]
+                                               ]), "CATEGORY");       
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.ShapeFilter(categories=0b1000)
+Blockly.Blocks['shapefilter']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("CATEGORY")
+        .appendField("Create shape filter with collision category");                   
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// var = pymunk.Circle(body, radius,offset)
+Blockly.Blocks['pymunkcircleoffset']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("BODY")
+        .appendField("Create pymunk circle using body");          
+    this.appendValueInput("RADIUS")
+        .appendField("with radius");          
+    this.appendValueInput("OFFSET")
+        .appendField("and offset");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

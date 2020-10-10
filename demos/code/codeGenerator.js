@@ -191,9 +191,12 @@ Blockly.Python['drawcircle'] = function(block) {
   var color     = Blockly.Python.valueToCode (block, "COLOR",   Blockly.Python.ORDER_ATOMIC)
   var position  = Blockly.Python.valueToCode (block, "POSITION",Blockly.Python.ORDER_ATOMIC)
   var radius    = Blockly.Python.valueToCode (block, "RADIUS",  Blockly.Python.ORDER_ATOMIC)
-  color = color.substring (2,color.length-1)
+
+  if (!isNaN(color.substring (2,color.length-1))) { 
+    color = '0X' + color.substring (2,color.length-1)  
+  }
   
-  var code = 'pygame.draw.circle(' + surface + ',0X' + color + ',' + position + ',' + radius + ',1)\npygame.display.update()\n';
+  var code = 'pygame.draw.circle(' + surface + ',' + color + ',' + position + ',' + radius + ',1)\npygame.display.update()\n';
   return code;
 };
 
@@ -395,7 +398,9 @@ Blockly.Python['rectposition'] = function(block) {
 Blockly.Python['getattribute'] = function(block) {
   var attribute = block.getFieldValue ("ATTRIBUTE"); 
   var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  //alert ( 'attribute: ' + attribute + ' obj: ' + obj)
   var code = obj + '.' + attribute;
+  //alert ( 'my code: ' + code )
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -757,4 +762,312 @@ Blockly.Python['addtolist'] = function(block) {
   
   var code = list + ".append (" + item + ")\n"             
   return code;
+};
+
+// pymunk.Body.STATIC
+Blockly.Python['bodytype'] = function(block) {
+  var bodytype = block.getFieldValue ("BODYTYPE")
+  var code = 'pymunk.Body.' + bodytype;
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// body = pymunk.Body(body_type = pymunk.Body.STATIC) # 1    
+Blockly.Python['createbody'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var bodyType = Blockly.Python.valueToCode(block, "BODYTYPE", Blockly.Python.ORDER_ATOMIC)
+  var code = variable + '=pymunk.Body(body_type=' + bodyType + ')\n'             
+  return code;
+};
+
+// body.position (x,y)
+Blockly.Python['positionbody'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + '.position=' + position + '\n'             
+  return code;
+};
+
+// l1 = pymunk.Segment(body, (-150, 0), (255, 0), 5) # 2
+Blockly.Python['createsegment'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC)
+  var point1 = Blockly.Python.valueToCode(block, "POINT1", Blockly.Python.ORDER_ATOMIC)
+  var point2 = Blockly.Python.valueToCode(block, "POINT2", Blockly.Python.ORDER_ATOMIC)
+  var width = Blockly.Python.valueToCode(block, "WIDTH", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + '=pymunk.Segment(' + body + ',' + point1 + ',' + point2 + ',' + width + ')\n'             
+  return code;
+};
+
+// space.add (obj)
+Blockly.Python['spaceadd'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = space + '.add (' + obj + ')\n'             
+  return code;
+};
+
+// body = pymunk.Body(mass, inertia)  
+Blockly.Python['createbodymassinertia'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var mass = Blockly.Python.valueToCode(block, "MASS", Blockly.Python.ORDER_ATOMIC)
+  var inertia = Blockly.Python.valueToCode(block, "INERTIA", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + '=pymunk.Body(' + mass + ',' + inertia + ')\n'             
+  return code;
+};
+
+// rotation_center_joint = pymunk.PinJoint(body, rotation_center_body, (0,0), (0,0)) # 3
+Blockly.Python['createpinjoint'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var body1 = Blockly.Python.valueToCode(block, "BODY1", Blockly.Python.ORDER_ATOMIC)
+  var body2 = Blockly.Python.valueToCode(block, "BODY2", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = variable + '=pymunk.PinJoint(' + body1 + ',' + body2 + ', (0,0), (0,0))\n'             
+  return code;
+};
+
+// rotation_limit_joint = pymunk.SlideJoint(body, rotation_limit_body, (-100,0), (0,0), 0, joint_limit) # 2
+Blockly.Python['createslidejoint'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var body1 = Blockly.Python.valueToCode(block, "BODY1", Blockly.Python.ORDER_ATOMIC)
+  var body2 = Blockly.Python.valueToCode(block, "BODY2", Blockly.Python.ORDER_ATOMIC)
+  var point1 = Blockly.Python.valueToCode(block, "POINT1", Blockly.Python.ORDER_ATOMIC)
+  var point2 = Blockly.Python.valueToCode(block, "POINT2", Blockly.Python.ORDER_ATOMIC)
+  var jointLimit = Blockly.Python.valueToCode(block, "JOINTLIMIT", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = 'pymunk.SlideJoint(' + body1 + ',' + body2 + ',' + point1 + ',' + point2 + ',0,' + jointLimit + ')\n'             
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// get tuple element 
+Blockly.Python['tupleelement'] = function(block) {
+  var element = block.getFieldValue ("TUPLEELEMENT");
+  var tuple   = Blockly.Python.valueToCode(block, "TUPLE", Blockly.Python.ORDER_ATOMIC);
+  
+  //alert ( 'element: ' + element + ', tuple: ' + tuple );
+  
+  var code = tuple + element       
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// space.damping = value
+Blockly.Python['spacedamping'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var damping = Blockly.Python.valueToCode(block, "DAMPING", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = space + '.damping=' + damping + '\n'             
+  return code;
+};
+
+// var = pymunk.Vec2d (position) 
+Blockly.Python['createvec2d'] = function(block) {
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.Vec2d(' + position + ')'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var = body.position 
+Blockly.Python['bodyposition'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC);
+  var code = body + '.position'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// body.start_position = value 
+Blockly.Python['setbodystartposition'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC);
+  var value = Blockly.Python.valueToCode (block, "VALUE", Blockly.Python.ORDER_ATOMIC);
+  var code = body + '.start_position ='  + value + '\n';          
+  return code; 
+};
+
+// var = pymunk.Circle(body, radius)
+Blockly.Python['pymunkcircle'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC);
+  var radius = Blockly.Python.valueToCode(block, "RADIUS", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.Circle(' + body + ',' + radius + ')'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// circle.elasticity = value 
+Blockly.Python['setcircleelasticity'] = function(block) {
+  var circle = Blockly.Python.valueToCode(block, "CIRCLE", Blockly.Python.ORDER_ATOMIC);
+  var elasticity = Blockly.Python.valueToCode (block, "ELASTICITY", Blockly.Python.ORDER_ATOMIC);
+  var code = circle + '.elasticity ='  + elasticity + '\n';          
+  return code; 
+};
+
+// rotation_center_joint = pymunk.PinJoint(body, rotation_center_body, (0,0), (0,0)) # 3
+Blockly.Python['createpinjointpositions'] = function(block) {
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var body1 = Blockly.Python.valueToCode(block, "BODY1", Blockly.Python.ORDER_ATOMIC)
+  var body2 = Blockly.Python.valueToCode(block, "BODY2", Blockly.Python.ORDER_ATOMIC)
+  var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
+  var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
+  var code = variable + '=pymunk.PinJoint(' + body1 + ',' + body2 + ',' + position1 + ',' + position2 + ')\n'             
+  return code;
+};
+
+// var = space.static_body
+Blockly.Python['spacestaticbody'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC);
+  var code = space + '.static_body'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+Blockly.Python['circlemoment'] = function(block) {
+  var mass = Blockly.Python.valueToCode(block, "MASS", Blockly.Python.ORDER_ATOMIC);
+  var radius = Blockly.Python.valueToCode(block, "RADIUS", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.moment_for_circle(' + mass + ',0,' + radius + ',(0,0))' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// space.point_query_nearest(p, 0, pm.ShapeFilter())
+Blockly.Python['pointquerynearest'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC);
+  var point = Blockly.Python.valueToCode(block, "POINT", Blockly.Python.ORDER_ATOMIC);
+  var code = space + '.point_query_nearest(' + point + ',0,pymunk.ShapeFilter())' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var.shape
+Blockly.Python['toshape'] = function(block) {
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC);
+  var code = obj + '.shape'; 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var.position
+Blockly.Python['toposition'] = function(block) {
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC);
+  var code = obj + '.position'; 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// mouse_body.position.get_distance(shape.body.position)
+Blockly.Python['getdistance'] = function(block) {
+  var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC);
+  var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC);
+  var code = position1 + '.get_distance(' + position2 + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var.position
+Blockly.Python['tobody'] = function(block) {
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC);
+  var code = obj + '.body'; 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// pymunk.DampedSpring(mouse_body, shape.body, (0,0), (0,0), rest_length, 1000, 10)
+Blockly.Python['createdampedspring'] = function(block) {
+  var body1     = Blockly.Python.valueToCode(block, "BODY1", Blockly.Python.ORDER_ATOMIC)
+  var body2     = Blockly.Python.valueToCode(block, "BODY2", Blockly.Python.ORDER_ATOMIC)
+  var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
+  var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
+  var len       = Blockly.Python.valueToCode(block, "LENGTH", Blockly.Python.ORDER_ATOMIC) 
+  var inertia   = Blockly.Python.valueToCode(block, "INERTIA", Blockly.Python.ORDER_ATOMIC)  
+  var mass      = Blockly.Python.valueToCode(block, "MASS", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = 'pymunk.DampedSpring(' + body1 + ',' + body2 + ',' + position1 + ',' + position2 + ',' + len + ',' + inertia + ',' + mass + ')\n'             
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['none'] = function(block) { 
+  return ['None', Blockly.Python.ORDER_NONE]; 
+};
+
+// space.remove (item)
+Blockly.Python['spaceremove'] = function(block) {
+  var space = Blockly.Python.valueToCode(block, "SPACE", Blockly.Python.ORDER_ATOMIC)
+  var item = Blockly.Python.valueToCode(block, "ITEM", Blockly.Python.ORDER_ATOMIC)
+
+  var code = space + '.remove (' + item + ')\n' 
+  return code;
+};
+
+Blockly.Python['float'] = function(block) {
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  var code = 'float(' + value + ')' 
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['int'] = function(block) {
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  var code = 'int(' + value + ')' 
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+// pymunk.Segment(body, (-150, 0), (255, 0), 5) # 2
+Blockly.Python['getsegment'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC)
+  var point1 = Blockly.Python.valueToCode(block, "POINT1", Blockly.Python.ORDER_ATOMIC)
+  var point2 = Blockly.Python.valueToCode(block, "POINT2", Blockly.Python.ORDER_ATOMIC)
+  var width = Blockly.Python.valueToCode(block, "WIDTH", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = 'pymunk.Segment(' + body + ',' + point1 + ',' + point2 + ',' + width + ')\n'             
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+// var = pymunk.moment_for_circle(mass, 0, radius, (0,0))
+Blockly.Python['polymoment'] = function(block) {
+  var mass = Blockly.Python.valueToCode(block, "MASS", Blockly.Python.ORDER_ATOMIC);
+  var fp = Blockly.Python.valueToCode(block, "FP", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.moment_for_poly(' + mass + ',' + fp + ')' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// var = pymunk.Poly(body, fp)
+Blockly.Python['pymunkpoly'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC);
+  var fp = Blockly.Python.valueToCode(block, "FP", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.Poly(' + body + ',' + fp + ')'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+// var = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000,900000)
+Blockly.Python['createdampedrotaryspring'] = function(block) {
+  var body1     = Blockly.Python.valueToCode(block, "BODY1", Blockly.Python.ORDER_ATOMIC)
+  var body2     = Blockly.Python.valueToCode(block, "BODY2", Blockly.Python.ORDER_ATOMIC)
+  var restAngle = Blockly.Python.valueToCode(block, "RESTANGLE", Blockly.Python.ORDER_ATOMIC)
+  var stiffness = Blockly.Python.valueToCode(block, "STIFFNESS", Blockly.Python.ORDER_ATOMIC)
+  var damping   = Blockly.Python.valueToCode(block, "DAMPING", Blockly.Python.ORDER_ATOMIC) 
+  
+  var code = 'pymunk.DampedRotarySpring(' + body1 + ',' + body2 + ',' + restAngle + ',' + stiffness + ',' + damping + ')'             
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+//r_flipper_body.apply_impulse_at_local_point(Vec2d.unit() * 40000, (-100,0))
+Blockly.Python['applyimpulse'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC)
+  var impulse = Blockly.Python.valueToCode(block, "IMPULSE", Blockly.Python.ORDER_ATOMIC)
+  var point = Blockly.Python.valueToCode(block, "POINT", Blockly.Python.ORDER_ATOMIC)
+
+  var code = body + '.apply_impulse_at_local_point (' + impulse + ',' + point + ')\n' 
+  return code;
+};
+
+Blockly.Python['collisioncategory'] = function(block) {
+  var category   = block.getFieldValue ("CATEGORY");  
+  var code = 'categories=' + category;
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+//var = pymunk.ShapeFilter(categories=0b1000)
+Blockly.Python['shapefilter'] = function(block) {
+  var category = Blockly.Python.valueToCode(block, "CATEGORY", Blockly.Python.ORDER_ATOMIC)  
+  var code = 'pymunk.ShapeFilter(' + category + ')';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+// var = pymunk.Circle(body, radius, offset)
+Blockly.Python['pymunkcircleoffset'] = function(block) {
+  var body = Blockly.Python.valueToCode(block, "BODY", Blockly.Python.ORDER_ATOMIC);
+  var radius = Blockly.Python.valueToCode(block, "RADIUS", Blockly.Python.ORDER_ATOMIC);
+  var offset = Blockly.Python.valueToCode(block, "OFFSET", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.Circle(' + body + ',' + radius + ',' + offset + ')'           
+  return [code, Blockly.Python.ORDER_NONE]; 
 };

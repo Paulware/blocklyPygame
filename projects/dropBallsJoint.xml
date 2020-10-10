@@ -1,0 +1,719 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="j:VqD)ZD{uLuMjdGg**a">space</variable>
+    <variable id="_#nd{LLf}@N=op5lWUy/">surface</variable>
+    <variable id="-*aS@k2}CPrY!M1Sw10S">rotation_limit_body</variable>
+    <variable id="bo0Z:^`@hBzfnB))$QFL">clock</variable>
+    <variable id="}6i8%Mu^;~@a7HL?uU/p">rotation_center_body</variable>
+    <variable id="1spRz(s+F?BK]H=%8v[Q">balls</variable>
+    <variable id="bs62Q?T{AsK|%DM:cT#R">body</variable>
+    <variable id="arc35*rFvBc)m`xE@x|]">drawOptions</variable>
+    <variable id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</variable>
+    <variable id="BkG^K}^QtDr~vNY2?MF-">l1</variable>
+    <variable id="gI(PTP|G_e%9=G@YdYr?">event</variable>
+    <variable id="dC@JK![L}G^vH!0Ahw|}">l2</variable>
+    <variable id="-qGA1m{rlf`$L]lF|H4(">rotation_center_joint</variable>
+    <variable id="eYc!Rzw`#tzXu13?L?N/">rotation_limit_joint</variable>
+    <variable id="mj(]UZCeJMT`%W:6V?p/">ball_shape</variable>
+  </variables>
+  <block type="procedures_defnoreturn" id=")Tf~z4BpZS*:6jrJhQ%r" x="88" y="-712">
+    <mutation>
+      <arg name="space" varid="j:VqD)ZD{uLuMjdGg**a"></arg>
+    </mutation>
+    <field name="NAME">addSegmentsAndJoints</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="createbody" id="c7MFXF,=vtR{yH:tydR-">
+        <value name="VARIABLE">
+          <block type="variables_get" id="q9P2B(WQ,HK@afPWs#DK">
+            <field name="VAR" id="-*aS@k2}CPrY!M1Sw10S">rotation_limit_body</field>
+          </block>
+        </value>
+        <value name="BODYTYPE">
+          <block type="bodytype" id="{Pu^vf2;{-v_cSHN$,Vq">
+            <field name="BODYTYPE">STATIC</field>
+          </block>
+        </value>
+        <next>
+          <block type="positionbody" id="L||rhZ,vbwDm.}kA$H@%">
+            <value name="VARIABLE">
+              <block type="variables_get" id="B`,m6IPFBl#lwC}$jdT~">
+                <field name="VAR" id="-*aS@k2}CPrY!M1Sw10S">rotation_limit_body</field>
+              </block>
+            </value>
+            <value name="POSITION">
+              <block type="tuple" id="M2Yg4;L=Iy6$3M3=j]bw">
+                <value name="FIRST">
+                  <block type="math_number" id="^0hCBZm%OD%d14mTSn*t">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <value name="SECOND">
+                  <block type="math_number" id="hn,?n4ohn=1#t7OeY%Do">
+                    <field name="NUM">300</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="createbody" id="0i0-vn|U%2~cLr;/!F!:">
+                <value name="VARIABLE">
+                  <block type="variables_get" id="BXhJR{%=QTw_5=)D4_b@">
+                    <field name="VAR" id="}6i8%Mu^;~@a7HL?uU/p">rotation_center_body</field>
+                  </block>
+                </value>
+                <value name="BODYTYPE">
+                  <block type="bodytype" id="f4.}bG09`1@Kq~OIusv_">
+                    <field name="BODYTYPE">STATIC</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="positionbody" id="=fH-2C:m%4BVZJp0mOrT">
+                    <value name="VARIABLE">
+                      <block type="variables_get" id="BM4n-up|4lTAF_G8zUKP">
+                        <field name="VAR" id="}6i8%Mu^;~@a7HL?uU/p">rotation_center_body</field>
+                      </block>
+                    </value>
+                    <value name="POSITION">
+                      <block type="tuple" id="]$sVYLlTe|2p5Tia1RS|">
+                        <value name="FIRST">
+                          <block type="math_number" id="1=Fqe`d1^C?6?Y6m4]2%">
+                            <field name="NUM">300</field>
+                          </block>
+                        </value>
+                        <value name="SECOND">
+                          <block type="math_number" id="%*9}vmKhXlJIzk7pCf5m">
+                            <field name="NUM">300</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="createbodymassinertia" id="|R|n=Ik$sb!IdIqc63QR">
+                        <value name="VARIABLE">
+                          <block type="variables_get" id="{AZagAQN^F5!dobL^U30">
+                            <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                          </block>
+                        </value>
+                        <value name="MASS">
+                          <block type="math_number" id="$%NIcgZ7GcQxm7~s]Iti">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                        <value name="INERTIA">
+                          <block type="math_number" id="Z[3e123:#_@Mi!1[Z:08">
+                            <field name="NUM">10000</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="positionbody" id="V|y68;2Q_G*BWsqgX{hV">
+                            <value name="VARIABLE">
+                              <block type="variables_get" id="Zs+fynb#/v@xAk:hy22g">
+                                <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                              </block>
+                            </value>
+                            <value name="POSITION">
+                              <block type="tuple" id="{1Z}DR5EvX0/:v6C]^_2">
+                                <value name="FIRST">
+                                  <block type="math_number" id="Wanq;1f1GH_1bb3[JyG5">
+                                    <field name="NUM">300</field>
+                                  </block>
+                                </value>
+                                <value name="SECOND">
+                                  <block type="math_number" id="`=Y/lj8e=L,+^,8%pKfi">
+                                    <field name="NUM">300</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="spaceadd" id="Yd3mqhqF?.IC@dq)ELiR">
+                                <value name="OBJECT">
+                                  <block type="variables_get" id="NSc$RPnbH^8E9R!fopft">
+                                    <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                                  </block>
+                                </value>
+                                <value name="SPACE">
+                                  <block type="variables_get" id="[so}*vzw,!cB_vaXVzM6">
+                                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="createsegment" id="mo8p-i.^bp(/Mn(o|W|3">
+                                    <value name="VARIABLE">
+                                      <block type="variables_get" id="30lAof?u]54^BXkG8k.t">
+                                        <field name="VAR" id="BkG^K}^QtDr~vNY2?MF-">l1</field>
+                                      </block>
+                                    </value>
+                                    <value name="BODY">
+                                      <block type="variables_get" id="PKO*`0rBX3w4c$uB,`1y">
+                                        <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                                      </block>
+                                    </value>
+                                    <value name="POINT1">
+                                      <block type="tuple" id="qB)Ul1@0:WwC}K(#7Ppe">
+                                        <value name="FIRST">
+                                          <block type="math_number" id="t8bte~SMmF8QytcoO5UF">
+                                            <field name="NUM">-150</field>
+                                          </block>
+                                        </value>
+                                        <value name="SECOND">
+                                          <block type="math_number" id="dfS/15igF+=zl2y[f}sX">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="POINT2">
+                                      <block type="tuple" id="IQvXlLsq7aowU:%[N`I(">
+                                        <value name="FIRST">
+                                          <block type="math_number" id="lUakH[|+?$x[n=}xuD6?">
+                                            <field name="NUM">255</field>
+                                          </block>
+                                        </value>
+                                        <value name="SECOND">
+                                          <block type="math_number" id="g9f.I[!*r`sz(GEW:ZH;">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="WIDTH">
+                                      <block type="math_number" id="1iLAZ3^Q%o4^t(;E*2HF">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="spaceadd" id="n?o1NLuAeEzgR64lb]Q=">
+                                        <value name="OBJECT">
+                                          <block type="variables_get" id="rjD#jw-.Rc}(.(J89`}A">
+                                            <field name="VAR" id="BkG^K}^QtDr~vNY2?MF-">l1</field>
+                                          </block>
+                                        </value>
+                                        <value name="SPACE">
+                                          <block type="variables_get" id="lgP1KjnsbXVojSzP583E">
+                                            <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="createsegment" id="TKVSICfBZHM@t2UqZo0:">
+                                            <value name="VARIABLE">
+                                              <block type="variables_get" id="R@N5W%_.lK5{sAIH*q.Y">
+                                                <field name="VAR" id="dC@JK![L}G^vH!0Ahw|}">l2</field>
+                                              </block>
+                                            </value>
+                                            <value name="BODY">
+                                              <block type="variables_get" id="ji!{k?yR-ugHj~/Awn*[">
+                                                <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                                              </block>
+                                            </value>
+                                            <value name="POINT1">
+                                              <block type="tuple" id=")jJ7LD{ar42h|kl^X59}">
+                                                <value name="FIRST">
+                                                  <block type="math_number" id="HN9%B|3_EMukI-#eKMI1">
+                                                    <field name="NUM">-150</field>
+                                                  </block>
+                                                </value>
+                                                <value name="SECOND">
+                                                  <block type="math_number" id="-m8y[i1R4@`V~D~Vd2V,">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="POINT2">
+                                              <block type="tuple" id="@X9cTXL,icYVnusU6X!:">
+                                                <value name="FIRST">
+                                                  <block type="math_number" id="*Yg5GFy6qJFB7?3Of`$o">
+                                                    <field name="NUM">-150</field>
+                                                  </block>
+                                                </value>
+                                                <value name="SECOND">
+                                                  <block type="math_number" id="-/e(^8ffT(7b}Q4g:|*{">
+                                                    <field name="NUM">50</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="WIDTH">
+                                              <block type="math_number" id="9iSlkQ7|9nbnXRTRxA2g">
+                                                <field name="NUM">5</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="spaceadd" id="5IsF6Z::*W:zyf]2)WV$">
+                                                <value name="OBJECT">
+                                                  <block type="variables_get" id="LU^zaRmbUqqtms/uWo~J">
+                                                    <field name="VAR" id="dC@JK![L}G^vH!0Ahw|}">l2</field>
+                                                  </block>
+                                                </value>
+                                                <value name="SPACE">
+                                                  <block type="variables_get" id="2(r1EKjow?d3)#)T`02n">
+                                                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="createpinjoint" id="gXj%{$=QoHuE`s`i%kY~">
+                                                    <value name="VARIABLE">
+                                                      <block type="variables_get" id="u6;/M3_8cH#Ds.8k*XS8">
+                                                        <field name="VAR" id="-qGA1m{rlf`$L]lF|H4(">rotation_center_joint</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="BODY1">
+                                                      <block type="variables_get" id="2|AYmBUD{._E})KMvB`Q">
+                                                        <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="BODY2">
+                                                      <block type="variables_get" id="/THEn1_LGa:[)O{Rd0=?">
+                                                        <field name="VAR" id="}6i8%Mu^;~@a7HL?uU/p">rotation_center_body</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="spaceadd" id="EL$jz1_Yebo*UbRG)Z.x">
+                                                        <value name="OBJECT">
+                                                          <block type="variables_get" id="f|P*WVq=mX?v)sZC1R}f">
+                                                            <field name="VAR" id="-qGA1m{rlf`$L]lF|H4(">rotation_center_joint</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="SPACE">
+                                                          <block type="variables_get" id="#:n;|w?8MVX|B1F(9Om8">
+                                                            <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="variables_set" id="hYBvGA,(7@aNITGZqMeK">
+                                                            <field name="VAR" id="eYc!Rzw`#tzXu13?L?N/">rotation_limit_joint</field>
+                                                            <value name="VALUE">
+                                                              <block type="createslidejoint" id="?$OihK=Kc?v~$^y.k1z}">
+                                                                <value name="BODY1">
+                                                                  <block type="variables_get" id="E)K=8nU7V^fwcX/7.Z6/">
+                                                                    <field name="VAR" id="bs62Q?T{AsK|%DM:cT#R">body</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="BODY2">
+                                                                  <block type="variables_get" id="DIaY,h?=dbHb5y;06]^E">
+                                                                    <field name="VAR" id="-*aS@k2}CPrY!M1Sw10S">rotation_limit_body</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POINT1">
+                                                                  <block type="tuple" id="bQk?K:ACgcM1B3W.O9Y,">
+                                                                    <value name="FIRST">
+                                                                      <block type="math_number" id="%|Vtq/^cAP:;lC$?WbR?">
+                                                                        <field name="NUM">-100</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="SECOND">
+                                                                      <block type="math_number" id="g_Wq%WqY~Vl%cZv(F:KE">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POINT2">
+                                                                  <block type="tuple" id="]1?Qu^+Y`Y{JulOby}SN">
+                                                                    <value name="FIRST">
+                                                                      <block type="math_number" id="$NtA;Wl{3F%Zs,2c+;i)">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="SECOND">
+                                                                      <block type="math_number" id="D0?jajvw4o,^Lt9b6yrF">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="JOINTLIMIT">
+                                                                  <block type="math_number" id="7`RBfXh)l|_;Z{q^25|v">
+                                                                    <field name="NUM">25</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="spaceadd" id="+(yQE~e$69XQXR[ILy2p">
+                                                                <value name="OBJECT">
+                                                                  <block type="variables_get" id="v]+GfTfb!VbxqCYFuXga">
+                                                                    <field name="VAR" id="eYc!Rzw`#tzXu13?L?N/">rotation_limit_joint</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="SPACE">
+                                                                  <block type="variables_get" id="V$5^4EP;FvNTRybP,0)[">
+                                                                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defreturn" id="r5F~*c~?}`A1)g%t@|0#" x="88" y="188">
+    <mutation>
+      <arg name="space" varid="j:VqD)ZD{uLuMjdGg**a"></arg>
+    </mutation>
+    <field name="NAME">add_ball</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="addball" id="l^j7Dtf`,}vH%uzckwB(">
+        <value name="SPACE">
+          <block type="variables_get" id="OyOjWC@=:|!@2j*ab8d+">
+            <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+          </block>
+        </value>
+        <value name="RADIUS">
+          <block type="math_number" id="Xnb!hGk4^qT3#A,)Fx-4">
+            <field name="NUM">14</field>
+          </block>
+        </value>
+        <value name="POSITION">
+          <block type="tuple" id="1-%G5~VtUQ[.22$XX8;y">
+            <value name="FIRST">
+              <block type="math_random_int" id="*5x7m}9U#%_i3n5q,jK)">
+                <value name="FROM">
+                  <shadow type="math_number" id="CjPgi3OxC%PQYBO+HGR;">
+                    <field name="NUM">120</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number" id="o2`%I]mEZ/6)iw`*)j[2">
+                    <field name="NUM">380</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="SECOND">
+              <block type="math_number" id="JgZmy=gF(2dL(Hw!eZDU">
+                <field name="NUM">550</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get" id="Ulh5z8*upq|W4sNa76y$">
+        <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id="p_ay5wwbrhlM-AD|x4HL" x="88" y="338">
+    <field name="VAR" id="_#nd{LLf}@N=op5lWUy/">surface</field>
+    <value name="VALUE">
+      <block type="getscreen" id="SzI;ExBa7sOJ6=0k4A(m">
+        <value name="WIDTH">
+          <block type="math_number" id="|hj9BDQ![},]8J8}?f68">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number" id="yAq4G.?V=cbexQ0!IG|k">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="setcaption" id="IsEtSBb7x:z8(vD!C,D}">
+        <value name="TITLE">
+          <block type="text" id="_`fBK0jA#{L}PUz]wEW_">
+            <field name="TEXT">Drop Balls on Line Segments and Joints</field>
+          </block>
+        </value>
+        <next>
+          <block type="createclock" id="3YTFnm04I+k{7O]ezwi3">
+            <value name="VARIABLE">
+              <block type="variables_get" id="MSc2}Tf)JZOhU_wX~K9(">
+                <field name="VAR" id="bo0Z:^`@hBzfnB))$QFL">clock</field>
+              </block>
+            </value>
+            <next>
+              <block type="createspace" id="hB/ffW*U%6e~d0^K)Y[p">
+                <value name="VARIABLE">
+                  <block type="variables_get" id="fgkqzsOpd`6A$~y6%n=*">
+                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                  </block>
+                </value>
+                <value name="GRAVITY">
+                  <block type="tuple" id="hjec*#P5z-D2=i;|a[P3">
+                    <value name="FIRST">
+                      <block type="math_number" id="B21XZ$$RdDTXlM*ncmpq">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="SECOND">
+                      <block type="math_number" id="7$G_$6XMU4@ny66Oi/g_">
+                        <field name="NUM">-999</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="procedures_callnoreturn" id="{ZY=-s:)/PS$pY;PG~OV">
+                    <mutation name="addSegmentsAndJoints">
+                      <arg name="space"></arg>
+                    </mutation>
+                    <value name="ARG0">
+                      <block type="variables_get" id="xr,CO%~,X/$o?]GyvmZf">
+                        <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="8:4ZQce8xXO+aKY{I|49">
+                        <field name="VAR" id="1spRz(s+F?BK]H=%8v[Q">balls</field>
+                        <value name="VALUE">
+                          <block type="lists_create_with" id="}*14le?2Y/.1-fcC`llp">
+                            <mutation items="0"></mutation>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="wZ8Q*6!cXeRyv+Q-Hq_X">
+                            <field name="VAR" id="arc35*rFvBc)m`xE@x|]">drawOptions</field>
+                            <value name="VALUE">
+                              <block type="getdrawoptions" id="Q8K,$d|L_5KION^8)CRr">
+                                <value name="SCREEN">
+                                  <block type="variables_get" id="9S2ma*yJ=reRjA|C_:HZ">
+                                    <field name="VAR" id="_#nd{LLf}@N=op5lWUy/">surface</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="fMHYnkYyAe{C{Z*Tqu;V">
+                                <field name="VAR" id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</field>
+                                <value name="VALUE">
+                                  <block type="math_number" id="djzl%6@b@715IV}r17,[">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_whileUntil" id="BN}8PLNKEk|Dt|q7*N6x">
+                                    <field name="MODE">WHILE</field>
+                                    <value name="BOOL">
+                                      <block type="logic_boolean" id="vx_nLzF!ZsN+S)P;#yk7">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="variables_set" id="72e*Ry`2E=#=^~bB]}Ij">
+                                        <field name="VAR" id="gI(PTP|G_e%9=G@YdYr?">event</field>
+                                        <value name="VALUE">
+                                          <block type="pollevent" id=",ca}MLo7sB+|:#:gLr[?"></block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_if" id="xo3y2Ve4}6)7sGlQmHDI">
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="4[5o]X[fz{qI;TvY_H.8">
+                                                <field name="OP">EQ</field>
+                                                <value name="A">
+                                                  <block type="eventtype" id="%C~%#ieeFn#islZs]mbt">
+                                                    <value name="EVENT">
+                                                      <block type="variables_get" id="s1f1.Mdpf[U]G]n;XhUr">
+                                                        <field name="VAR" id="gI(PTP|G_e%9=G@YdYr?">event</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="events" id="gM5|-Z0NR=ZioRkSukKd">
+                                                    <field name="EVENT">QUIT</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="controls_flow_statements" id="HGl`|bVE@*W8_zCh.h6?">
+                                                <field name="FLOW">BREAK</field>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="variables_set" id="O2!dIJySgVqOd:|3`s+^">
+                                                <field name="VAR" id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="cZ11G?s5DL2]_AGVW|r$">
+                                                    <field name="OP">MINUS</field>
+                                                    <value name="A">
+                                                      <shadow type="math_number" id=",G-(I*f+hY!+6d@yl.+x">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="6Qn7(l+]70B.TP`5n4c^">
+                                                        <field name="VAR" id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="2Im!cJi(-hYkf;@eh#:O">
+                                                        <field name="NUM">1</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="controls_if" id="X5^C{3F6+I1^B)`#K:bL">
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="FYZ-^CRsI1Q_MMoj$fwd">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="gU8LYEO;4%)Kg+@9HY4u">
+                                                            <field name="VAR" id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="math_number" id="9H[|?vlIf.?1x%nXD,7R">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="variables_set" id="D3=R9VhE.)-P{s2IfjsL">
+                                                        <field name="VAR" id="e)**O}Cqy%$6|~.z}e*W">ticks_to_next_ball</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id="H]4O^,}mVFf0M{8v).QH">
+                                                            <field name="NUM">10</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="variables_set" id=",1Zv6J-{NlP.i6xJp1)R">
+                                                            <field name="VAR" id="mj(]UZCeJMT`%W:6V?p/">ball_shape</field>
+                                                            <value name="VALUE">
+                                                              <block type="procedures_callreturn" id="LB+ba]|T{E6.F|N|@+a|">
+                                                                <mutation name="add_ball">
+                                                                  <arg name="space"></arg>
+                                                                </mutation>
+                                                                <value name="ARG0">
+                                                                  <block type="variables_get" id="U:D5Hj.n^,h)[1j[UAmc">
+                                                                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="addtolist" id="-nf2A%EeB@XDoSq/N-.T">
+                                                                <value name="ITEM">
+                                                                  <block type="variables_get" id="{e}O,k=Fua`8@HkGk..t">
+                                                                    <field name="VAR" id="mj(]UZCeJMT`%W:6V?p/">ball_shape</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="LIST">
+                                                                  <block type="variables_get" id="Ct(M3i^9Sg~SPJ`*1?Fh">
+                                                                    <field name="VAR" id="1spRz(s+F?BK]H=%8v[Q">balls</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="stepspace" id="tkfJ@6FI[,5n./*:ePT2">
+                                                        <value name="SPACE">
+                                                          <block type="variables_get" id="!Z#f}*$6A]E_A8/_BO,$">
+                                                            <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id="Xz3L%`TK86CPQE9-*~zA">
+                                                            <field name="NUM">0.02</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="fillsurface" id="c,kC)yk,f(j9*iN$auYz">
+                                                            <value name="SURFACE">
+                                                              <block type="variables_get" id="W.si(cf02b*8J[Tsg@Ti">
+                                                                <field name="VAR" id="_#nd{LLf}@N=op5lWUy/">surface</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="COLOR">
+                                                              <block type="colour_picker" id="4O-;!PQAgk_NTvD3iFTX">
+                                                                <field name="COLOUR">#ffffff</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="drawspace" id="jR#n2[@I@o@3y9DHf4NT">
+                                                                <value name="SPACE">
+                                                                  <block type="variables_get" id="2zhl#:Wn(p03qd_80KtA">
+                                                                    <field name="VAR" id="j:VqD)ZD{uLuMjdGg**a">space</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="OPTIONS">
+                                                                  <block type="variables_get" id="R1XO1,~f;RM[p|)m/pM.">
+                                                                    <field name="VAR" id="arc35*rFvBc)m`xE@x|]">drawOptions</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="pygameupdate" id="mCwFjgLT~CExP@-X*g;s">
+                                                                    <next>
+                                                                      <block type="syncclock" id="a#oTY#p-A2;9P.UFe*Q~">
+                                                                        <value name="VARIABLE">
+                                                                          <block type="variables_get" id="EmbW:;J,t7uYjxW%QP$~">
+                                                                            <field name="VAR" id="bo0Z:^`@hBzfnB))$QFL">clock</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="RATE">
+                                                                          <block type="math_number" id="{-{6k6^a^:-zJRJPQFr0">
+                                                                            <field name="NUM">40</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
