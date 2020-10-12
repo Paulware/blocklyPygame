@@ -862,12 +862,6 @@ Blockly.Python['spacedamping'] = function(block) {
   return code;
 };
 
-// var = pymunk.Vec2d (position) 
-Blockly.Python['createvec2d'] = function(block) {
-  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC);
-  var code = 'pymunk.Vec2d(' + position + ')'           
-  return [code, Blockly.Python.ORDER_NONE]; 
-};
 
 // var = body.position 
 Blockly.Python['bodyposition'] = function(block) {
@@ -1071,3 +1065,49 @@ Blockly.Python['pymunkcircleoffset'] = function(block) {
   var code = 'pymunk.Circle(' + body + ',' + radius + ',' + offset + ')'           
   return [code, Blockly.Python.ORDER_NONE]; 
 };
+
+
+Blockly.Python['getarrayelement'] = function(block) {
+  var element   = block.getFieldValue ("ELEMENT");
+  var array = Blockly.Python.valueToCode(block, "ARRAY", Blockly.Python.ORDER_ATOMIC);
+  var code = array + '[' + element + ']'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['setarrayelement'] = function(block) {
+  var element   = block.getFieldValue ("ELEMENT");
+  var array = Blockly.Python.valueToCode(block, "ARRAY", Blockly.Python.ORDER_ATOMIC);
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC);
+  var code = array + '[' + element + ']=' + value + '\n'
+  return code; 
+};
+
+Blockly.Python['callmethod'] = function(block) {
+  var method = block.getFieldValue ("METHOD"); 
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  var code = obj + '.' + method + '\n';
+  return code; 
+};
+
+// var = pymunk.Vec2d (position) 
+Blockly.Python['createvec2d'] = function(block) {
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC);
+  var code = 'pymunk.Vec2d(' + position + ')'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+// Vec2d  
+Blockly.Python['vec2d'] = function(block) {
+  var code = 'Vec2d'           
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['returnmethod'] = function(block) {
+  var method = block.getFieldValue ("METHOD"); 
+  var obj = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  var code = obj + '.' + method;
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+
+

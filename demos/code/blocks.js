@@ -2030,5 +2030,85 @@ Blockly.Blocks['pymunkcircleoffset']={
     this.setHelpUrl('http://www.example.com/');
   }
 };
-//         .appendField (new Blockly.FieldTextInput ( "\"Hello\""), "MESSAGE"
-//  This field is to access an array/list element
+
+// get an array/list element
+Blockly.Blocks['getarrayelement']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("ARRAY")
+        .appendField("Get element")         
+        .appendField (new Blockly.FieldTextInput ( "\'first\'"), "ELEMENT")
+        .appendField("in array");          
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// set an array/list element
+Blockly.Blocks['setarrayelement']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput("ARRAY")
+        .appendField("Set element")         
+        .appendField (new Blockly.FieldTextInput ( "\'first\'"), "ELEMENT")
+        .appendField("in array");  
+    this.appendValueInput("VALUE")
+        .appendField("to value")    
+    this.setPreviousStatement(true, null);
+    this.setInputsInline(true);      
+    this.setNextStatement(true, null);        
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['callmethod']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField ("Call method ")
+        .appendField (new Blockly.FieldTextInput ( "methodname()"), "METHOD")   
+   this.appendValueInput("OBJECT")
+       .appendField("in object"); 
+   this.setPreviousStatement(true, null);
+   this.setInputsInline(true);      
+   this.setNextStatement(true, null);      
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['returnmethod']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField ("Return method ")
+        .appendField (new Blockly.FieldTextInput ( "methodname()"), "METHOD")   
+   this.appendValueInput("OBJECT")
+       .appendField("in object"); 
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+// Vec2d
+Blockly.Blocks['vec2d']={
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendDummyInput()
+        .appendField("Vec2d")
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+

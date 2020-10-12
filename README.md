@@ -1,5 +1,5 @@
 
-<h1>Setup</h1>
+<h1><a href="#Setup">Setup</a></h1>
 <hr>
 <h2>Install Python</h2>
 <img src="howInstallPython.jpg">
