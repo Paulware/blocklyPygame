@@ -41,29 +41,7 @@
                <select onChange="selectClass (this.value);">
                   <option value="0">None</option>
                   <option value="1">Class 1</option>
-                  <option value="2">Class 2</option>
-                  <option value="3">Class 3</option>
-                  <option value="4">Class 4</option>
-                  <option value="5">Class 5</option>
-                  <option value="6">Class 6</option>
-                  <option value="7">Class 7</option>
-                  <option value="8">Class 8</option>
-                  <option value="9">Class 9</option>
-                  <option value="10">Class 10</option>
-                  <option value="11">Class 11</option>
-                  <option value="12">Class 12</option>
-                  <option value="13">Class 13</option>
-                  <option value="14">Class 14</option>
-                  <option value="15">Class 15</option>
-                  <option value="16">Class 16</option>
-                  <option value="17">Class 17</option>
-                  <option value="18">Class 18</option>
-                  <option value="19">Class 19</option>
-                  <option value="20">Class 20</option>
-                  <option value="21">Class 21</option>
-                  <option value="22">Class 22</option>
-                  <option value="23">Class 23</option>
-                  <option value="24">Class 24</option>
+                  <option value="0">All</option>
                </select>
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_javascript" class="taboff tab_collapse" style="display:none">JavaScript</td>            
@@ -74,6 +52,8 @@
                      function selectClass (classNumber) {                        
                         if (classNumber != '0') {
                            window.location.href='class' + classNumber + '.html';
+                        } else {
+                           window.location.href='index.html';
                         }
                      }
                      function savePython() {
@@ -635,7 +615,7 @@
       <!block type="addtolist"><!/block>
     <!/category>
     <!category name="%{BKY_CATCOLOUR}" colour="%{BKY_COLOUR_HUE}">
-      <!block type="colour_picker"><!/block>
+      <block type="colour_picker"></block>
       <!block type="colour_random"><!/block>
       <!block type="colour_rgb">
         <value name="RED">
