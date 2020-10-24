@@ -1,0 +1,74 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="7maOu5F[3uPDk63J2wpc">surface</variable>
+    <variable id="N/`fd`():nZKPJ5MeUl~">image</variable>
+  </variables>
+  <block type="variables_set" id="1c({Ox,aZU]cP^{_;Fm." x="138" y="38">
+    <field name="VAR" id="7maOu5F[3uPDk63J2wpc">surface</field>
+    <value name="VALUE">
+      <block type="getscreen" id="G0*~*alAl$D2U%ZM]JUU">
+        <value name="WIDTH">
+          <block type="math_number" id="R!:8]%K[Ivm44|/w8V1h">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+        <value name="HEIGHT">
+          <block type="math_number" id="[rVf%uGEoIG~^*w[089n">
+            <field name="NUM">600</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="y7+q%C0dz69n7,$Jvgq%">
+        <field name="VAR" id="N/`fd`():nZKPJ5MeUl~">image</field>
+        <value name="VALUE">
+          <block type="loadimage" id="@xE[~!^3K8WJ-M}(eFMs">
+            <value name="FILENAME">
+              <block type="text" id="K^ByvYACqh@qo/?{PiC@">
+                <field name="TEXT">vangogh.jpg</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="drawimage" id="X!+D_DSE7A7kw(Tg+O][">
+            <value name="IMAGE">
+              <block type="variables_get" id="6R*[T6N$,bY?uXEM},l2">
+                <field name="VAR" id="N/`fd`():nZKPJ5MeUl~">image</field>
+              </block>
+            </value>
+            <value name="SURFACE">
+              <block type="variables_get" id="vrV`i`a!/Q9|SoPTC{jA">
+                <field name="VAR" id="7maOu5F[3uPDk63J2wpc">surface</field>
+              </block>
+            </value>
+            <value name="POSITION">
+              <block type="position" id="X2US!0{%U~3a3r_.CYuo">
+                <value name="X">
+                  <block type="math_number" id="%1IjY?PylA!b+two3Xk-">
+                    <field name="NUM">300</field>
+                  </block>
+                </value>
+                <value name="Y">
+                  <block type="math_number" id="#dvBtxPTFjdUbM-R7~4P">
+                    <field name="NUM">300</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="waitevent" id="wZR*IYq}gpR35l_yq=9#">
+                <value name="EVENT">
+                  <block type="events" id=";~47%wq|9)(J@I_VEiel">
+                    <field name="EVENT">MOUSEBUTTONDOWN</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,17 @@
+Displaying Text and Images
+Drawing an image requires 4 items:
+   1) The image file itself
+   2) A variable to hold the image
+   3) A surface to place it on 
+   4) A location on surfaced 
+   
+To load an image we use load Image block  
+Filename can be a text 
+We will place this image in a variable 
+<hr>
+To create a surface that we can use, we will use the Get a screen block
+Here we need to specify the width and height in pixels
+<hr>
+To draw an image on surface use the draw image block 
+<hr>
+To wait for pygame we use the wait for pygame event block 
