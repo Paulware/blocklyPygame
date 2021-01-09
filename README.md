@@ -2,7 +2,7 @@
 <h1><a href="#Setup">Setup</a></h1>
 <hr>
 <h2>Install Python</h2>
-<img src="http://Paulware.github.io/blocklyPygame/images/howInstallPython.jpg">
+<img src="docs/images/howInstallPython.jpg">
 <hr>
 <h2>Install Pygame</h2>
 <ul>
@@ -31,7 +31,7 @@
 <hr>
 <hr>
 <h2>Chrome Setup</h2>
-<img src="http://Paulware.github.io/blocklyPygame/images/chromeSetup.jpg"><br>
+<img src="docs/images/chromeSetup.jpg"><br>
 <a href="http://Paulware.github.io/blocklyPygame/index.html">Docs</a>
 
        
