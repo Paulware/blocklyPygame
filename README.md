@@ -7,6 +7,14 @@ It is appropriate for youngsters that have a desire to easily build windows (and
 <section id = "setup"><h2>Setup</h2></section>
 <a href="http://Paulware.github.io/blocklyPygame/setup.html">Setup</a><br>
 <hr>
+<h2>Class Structure</h2>
+<ul>
+   <li>0:00 - 5:00 Jokes (Wait for all students to join)</li>
+   <li>5:00 - 15:00 Homework Discussion</li>
+   <li>15:00 - 55:00 Lesson Plan</li>
+   <li>55:00 - 60:00 Discussion of Next Homework</li>
+</ul>
+<hr>
 <section id="lessons"><h2>Lesson Plan</h2></section>
 <a href="https://paulware.github.io/blocklyPygame/lessonPlan.html">Lesson Plan</a><br>
 <hr>
