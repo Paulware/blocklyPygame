@@ -8,6 +8,7 @@ It is appropriate for youngsters that have a desire to easily build windows (and
 <a href="http://Paulware.github.io/blocklyPygame/setup.html">Setup</a><br>
 <hr>
 <section id="lessons"><h2>Lesson Plan</h2></section>
+<a href="https://paulware.github.io/blocklyPygame/lessonPlan.html">Lesson Plan</a><br>
 <hr>
 <section id="videos"><h2>Videos</h2></section>
 Here are some videos that describe the course in more detail<br>
