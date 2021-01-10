@@ -9,8 +9,8 @@ It is appropriate for youngsters that have a desire to easily build windows (and
 <hr>
 <h2>Class Structure</h2>
 <ul>
-   <li>0:00 - 5:00 Open discussion with Memes/Jokes</li>
-   <li>5:00 - 15:00 Homework Discussion</li>
+   <li>&nbsp;0:00 - &nbsp;5:00 Open discussion with Memes/Jokes</li>
+   <li>&nbsp;5:00 - 15:00 Homework Discussion</li>
    <li>15:00 - 55:00 Lesson Plan</li>
    <li>55:00 - 60:00 Discussion of Next Homework</li>
 </ul>
