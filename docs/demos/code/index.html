@@ -38,8 +38,7 @@
             <td id="tab_blocks" class="tabon">...</td>
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_class" class="taboff tab_collapse">Select Class<br>
-               <select onChange="selectClass (this.value);">
-                  <option value="0" selected>None</option>
+               <select onChange="selectClass (this.value);" onfocus="this.selectedIndex=-1;">
                   <option value="1">Class 1</option>
                   <option value="2">Class 2</option>
                </select>

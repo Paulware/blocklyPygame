@@ -100,6 +100,7 @@ Blockly.Python['screenmode'] = function(block) {
 
 Blockly.Python['setcaption'] = function(block) {  
   var title = Blockly.Python.valueToCode(block, "TITLE", Blockly.Python.ORDER_ATOMIC)
+  title = 'str(' + title + ')'
   var code = 'pygame.display.set_caption(' + title + ')\n';
   return code;
 };
@@ -115,6 +116,7 @@ Blockly.Python['rendertext'] = function(block) {
   var color = Blockly.Python.valueToCode(block, "COLOR",     Blockly.Python.ORDER_ATOMIC)
   var size  = block.getFieldValue ("SIZE");  
   color = 'pygame.Color(' + color + ')'
+  text = 'str(' + text + ')' 
   
   var code = 'pygame.font.Font(\'freesansbold.ttf\',' + size + ').render (' + text + ',True,' + color + ')' 
   return [code, Blockly.Python.ORDER_NONE]; 
@@ -480,13 +482,14 @@ Blockly.Python['movesprite'] = function(block) {
 };
 
 Blockly.Python['drawsurfacetext'] = function(block) {  
-  var x       = Blockly.Python.valueToCode(block, "X",    Blockly.Python.ORDER_ATOMIC)
-  var y       = Blockly.Python.valueToCode(block, "Y",    Blockly.Python.ORDER_ATOMIC)
-  var color   = Blockly.Python.valueToCode(block, "COLOR",    Blockly.Python.ORDER_ATOMIC)
+  var x       = Blockly.Python.valueToCode(block, "X",       Blockly.Python.ORDER_ATOMIC)
+  var y       = Blockly.Python.valueToCode(block, "Y",       Blockly.Python.ORDER_ATOMIC)
+  var color   = Blockly.Python.valueToCode(block, "COLOR",   Blockly.Python.ORDER_ATOMIC)
   var size    = Blockly.Python.valueToCode(block, "SIZE",    Blockly.Python.ORDER_ATOMIC)  
   var txt     = Blockly.Python.valueToCode(block, "TEXT",    Blockly.Python.ORDER_ATOMIC)
   var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)  
   color = 'pygame.Color(' + color + ')'
+  txt = 'str(' + txt + ')' 
   var code = 
       "_text = pygame.font.Font('freesansbold.ttf'," + size + ").render (" + txt + ",True," + color + ")\n" + 
       "_rect = _text.get_rect()\n" + 
