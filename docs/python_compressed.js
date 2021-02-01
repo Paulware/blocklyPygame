@@ -46,7 +46,7 @@ Blockly.Python.finish=function(a){
  delete Blockly.Python.definitions_;
  delete Blockly.Python.functionNames_;
  Blockly.Python.variableDB_.reset();
- var imports = "import time\ntry:\n   import pygame\nexcept:\n   print ( \'Could not import pygame. Try: \\npip install pygame\')\n   time.sleep (5)\nimport time\nimport threading\nimport math\ntry:\n   import pymunk\n   import pymunk.pygame_util\nexcept:\n   pass\nimport os\n"
+ var imports = "import time\ntry:\n   import pygame\nexcept:\n   print ( \'Could not import pygame. Try: \\npip install pygame\')\n   time.sleep (5)\nimport time\nimport threading\nimport math\ntry:\n   import pymunk\n   import pymunk.pygame_util\nexcept:\n   pass\nimport os\n#lambdas\ncolorAt = lambda x,y,screen : screen.get_at ((x,y))\ncolorTotal = lambda color: color[0] + color[1] + color[2]\nisBlack = lambda x,y,screen: colorTotal(colorAt(x,y,screen)) < 12\n\n"
  var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\npygame.init()\n' 
  return(imports + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+'\ntime.sleep(2)'
 };

@@ -2111,4 +2111,19 @@ Blockly.Blocks['vec2d']={
   }
 };
 
+Blockly.Blocks['isblack']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("POSITION")
+        .appendField ("Pixel is black at (x,y):  ")
+   this.appendValueInput("SCREEN")
+       .appendField("in screen"); 
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 

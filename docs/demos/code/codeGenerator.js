@@ -1112,5 +1112,13 @@ Blockly.Python['returnmethod'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
+Blockly.Python['isblack'] = function(block) {
+  var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
+  var screen = Blockly.Python.valueToCode(block, "SCREEN", Blockly.Python.ORDER_ATOMIC)
+  //alert ( 'position: ' + position );
+  //alert ( 'screen: ' + screen );
+  var code = 'isBlack (' + position + '[0],' + position + '[1],' + screen + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
 
 
