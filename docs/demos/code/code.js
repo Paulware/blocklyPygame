@@ -459,7 +459,7 @@ Code.init = function() {
 
   Code.bindClick('trashButton',
       function() {Code.discard(); Code.renderContent();});
-  Code.bindClick('runButton', Code.runJS);
+  Code.bindClick('runButton', Code.runPython);
   // Disable the link button if page isn't backed by App Engine storage.
   var linkButton = document.getElementById('linkButton');
   if ('BlocklyStorage' in window) {
@@ -546,6 +546,9 @@ Code.initLanguage = function() {
   document.getElementById('trashButton').title = MSG['trashTooltip'];
 };
 
+Code.runPython = function () {
+   alert ( 'To run the python code, click on the \"Run Python\" Save button and then open after download');
+}
 /**
  * Execute the user's code.
  * Just a quick and dirty eval.  Catch infinite loops.

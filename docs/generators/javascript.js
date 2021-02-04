@@ -23,6 +23,11 @@ goog.require('Blockly.utils.string');
  */
 Blockly.JavaScript = new Blockly.Generator('JavaScript');
 
+Blockly.JavaScript.setcaption = function() { 
+   alert ( 'Got a setcaption yo');
+}
+
+
 /**
  * List of illegal variable names.
  * This is not intended to be a security feature.  Blockly is 100% client-side,

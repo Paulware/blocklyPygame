@@ -42,7 +42,7 @@ Blockly.Python['clearevents'] = function(block) {
 
 Blockly.Python['loadimage'] = function(block) {
   var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC) 
-  var code = 'pygame.image.load (' + filename + ').convert()';
+  var code = 'pygame.image.load (' + filename + ').convert_alpha()';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
