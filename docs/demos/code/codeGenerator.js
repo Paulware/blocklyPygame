@@ -1115,10 +1115,57 @@ Blockly.Python['returnmethod'] = function(block) {
 Blockly.Python['isblack'] = function(block) {
   var position = Blockly.Python.valueToCode(block, "POSITION", Blockly.Python.ORDER_ATOMIC)
   var screen = Blockly.Python.valueToCode(block, "SCREEN", Blockly.Python.ORDER_ATOMIC)
-  //alert ( 'position: ' + position );
-  //alert ( 'screen: ' + screen );
+  
   var code = 'isBlack (' + position + '[0],' + position + '[1],' + screen + ')';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
+
+Blockly.Python['wasdpressed'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var ch = Blockly.Python.valueToCode(block, "CH", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 'allDown (' + keys + ',' + ch + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['wasdreleased'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var ch = Blockly.Python.valueToCode(block, "CH", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 'allUp (' + keys + ',' + ch + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+Blockly.Python['getxoffset'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var offset = Blockly.Python.valueToCode(block, "OFFSET", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 'getXOffsets (' + keys + ',' + offset + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+Blockly.Python['getyoffset'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var offset = Blockly.Python.valueToCode(block, "OFFSET", Blockly.Python.ORDER_ATOMIC)
+
+  var code = 'getYOffsets (' + keys + ',' + offset + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['getwasdoffset'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var offset = Blockly.Python.valueToCode(block, "OFFSET", Blockly.Python.ORDER_ATOMIC)
+  var xy = block.getFieldValue ("XY"); 
+
+  var code = 'get' + xy + 'Offsets (' + keys + ',' + offset + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['wasdpressedreleased'] = function(block) {
+  var keys = Blockly.Python.valueToCode(block, "WASD", Blockly.Python.ORDER_ATOMIC)
+  var ch = Blockly.Python.valueToCode(block, "CH", Blockly.Python.ORDER_ATOMIC)
+  var pressedReleased = block.getFieldValue ("PRESSEDRELEASED"); 
+
+  var code = pressedReleased + '(' + keys + ',' + ch + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
 

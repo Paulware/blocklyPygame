@@ -2125,5 +2125,113 @@ Blockly.Blocks['isblack']={
    this.setHelpUrl('http://www.example.com/');
   }
 };
+                                            
+Blockly.Blocks['wasdpressedreleased']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+     .appendField("Get wasd") 
+     .appendField(new Blockly.FieldDropdown([
+                                             ["pressed", "allDown"],
+                                             ["released", "allUp"],
+                                            ]), "PRESSEDRELEASED"); 
+   this.appendValueInput("WASD")
+        .appendField ("variable:")
+   this.appendValueInput("CH")
+       .appendField("when character: " );
+   this.appendDummyInput () 
+       .appendField(" pressed"); 
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};                                            
+Blockly.Blocks['wasdpressed']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("WASD")
+        .appendField ("Get wasd pressed:")
+   this.appendValueInput("CH")
+       .appendField("when character: " );
+   this.appendDummyInput () 
+       .appendField(" pressed"); 
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 
+Blockly.Blocks['wasdreleased']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("WASD")
+        .appendField ("Get wasd released:")
+   this.appendValueInput("CH")
+       .appendField("when character: " );
+   this.appendDummyInput () 
+       .appendField(" released"); 
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['getwasdoffset']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+     .appendField("Get ") 
+     .appendField(new Blockly.FieldDropdown([
+                                             ["x", "X"],
+                                             ["y", "Y"],
+                                            ]), "XY");  
+   this.appendValueInput("WASD")
+        .appendField ("offset based on keys pressed: ")
+   this.appendValueInput("OFFSET")
+       .appendField("using offset: " );
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+
+Blockly.Blocks['getxoffset']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("WASD")
+        .appendField ("Get X offset based on keys pressed: ")
+   this.appendValueInput("OFFSET")
+       .appendField("using offset: " );
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['getyoffset']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("WASD")
+        .appendField ("Get Y offset based on keys pressed: ")
+   this.appendValueInput("OFFSET")
+       .appendField("using offset: " );
+   this.setInputsInline(true);      
+   this.setOutput(true, null);     
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 

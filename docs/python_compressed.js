@@ -46,7 +46,33 @@ Blockly.Python.finish=function(a){
  delete Blockly.Python.definitions_;
  delete Blockly.Python.functionNames_;
  Blockly.Python.variableDB_.reset();
- var imports = "import time\ntry:\n   import pygame\nexcept:\n   print ( \'Could not import pygame. Try: \\npip install pygame\')\n   time.sleep (5)\nimport time\nimport threading\nimport math\ntry:\n   import pymunk\n   import pymunk.pygame_util\nexcept:\n   pass\nimport os\n#lambdas\ncolorAt = lambda x,y,screen : screen.get_at ((x,y))\ncolorTotal = lambda color: color[0] + color[1] + color[2]\nisBlack = lambda x,y,screen: colorTotal(colorAt(x,y,screen)) < 12\n\n"
+ var imports = 
+    "import time\n" + 
+    "try:\n" + 
+    "   import pygame\n" + 
+    "except:\n" +
+    "   print ( \'Could not import pygame. Try: \\npip install pygame\')\n" +
+    "   time.sleep (5)\n" + 
+    "import time\n" + 
+    "import threading\n" + 
+    "import math\n" +
+    "try:\n" + 
+    "   import pymunk\n" +
+    "   import pymunk.pygame_util\n" +
+    "except:\n" +
+    "   pass\n" + 
+    "import os\n" +
+    "#lambdas\n" +
+    "colorAt = lambda x,y,screen : screen.get_at ((x,y))\n" + 
+    "colorTotal = lambda color: color[0] + color[1] + color[2]\n" +
+    "isBlack = lambda x,y,screen: colorTotal(colorAt(x,y,screen)) < 12\n" +
+    "chDown = lambda down,ch,target: down or (ch==target)\n" + 
+    "allDown = lambda keys, ch: [keys[0] or chDown(keys[0],ch,\'w\'), keys[1] or chDown(keys[1],ch,\'a\'), keys[2] or chDown(keys[2],ch,\'s\'), keys[3] or chDown(keys[3],ch,\'d\') ]\n" +
+    "allUp = lambda keys, ch: [False if ch==\'w\' else keys[0],False if ch==\'a\' else keys[1], False if ch==\'s\' else keys[2], False if ch==\'d\' else keys[3]]\n" + 
+    "getOffsets = lambda keys,offset:(0,offset) if keys[0] else (offset,0) if keys[1] else (0,0-offset) if keys[2] else (0-offset,0) if keys[3] else (0,0)\n" +  
+    "getXOffsets = lambda keys,offset:getOffsets(keys,offset)[0]\n" +                                                                          
+    "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n"                                                                         
+ 
  var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\npygame.init()\n' 
  return(imports + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+'\ntime.sleep(2)'
 };
