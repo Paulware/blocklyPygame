@@ -84,7 +84,7 @@
                       
                   </script>             
             
-               <input type="button" style="border:1px solid" value="Save" onclick="savePython ();">                     
+               <input type="button" accept=".py" style="border:1px solid" value="Save" onclick="savePython ();">                     
             </td>
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_php" class="taboff tab_collapse" style="display:none">PHP</td>
@@ -95,7 +95,7 @@
             <td class="tabmin tab_collapse">&nbsp;</td>
             <td id="tab_xml" class="taboff tab_collapse" >Blocks<br>
                   <input type="button" style="border:1px solid" value="Load" onclick="document.getElementById('inputfile').click();" />                                    
-                  <input id="inputfile" type="file" name="inputfile" id="inputfile" style="display:none"/> 
+                  <input id="inputfile" accept=".xml" type="file" name="inputfile" id="inputfile" style="display:none"/> 
                   
                   <script type="text/javascript">                   
                       document.getElementById('inputfile').onclick = function () {
@@ -138,7 +138,7 @@
                      } 
                   </script>             
                                                 
-               <input type="button" style="border:1px solid" value="Save" onclick="saveXml (document.all.content_xml.value);">                     
+               <input type="button" accept=".xml" style="border:1px solid" value="Save" onclick="saveXml (document.all.content_xml.value);">                     
             
             
             </td>
