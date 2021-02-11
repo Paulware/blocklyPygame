@@ -459,6 +459,14 @@ Blockly.Python['spritecollide'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
+
+Blockly.Python['spritecolliderect'] = function(block) {
+  var sprite1 = Blockly.Python.valueToCode(block, "SPRITE1", Blockly.Python.ORDER_ATOMIC)
+  var sprite2 = Blockly.Python.valueToCode(block, "SPRITE2", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.sprite.collide_rect(' + sprite1 + ',' + sprite2 + ')';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
 Blockly.Python['include'] = function(block) {
   var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
   var code = 'from ' + filename.substring(1,filename.length-1) + ' import *\n';
@@ -565,6 +573,24 @@ Blockly.Python['drawrotatedsprite'] = function(block) {
   return code;
 };
 
+Blockly.Python['drawsprite'] = function(block) {
+  var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
+  var surface = Blockly.Python.valueToCode(block, "SURFACE", Blockly.Python.ORDER_ATOMIC)
+  
+  //screen.blit(playerSprite.image, playerSprite.rect)
+  //pygame.display.update()  
+
+  var code = surface + '.blit(' + sprite + '.image,' + sprite + '.rect)\n' + 
+             'pygame.display.update()\n' 
+             /*
+             'if not hasattr (' + sprite + ', \'rectOffset\'):\n' + 
+             '   ' + sprite + '.rectOffset = (0,0)\n' + 
+             */
+             
+  return code;
+};
+
+
 Blockly.Python['setspritevector'] = function(block) {
   var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)
   var x = Blockly.Python.valueToCode(block, "X", Blockly.Python.ORDER_ATOMIC)
@@ -665,6 +691,13 @@ Blockly.Python['createsprite'] = function(block) {
      variable + ".newY = 0\n";          
   return code;
 };
+
+Blockly.Python['makesprite'] = function(block) {
+  var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
+  var code = "makeSprite (" + filename + ")"
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
 
 Blockly.Python['killsprite'] = function(block) {
   var sprite = Blockly.Python.valueToCode(block, "SPRITE", Blockly.Python.ORDER_ATOMIC)

@@ -855,7 +855,17 @@ Blockly.Blocks['createsprite']={
   }
 };
 
-
+Blockly.Blocks['makesprite']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("FILENAME")
+       .appendField ("Create sprite using image file:")  
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 
 Blockly.Blocks['spritegroup']={
   init:function(){
@@ -964,6 +974,24 @@ Blockly.Blocks['spritecollide']={
    this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['spritecolliderect']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("SPRITE1")
+       .appendField("these sprites are colliding (");
+   this.appendValueInput("SPRITE2")
+       .appendField(",");   
+   this.appendDummyInput () 
+       .appendField (")");   
+   this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 
 Blockly.Blocks['include'] = {
   init: function() {   
@@ -1127,6 +1155,22 @@ Blockly.Blocks['drawrotatedsprite'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['drawsprite'] = {
+  init: function() {   
+    this.appendValueInput("SPRITE")
+        .appendField("Draw sprite");   
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");   
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 
 Blockly.Blocks['setspritevector'] = {
   init: function() {   
