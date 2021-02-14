@@ -908,6 +908,8 @@
          <category name="Sprites" colour="%{BKY_COLOUR_HUE}">
            <block type="makesprite"></block>
            <block type="drawsprite"></block>
+           <block type="locatesprite"></block>           
+           <block type="spritecolliderect"></block>         
          </category>
          <category name="rpg" colour="%{BKY_COLOUR_HUE}">
            <block type="wasdpressedreleased"></block>
@@ -987,6 +989,19 @@
            <block type="position"></block>   
            <block type="isblack"></block>             
          </category> 
+         <category name="%{BKY_CATLISTS}" colour="%{BKY_LISTS_HUE}">
+           <block type="lists_create_with">
+             <mutation items="0"></mutation>
+           </block>
+           <block type="lists_create_with"></block>
+         </category>
+         <category name="Time" colour="%{BKY_PROCEDURES_HUE}">
+           <block type="currenttime"></block>
+           <block type="elapsedtime"></block>
+           <block type="wait"></block>
+         </category>
+
+         
       </category>  
       
     </category>    
