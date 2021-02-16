@@ -975,6 +975,21 @@ Blockly.Blocks['spritecollide']={
   }
 };
 
+Blockly.Blocks['debugcode'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Debug Code");
+
+    this.appendStatementInput("DEBUGCODE")
+        .setCheck(null);
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(false, null);
+    this.setColour(0);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 Blockly.Blocks['spritecolliderect']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);

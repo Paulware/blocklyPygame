@@ -70,24 +70,34 @@ Blockly.Python.finish=function(a){
     "allDown = lambda keys, ch: [keys[0] or chDown(keys[0],ch,\'w\'), keys[1] or chDown(keys[1],ch,\'a\'), keys[2] or chDown(keys[2],ch,\'s\'), keys[3] or chDown(keys[3],ch,\'d\') ]\n" +
     "allUp = lambda keys, ch: [False if ch==\'w\' else keys[0],False if ch==\'a\' else keys[1], False if ch==\'s\' else keys[2], False if ch==\'d\' else keys[3]]\n" + 
     "getOffsets = lambda keys,offset:(0,offset) if keys[0] else (offset,0) if keys[1] else (0,0-offset) if keys[2] else (0-offset,0) if keys[3] else (0,0)\n" +  
-    "getXOffsets = lambda keys,offset:getOffsets(keys,offset)[0]\n" +                                                                          
+    "getXOffsets = lambda keys,offset:getOffsets(keys,offset)[0]\n" +    
     "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n" +  
+    "def waitConsoleClose ():\n" + 
+    "   print (\'Close this window to continue\' )\n" + 
+    "   while True: \n" + 
+    "     pass\n" + 
+    "def errorFunction ( message ):\n" +
+    "   print (message)\n" + 
+    "   waitConsoleClose()\n" + 
+    "validateFilename = lambda filename:True if os.path.exists(filename) else errorFunction (\'\\nThis file does not exist: ===>\' + filename + \'<=== in directory:\' + os.getcwd() + \'\\n\' )\n" +    
+    "makeImage = lambda filename:pygame.image.load(filename).convert_alpha() if validateFilename (filename) else None\n" +
     "#helper functions\n" + 
     "def makeSprite (filename):\n" +  
-    "   sprite = pygame.sprite.Sprite()\n" + 
-    "   sprite.image = (pygame.image.load (filename).convert_alpha())\n" + 
-    "   sprite.baseImage = sprite.image\n" + 
-    "   sprite.rect = (sprite.image.get_rect())\n" + 
-    "   sprite.rect.left = 0\n" + 
-    "   sprite.rect.top = 0\n" + 
-    "   sprite.deltaAngle = 0\n" + 
-    "   sprite.deltaX = 0\n" + 
-    "   sprite.deltaY = 0\n" + 
-    "   sprite.rotation = 0\n" + 
-    "   sprite.rectOffset = (0,0)\n" + 
-    "   sprite.newX = 0\n" + 
-    "   sprite.newY = 0\n" + 
-    "   return sprite\n"    
+    "  if validateFilename (filename):\n" + 
+    "    sprite = pygame.sprite.Sprite()\n" + 
+    "    sprite.image = (pygame.image.load (filename).convert_alpha())\n" + 
+    "    sprite.baseImage = sprite.image\n" + 
+    "    sprite.rect = (sprite.image.get_rect())\n" + 
+    "    sprite.rect.left = 0\n" + 
+    "    sprite.rect.top = 0\n" + 
+    "    sprite.deltaAngle = 0\n" + 
+    "    sprite.deltaX = 0\n" + 
+    "    sprite.deltaY = 0\n" + 
+    "    sprite.rotation = 0\n" + 
+    "    sprite.rectOffset = (0,0)\n" + 
+    "    sprite.newX = 0\n" + 
+    "    sprite.newY = 0\n" + 
+    "  return sprite\n"    
  
  var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\npygame.init()\n' 
  return(imports + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+'\ntime.sleep(2)'

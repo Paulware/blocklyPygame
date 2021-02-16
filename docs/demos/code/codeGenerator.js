@@ -42,7 +42,7 @@ Blockly.Python['clearevents'] = function(block) {
 
 Blockly.Python['loadimage'] = function(block) {
   var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC) 
-  var code = 'pygame.image.load (' + filename + ').convert_alpha()';
+  var code = 'makeImage (' + filename + ')'; // pygame.image.load (' + filename + ').convert_alpha()';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -689,6 +689,20 @@ Blockly.Python['createsprite'] = function(block) {
      variable + ".rectOffset = (0,0)\n" + 
      variable + ".newX = 0\n" + 
      variable + ".newY = 0\n";          
+  return code;
+};
+
+Blockly.Python ['debugcode'] = function (block) {
+  var expressionCode = Blockly.Python.statementToCode (block, 'DEBUGCODE' );  
+  var code;
+  var waitBlock = 
+  'print (\'***  Close this window to continue  *** \')\n ' + 
+  ' while True:\n' + 
+  '    for event in (pygame.event.get()):\n' + 
+  '      if (event.type) == (pygame.KEYDOWN):\n' + 
+  '        break\n' 
+    
+  code = 'try:\n' + expressionCode + '\nexcept Exception as ex:\n  print (\'ERROR===>\' + str(ex) + \'<===\')\n  ' + waitBlock
   return code;
 };
 

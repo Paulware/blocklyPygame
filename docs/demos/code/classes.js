@@ -364,6 +364,7 @@
      function class7() { 
         document.write(`
 <category name="Class7 Functions "colour="%{BKY_PROCEDURES_HUE}">  
+   <block type="debugcode"></block>
    <category name="Sprites" colour="%{BKY_COLOUR_HUE}">
      <block type="makesprite"></block>
      <block type="drawsprite"></block>
