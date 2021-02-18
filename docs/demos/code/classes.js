@@ -365,7 +365,13 @@
         document.write(`
 <category name="Class7 Functions "colour="%{BKY_PROCEDURES_HUE}">  
    <block type="debugcode"></block>
+   <category name="Position" colour="%{BKY_COLOR_HUE}">
+      <block type="mouseposition"></block>
+      <block type="collidepoint"></block>   
+      <block type="makerectangle"></block>      
+   </category>
    <category name="Sprites" colour="%{BKY_COLOUR_HUE}">
+     <block type="getrect"></block> 
      <block type="makesprite"></block>
      <block type="drawsprite"></block>
      <block type="locatesprite"></block>           
