@@ -371,7 +371,7 @@
       <block type="makerectangle"></block>      
    </category>
    <category name="Sprites" colour="%{BKY_COLOUR_HUE}">
-     <block type="getrect"></block> 
+     <block type="spriterect"></block>
      <block type="makesprite"></block>
      <block type="drawsprite"></block>
      <block type="locatesprite"></block>           

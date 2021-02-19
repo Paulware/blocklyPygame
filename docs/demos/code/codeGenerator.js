@@ -130,6 +130,13 @@ Blockly.Python['getrect'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
+Blockly.Python['spriterect'] = function(block) {
+  var obj  = Blockly.Python.valueToCode(block, "OBJECT", Blockly.Python.ORDER_ATOMIC)
+  
+  var code = obj + '.rect'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
 Blockly.Python['centerrect'] = function(block) {  
   var rect = Blockly.Python.valueToCode(block, "RECT", Blockly.Python.ORDER_ATOMIC)
   var x    = Blockly.Python.valueToCode(block, "X", Blockly.Python.ORDER_ATOMIC)

@@ -233,13 +233,28 @@ Blockly.Blocks['getrect']={
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
    this.setColour(0);
     this.appendValueInput("OBJECT")
-        .appendField("Get Rectanble from object");        
+        .appendField("Get Rectangle from object");        
     this.setInputsInline(true);         
    this.setOutput(true, null);
    this.setTooltip('');
    this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['spriterect']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+    this.appendValueInput("OBJECT")
+        .appendField("Get Rectangle from sprite");        
+    this.setInputsInline(true);         
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
 
 Blockly.Blocks['centerrect'] = {
   init: function() {  
