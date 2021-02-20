@@ -165,7 +165,7 @@ Blockly.Field.prototype.disposed = false;
  * Maximum characters of text to display before adding an ellipsis.
  * @type {number}
  */
-Blockly.Field.prototype.maxDisplayLength = 50;
+Blockly.Field.prototype.maxDisplayLength = 120;
 
 /**
  * Block this field is attached to.  Starts as null, then set in init.
