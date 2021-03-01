@@ -795,6 +795,20 @@ Blockly.Blocks['playsound'] = {
   }
 };
 
+Blockly.Blocks['playmp3'] = {
+  init: function() {   
+    this.appendValueInput("FILENAME")
+        .appendField ("Play .wav file: ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
 Blockly.Blocks['subpositions']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);

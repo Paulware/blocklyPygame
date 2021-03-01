@@ -391,6 +391,14 @@ Blockly.Python['playsound'] = function(block) {
   return code; 
 };
 
+Blockly.Python['playmp3'] = function(block) {  
+  var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
+  var code = 'pygame.mixer.Sound(' + filename + ').play()\n';
+  return code; 
+};
+
+
+
 Blockly.Python['subpositions'] = function(block) {
   var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
   var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
