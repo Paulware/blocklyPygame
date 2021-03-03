@@ -785,7 +785,7 @@ Blockly.Blocks['pollevent']={
 Blockly.Blocks['playsound'] = {
   init: function() {   
     this.appendValueInput("FILENAME")
-        .appendField ("Play .wav file: ");
+        .appendField ("Play .wav or .mp3 file: ");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(290);
@@ -795,18 +795,7 @@ Blockly.Blocks['playsound'] = {
   }
 };
 
-Blockly.Blocks['playmp3'] = {
-  init: function() {   
-    this.appendValueInput("FILENAME")
-        .appendField ("Play .wav file: ");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(290);
-    this.setInputsInline(true);    
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
+
 
 
 Blockly.Blocks['subpositions']={
@@ -2320,6 +2309,51 @@ Blockly.Blocks['getyoffset']={
    this.setOutput(true, null);     
    this.setTooltip('');
    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['setdictionary'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField ("Set ");
+    this.appendValueInput("INDEX")
+        .appendField ("[");
+    this.appendValueInput("VALUE")
+        .appendField ("] =");        
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['readdictionary'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField (" ");
+    this.appendValueInput("INDEX")
+        .appendField ("[");
+    this.appendDummyInput()
+        .appendField("]")  
+    this.setOutput(true, null);     
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['mixerbusy'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField ("Sound is playing");
+    this.setOutput(true, null);     
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
   }
 };
 

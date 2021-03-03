@@ -71,7 +71,9 @@ Blockly.Python.finish=function(a){
     "allUp = lambda keys, ch: [False if ch==\'w\' else keys[0],False if ch==\'a\' else keys[1], False if ch==\'s\' else keys[2], False if ch==\'d\' else keys[3]]\n" + 
     "getOffsets = lambda keys,offset:(0,offset) if keys[0] else (offset,0) if keys[1] else (0,0-offset) if keys[2] else (0-offset,0) if keys[3] else (0,0)\n" +  
     "getXOffsets = lambda keys,offset:getOffsets(keys,offset)[0]\n" +    
-    "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n" +  
+    "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n" + 
+    "soundRemaining = lambda : (pygame.mixer.music.get_length() - pygame.mixer.music.get_pos())*-1\n" + 
+    "readDictionary = lambda dict, key:None if not key in dict else dict[key]\n" + 
     "def waitConsoleClose ():\n" + 
     "   print (\'Close this window to continue\' )\n" + 
     "   while True: \n" + 

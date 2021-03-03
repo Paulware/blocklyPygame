@@ -397,8 +397,6 @@ Blockly.Python['playmp3'] = function(block) {
   return code; 
 };
 
-
-
 Blockly.Python['subpositions'] = function(block) {
   var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
   var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)
@@ -1229,5 +1227,27 @@ Blockly.Python['wasdpressedreleased'] = function(block) {
 
   var code = pressedReleased + '(' + keys + ',' + ch + ')';
   return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['setdictionary'] = function(block) {  
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var index = Blockly.Python.valueToCode(block, "INDEX", Blockly.Python.ORDER_ATOMIC)
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  var code = 'if ' + variable + ' == None:\n' + 
+             '  ' + variable + ' = {}\n' + 
+             variable + '[' + index + '] = ' + value + '\n'; 
+  
+  return code; 
+};
+
+Blockly.Python['readdictionary'] = function(block) {  
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var index = Blockly.Python.valueToCode(block, "INDEX", Blockly.Python.ORDER_ATOMIC)
+  var code = 'readDictionary (' + variable + ',' + index + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['mixerbusy'] = function(block) {  
+  return ["pygame.mixer.get_busy()", Blockly.Python.ORDER_NONE]; 
 };
 
