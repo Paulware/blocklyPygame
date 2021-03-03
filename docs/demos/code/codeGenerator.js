@@ -1243,11 +1243,20 @@ Blockly.Python['setdictionary'] = function(block) {
 Blockly.Python['readdictionary'] = function(block) {  
   var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
   var index = Blockly.Python.valueToCode(block, "INDEX", Blockly.Python.ORDER_ATOMIC)
-  var code = 'readDictionary (' + variable + ',' + index + ')'
+  var defaultValue = Blockly.Python.valueToCode(block, "DEFAULT", Blockly.Python.ORDER_ATOMIC)
+  var code = 'readDictionary (' + variable + ',' + index + ',' + defaultValue + ')'
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
 Blockly.Python['mixerbusy'] = function(block) {  
   return ["pygame.mixer.get_busy()", Blockly.Python.ORDER_NONE]; 
 };
+
+Blockly.Python['deletedictionary'] = function(block) {  
+  var variable = Blockly.Python.valueToCode(block, "VARIABLE", Blockly.Python.ORDER_ATOMIC)
+  var code = variable + ' = {}\n'
+  return code; 
+};
+
+
 

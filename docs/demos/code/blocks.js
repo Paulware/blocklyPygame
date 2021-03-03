@@ -2315,7 +2315,7 @@ Blockly.Blocks['getyoffset']={
 Blockly.Blocks['setdictionary'] = {
   init: function() {   
     this.appendValueInput("VARIABLE")
-        .appendField ("Set ");
+        .appendField ("Remember ");
     this.appendValueInput("INDEX")
         .appendField ("[");
     this.appendValueInput("VALUE")
@@ -2329,14 +2329,28 @@ Blockly.Blocks['setdictionary'] = {
   }
 };
 
+Blockly.Blocks['deletedictionary'] = {
+  init: function() {   
+    this.appendValueInput("VARIABLE")
+        .appendField ("Forget ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
 Blockly.Blocks['readdictionary'] = {
   init: function() {   
     this.appendValueInput("VARIABLE")
         .appendField (" ");
     this.appendValueInput("INDEX")
         .appendField ("[");
-    this.appendDummyInput()
-        .appendField("]")  
+    this.appendValueInput("DEFAULT")
+        .appendField ( "] default value: ")
     this.setOutput(true, null);     
     this.setColour(290);
     this.setInputsInline(true);    

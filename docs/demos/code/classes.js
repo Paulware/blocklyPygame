@@ -592,6 +592,7 @@
    </category>
    <category name="Dictionary" colour="%{BKY_COLOR_HUE}">
       <block type="setdictionary"></block>
+      <block type="deletedictionary"></block>
       <block type="readdictionary"></block>   
    </category>
    <category name="Position" colour="%{BKY_COLOR_HUE}">
@@ -606,10 +607,6 @@
      <block type="locatesprite"></block>           
      <block type="spritecolliderect"></block>         
      <block type="rotatesprite"></block>     
-   </category>
-   <category name="rpg" colour="%{BKY_COLOUR_HUE}">
-     <block type="wasdpressedreleased"></block>
-     <block type="getwasdoffset"></block>
    </category>
    <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
      <block type="loadimage"></block>
