@@ -1258,5 +1258,10 @@ Blockly.Python['deletedictionary'] = function(block) {
   return code; 
 };
 
+Blockly.Python['stopsound'] = function(block) {  
+  var code = 'pygame.mixer.stop()\n';
+  return code; 
+};
+
 
 

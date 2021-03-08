@@ -2371,3 +2371,18 @@ Blockly.Blocks['mixerbusy'] = {
   }
 };
 
+Blockly.Blocks['stopsound'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField ("Stop playing the sound");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
+

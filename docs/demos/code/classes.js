@@ -589,6 +589,7 @@
    <category name="Sound" colour="%{BKY_COLOR_HUE}">
       <block type="playsound"></block>
       <block type="mixerbusy"></block>
+      <block type="stopsound"></block>
    </category>
    <category name="Dictionary" colour="%{BKY_COLOR_HUE}">
       <block type="setdictionary"></block>
