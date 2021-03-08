@@ -387,7 +387,15 @@ Blockly.Python['pollevent'] = function(block) {
 
 Blockly.Python['playsound'] = function(block) {  
   var filename = Blockly.Python.valueToCode(block, "FILENAME", Blockly.Python.ORDER_ATOMIC)
-  var code = 'pygame.mixer.Sound(' + filename + ').play()\n';
+  var name;
+  name = '';
+  if (filename.length > 2 ) { 
+    name = filename.substring (1,filename.length-1)
+  }  
+  var code = 'if os.path.exists (' + filename + '):\n' + 
+             '  pygame.mixer.Sound(' + filename + ').play()\n' + 
+             'else:\n' + 
+             '  print ( \'This sound file does not exist: ' + name + '\')\n'; 
   return code; 
 };
 
