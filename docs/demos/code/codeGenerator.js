@@ -1271,5 +1271,9 @@ Blockly.Python['stopsound'] = function(block) {
   return code; 
 };
 
-
-
+Blockly.Python['countdictionary'] = function(block) {  
+  var value = Blockly.Python.valueToCode(block, "VALUE", Blockly.Python.ORDER_ATOMIC)
+  var dictionary = Blockly.Python.valueToCode(block, "DICTIONARY", Blockly.Python.ORDER_ATOMIC)
+  var code = 'countDictionary (' + dictionary + ',' + value + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};

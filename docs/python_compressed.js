@@ -74,6 +74,7 @@ Blockly.Python.finish=function(a){
     "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n" + 
     "soundRemaining = lambda : (pygame.mixer.music.get_length() - pygame.mixer.music.get_pos())*-1\n" + 
     "readDictionary = lambda dict, key, default:default if dict==None else default if not key in dict else dict[key]\n" + 
+    "countDictionary = lambda dict, target: sum(x==target for x in dict.values())\n" + 
     "def waitConsoleClose ():\n" + 
     "   print (\'Close this window to continue\' )\n" + 
     "   while True: \n" + 

@@ -2359,6 +2359,21 @@ Blockly.Blocks['readdictionary'] = {
   }
 };
 
+Blockly.Blocks['countdictionary'] = {
+  init: function() {   
+    this.appendValueInput("VALUE")
+        .appendField ("Count the number of times value");
+    this.appendValueInput("DICTIONARY")
+        .appendField ("appears in dictionary");
+    this.setOutput(true, null);     
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+
 Blockly.Blocks['mixerbusy'] = {
   init: function() {   
     this.appendDummyInput()
