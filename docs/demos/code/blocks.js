@@ -2399,5 +2399,22 @@ Blockly.Blocks['stopsound'] = {
   }
 };
 
+Blockly.Blocks['screenstart'] = {
+  init: function() {   
+    this.appendValueInput("X")
+        .appendField ("Start screen at [x,y]: [");
+    this.appendValueInput("Y")
+        .appendField (",");
+    this.appendDummyInput ()
+        .appendField ( "]");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 
 

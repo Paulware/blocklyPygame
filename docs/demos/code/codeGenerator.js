@@ -376,7 +376,8 @@ Blockly.Python['inflaterect'] = function(block) {
 
 Blockly.Python['eventkey'] = function(block) {  
   var event = Blockly.Python.valueToCode(block, "EVENT", Blockly.Python.ORDER_ATOMIC)
-  var code = 'chr(' + event + '.key)';
+  var code = 'chr(' + event + '.key) if hasattr(' + event +  ',\'key\') else returnPrint (None, \'' + 
+             'Key associated with event block should only be used when event is key down or key up\')';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
@@ -1276,4 +1277,13 @@ Blockly.Python['countdictionary'] = function(block) {
   var dictionary = Blockly.Python.valueToCode(block, "DICTIONARY", Blockly.Python.ORDER_ATOMIC)
   var code = 'countDictionary (' + dictionary + ',' + value + ')'
   return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['screenstart'] = function(block) {  
+  var x = Blockly.Python.valueToCode(block, "X", Blockly.Python.ORDER_ATOMIC)
+  var y = Blockly.Python.valueToCode(block, "Y", Blockly.Python.ORDER_ATOMIC)
+  var code = 'os.environ[\"SDL_VIDEO_WINDOW_POS\"] = \"' + x + ',' + y + '\"\n' + 
+             'pygame.init()\n' + 
+             'pygame.display.set_mode((0,0), pygame.RESIZABLE)\n' 
+  return code; 
 };

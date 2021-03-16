@@ -74,7 +74,10 @@ Blockly.Python.finish=function(a){
     "getYOffsets = lambda keys,offset:getOffsets(keys,offset)[1]\n" + 
     "soundRemaining = lambda : (pygame.mixer.music.get_length() - pygame.mixer.music.get_pos())*-1\n" + 
     "readDictionary = lambda dict, key, default:default if dict==None else default if not key in dict else dict[key]\n" + 
-    "countDictionary = lambda dict, target: sum(x==target for x in dict.values())\n" + 
+    "countDictionary = lambda dict, target: sum(x==target for x in dict.values())\n" +
+    "def returnPrint ( value, message):\n" + 
+    "   print (message)\n" + 
+    "   return value\n" +     
     "def waitConsoleClose ():\n" + 
     "   print (\'Close this window to continue\' )\n" + 
     "   while True: \n" + 
@@ -102,7 +105,7 @@ Blockly.Python.finish=function(a){
     "    sprite.newY = 0\n" + 
     "  return sprite\n"    
  
- var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\npygame.init()\n' 
+ var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\n' 
  return(imports + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+'\ntime.sleep(2)'
 };
 Blockly.Python.scrubNakedValue=function(a){return a+"\n"};

@@ -733,6 +733,7 @@
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
      <block type="getscreen"></block>
+     <block type="screenstart"></block>
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
      <block type="drawline"></block>         
