@@ -729,7 +729,8 @@
    </category>
    <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
      <block type="loadimage"></block>
-     <block type="drawimage"></block>      
+     <block type="drawimage"></block> 
+     <block type="flipsurface"></block>
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
      <block type="getscreen"></block>
@@ -737,13 +738,15 @@
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
      <block type="drawline"></block>         
-   </category>      
+   </category>
    <category name="Events" colour="%{BKY_PROCEDURES_HUE}">
      <block type="events"></block>
      <block type="waitevent"></block>
      <block type="pollevent"></block>
      <block type="eventtype"></block>
      <block type="eventkey"></block>
+     <block type="anykeypressed"></block>
+     <block type="keypressed"></block>
    </category>
    <category name="%{BKY_CATTEXT}" colour="%{BKY_TEXTS_HUE}">
      <block type="text"></block>    

@@ -1,3 +1,9 @@
+function removeFirstLast (line){ 
+  line = line.substring (1,line.length-1);
+  return line;
+}
+
+
 Blockly.Python['pygameinit'] = function(block) {  
   var code = 'import pygame\npygame.init()\n';
   return code;
@@ -1286,4 +1292,31 @@ Blockly.Python['screenstart'] = function(block) {
              'pygame.init()\n' + 
              'pygame.display.set_mode((0,0), pygame.RESIZABLE)\n' 
   return code; 
+};
+
+Blockly.Python['flipsurface'] = function(block) {  
+  var surface    = Blockly.Python.valueToCode (block, "SURFACE",  Blockly.Python.ORDER_ATOMIC)
+  var mirror     = block.getFieldValue ("MIRROR"); 
+  var horizontal = 'False'
+  var vertical   = 'False'  
+  console.log ( 'flipsurface got a mirror: ' + mirror );
+  if (mirror == 'vertical') {
+     vertical = 'True';
+  } else {
+     horizontal = 'True';
+  }
+  var code = 'pygame.transform.flip(' + surface + '.image,' + vertical + ',' + horizontal + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['keypressed'] = function(block) {  
+  var ch =  Blockly.Python.valueToCode (block, "CHARACTER",  Blockly.Python.ORDER_ATOMIC)
+  ch = removeFirstLast (ch)
+  var code = 'pygame.key.get_pressed()[pygame.K_' + ch + ']'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['anykeypressed'] = function(block) {  
+  var code = 'countList (pygame.key.get_pressed(), True) > 0';
+  return [code, Blockly.Python.ORDER_NONE]; 
 };

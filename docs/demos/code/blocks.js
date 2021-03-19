@@ -2416,5 +2416,47 @@ Blockly.Blocks['screenstart'] = {
   }
 };
 
+Blockly.Blocks['flipsurface'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("SURFACE")
+       .appendField("Flip sprite");                                        
+   this.appendDummyInput()
+       .appendField(".image, mirror")
+       .appendField(new Blockly.FieldDropdown([
+                                                ["Vertically", "vertical"],
+                                                ["Horizontally", "horizontal"]
+                                              ]), "MIRROR");  
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 
+Blockly.Blocks['keypressed'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("CHARACTER")
+       .appendField("This key is pressed");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
 
+Blockly.Blocks['anykeypressed'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+       .appendField("A key is pressed");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
