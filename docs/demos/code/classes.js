@@ -1,6 +1,7 @@
      function class1() {
         document.write (`
       <category name="Class1"colour="%{BKY_PROCEDURES_HUE}">
+        <block type="screenstart"></block>      
         <block type="getscreen"></block>
         <block type="setcaption"></block>
         <block type="events"></block>
@@ -33,6 +34,7 @@
            <block type="getscreen"></block>
            <block type="setcaption"></block>
            <block type="fillsurface"></block>
+           <block type="screenstart"></block>           
          </category>      
          <category name="Events" colour="%{BKY_PROCEDURES_HUE}">
            <block type="events"></block>
@@ -67,6 +69,7 @@
            <block type="drawimage"></block>      
          </category>
          <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+           <block type="screenstart"></block>         
            <block type="getscreen"></block>
            <block type="setcaption"></block>
            <block type="fillsurface"></block>
@@ -105,6 +108,7 @@
            <block type="drawimage"></block>      
          </category>
          <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+          <block type="screenstart"></block>         
            <block type="getscreen"></block>
            <block type="setcaption"></block>
            <block type="fillsurface"></block>
@@ -189,6 +193,7 @@
            <block type="drawimage"></block>      
          </category>
          <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+           <block type="screenstart"></block>         
            <block type="getscreen"></block>
            <block type="setcaption"></block>
            <block type="fillsurface"></block>
@@ -279,6 +284,7 @@
            <block type="drawimage"></block>      
          </category>
          <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+           <block type="screenstart"></block>         
            <block type="getscreen"></block>
            <block type="setcaption"></block>
            <block type="fillsurface"></block>
@@ -386,6 +392,7 @@
      <block type="drawimage"></block>      
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+     <block type="screenstart"></block>   
      <block type="getscreen"></block>
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
@@ -497,6 +504,7 @@
      <block type="drawimage"></block>      
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+     <block type="screenstart"></block>
      <block type="getscreen"></block>
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
@@ -614,6 +622,7 @@
      <block type="drawimage"></block>      
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
+     <block type="screenstart"></block>
      <block type="getscreen"></block>
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
@@ -726,15 +735,15 @@
      <block type="locatesprite"></block>           
      <block type="spritecolliderect"></block>         
      <block type="rotatesprite"></block>     
+     <block type="flipsurface"></block>     
    </category>
    <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
      <block type="loadimage"></block>
      <block type="drawimage"></block> 
-     <block type="flipsurface"></block>
    </category>
    <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
-     <block type="getscreen"></block>
      <block type="screenstart"></block>
+     <block type="getscreen"></block>
      <block type="setcaption"></block>
      <block type="fillsurface"></block>
      <block type="drawline"></block>         
@@ -744,7 +753,7 @@
      <block type="waitevent"></block>
      <block type="pollevent"></block>
      <block type="eventtype"></block>
-     <block type="eventkey"></block>
+     <!block type="eventkey"><!/block>
      <block type="anykeypressed"></block>
      <block type="keypressed"></block>
    </category>

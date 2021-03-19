@@ -2402,7 +2402,7 @@ Blockly.Blocks['stopsound'] = {
 Blockly.Blocks['screenstart'] = {
   init: function() {   
     this.appendValueInput("X")
-        .appendField ("Start screen at [x,y]: [");
+        .appendField ("Start surface at [x,y]: [");
     this.appendValueInput("Y")
         .appendField (",");
     this.appendDummyInput ()
