@@ -2460,3 +2460,19 @@ Blockly.Blocks['anykeypressed'] = {
    this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['pointcollision'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("POSITION")
+       .appendField("Position");                                        
+   this.appendValueInput("RECTANGLE")
+       .appendField("is inside of rectangle");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+

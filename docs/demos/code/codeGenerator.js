@@ -1320,3 +1320,10 @@ Blockly.Python['anykeypressed'] = function(block) {
   var code = 'countList (pygame.key.get_pressed(), True) > 0';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
+
+Blockly.Python['pointcollision'] = function(block) {  
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC)
+  var rectangle = Blockly.Python.valueToCode (block, "RECTANGLE",  Blockly.Python.ORDER_ATOMIC)
+  var code = 'yo'; // countList (pygame.key.get_pressed(), True) > 0';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
