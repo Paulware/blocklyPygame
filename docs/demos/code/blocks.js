@@ -2476,3 +2476,43 @@ Blockly.Blocks['pointcollision'] = {
   }
 };
 
+Blockly.Blocks['spritesheet'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput("FILENAME")
+       .appendField("Load the sprite sheet file");                                        
+   this.appendValueInput("X")
+       .appendField("with ");                                        
+   this.appendValueInput("Y")
+       .appendField("images horizontally, and  ");                                     
+   this.appendDummyInput()
+       .appendField("images vertically")   
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['placesheet'] = {
+  init: function() {   
+    this.appendValueInput ("SHEET") 
+        .appendField ( "Using sheet")
+    this.appendValueInput ("XCOUNT")
+        .appendField ( "select horizontal sprite");
+    this.appendValueInput ("YCOUNT")
+        .appendField ( "and vertical sprite" );
+    this.appendValueInput("POSITION")
+        .appendField ("place at position ");
+    this.appendValueInput ("SURFACE") 
+        .appendField ( "on surface")
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

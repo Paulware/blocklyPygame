@@ -1324,6 +1324,30 @@ Blockly.Python['anykeypressed'] = function(block) {
 Blockly.Python['pointcollision'] = function(block) {  
   var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC)
   var rectangle = Blockly.Python.valueToCode (block, "RECTANGLE",  Blockly.Python.ORDER_ATOMIC)
-  var code = 'yo'; // countList (pygame.key.get_pressed(), True) > 0';
+  var code = 'yo';
   return [code, Blockly.Python.ORDER_NONE]; 
 };
+
+Blockly.Python['spritesheet'] = function(block) {  
+  var filename = Blockly.Python.valueToCode (block, "FILENAME",  Blockly.Python.ORDER_ATOMIC);
+  var x = Blockly.Python.valueToCode (block, "X",  Blockly.Python.ORDER_ATOMIC);
+  var y = Blockly.Python.valueToCode (block, "Y",  Blockly.Python.ORDER_ATOMIC);
+  var code = 'makeSheet (' + filename + ',' + x + ',' + y + ')';
+  
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['placesheet'] = function(block) {
+  var sheet = Blockly.Python.valueToCode (block, "SHEET",  Blockly.Python.ORDER_ATOMIC);
+  var xCount = Blockly.Python.valueToCode (block, "XCOUNT",  Blockly.Python.ORDER_ATOMIC);
+  var yCount = Blockly.Python.valueToCode (block, "YCOUNT",  Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+  var surface = Blockly.Python.valueToCode (block, "SURFACE",  Blockly.Python.ORDER_ATOMIC);
+  
+  code = sheet + ".rect = pygame.Rect(" + xCount + "*" + sheet + ".width, " + yCount + "*" + sheet + ".height," + sheet + ".width," + sheet + ".height);\n" + 
+         sheet + ".surface.blit(" + sheet + ".image, (0,0)," + sheet + ".rect);\n" + 
+         sheet + ".destination = pygame.Rect ( " + position + "[0]," + position + "[1]," + sheet + ".width," + sheet + ".height);\n" + 
+         surface + ".blit (" + sheet + ".surface," + sheet + ".destination);\n" +
+         "pygame.display.update()\n";         
+  return code;
+}

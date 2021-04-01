@@ -89,6 +89,16 @@ Blockly.Python.finish=function(a){
     "validateFilename = lambda filename:True if os.path.exists(filename) else errorFunction (\'\\nThis file does not exist: ===>\' + filename + \'<=== in directory:\' + os.getcwd() + \'\\n\' )\n" +    
     "makeImage = lambda filename:pygame.image.load(filename).convert_alpha() if validateFilename (filename) else None\n" +
     "#helper functions\n" + 
+    "def makeSheet (filename, hCount, vCount):\n" + 
+    "   sheet = type ('Sheet', (object,), {})\n" + 
+    "   sheet.image = (pygame.image.load (filename).convert_alpha())\n" + 
+    "   (width,height) = sheet.image.get_size()\n" + 
+    "   sheet.width = int(width / hCount)\n" + 
+    "   sheet.height = int(height / vCount) \n" + 
+    "   sheet.rect = pygame.Rect (0,0,sheet.width,sheet.height)\n" + 
+    "   sheet.surface = pygame.Surface (sheet.rect.size).convert()\n" + 
+    "   print ( \'[width,height]: [\' + str(sheet.width) + \',\' + str(sheet.height) + \']\')\n" + 
+    "   return sheet\n" + 
     "def makeSprite (filename):\n" +  
     "  if validateFilename (filename):\n" + 
     "    sprite = pygame.sprite.Sprite()\n" + 
