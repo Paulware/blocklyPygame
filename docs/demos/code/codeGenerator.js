@@ -178,9 +178,10 @@ Blockly.Python['drawline'] = function(block) {
   var position1 = Blockly.Python.valueToCode(block, "POSITION1", Blockly.Python.ORDER_ATOMIC)
   var position2 = Blockly.Python.valueToCode(block, "POSITION2", Blockly.Python.ORDER_ATOMIC)  
   var color     = Blockly.Python.valueToCode(block, "COLOR",     Blockly.Python.ORDER_ATOMIC)
+  var width     = Blockly.Python.valueToCode(block, "WIDTH",     Blockly.Python.ORDER_ATOMIC)
   color = color.substring (2,color.length-1)
   
-  var code = 'pygame.draw.line (' + surface + ',0X' + color + ',' + position1 + ',' + position2 + ')\npygame.display.update()\n';
+  var code = 'pygame.draw.line (' + surface + ',0X' + color + ',' + position1 + ',' + position2 + ',' + width + ')\npygame.display.update()\n';
   return code;
 };
 

@@ -332,6 +332,8 @@ Blockly.Blocks['drawline'] = {
         .appendField("to position");        
     this.appendValueInput("COLOR")
         .appendField("with color");        
+    this.appendValueInput("WIDTH")
+        .appendField("using width")
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setInputsInline(true);     
