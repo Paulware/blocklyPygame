@@ -978,18 +978,24 @@ function class12() {
       <block type="makerectangle"></block>      
       <!block type="pointcollision"><!/block>
       <block type="collidepoint"></block>
-
    </category>
    <category name="Sprites" colour="%{BKY_COLOUR_HUE}">
+     <block type="showabsolute"></block>
+     <block type="spritenear"></block>
      <block type="spriterect"></block>
      <block type="makesprite"></block>
-     <block type="spritesheet"></block>
-     <block type="placesheet"></block>
      <block type="drawsprite"></block>
      <block type="locatesprite"></block>           
      <block type="spritecolliderect"></block>         
      <block type="rotatesprite"></block>     
      <block type="flipsurface"></block>     
+   </category>
+   <category name="SpriteSheet" colour="%{BKY_COLOUR_HUE}">
+     <block type="spritesheet"></block>
+     <block type="placesheet"></block>
+     <block type="nextsprite"></block>
+     <block type="donesprite"></block>
+     <block type="initsheet"></block>
    </category>
    <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
      <block type="loadimage"></block>

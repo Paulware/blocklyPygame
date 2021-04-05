@@ -76,6 +76,22 @@ Blockly.Python.finish=function(a){
     "readDictionary  = lambda dict, key, default:default if dict==None else default if not key in dict else dict[key]\n" + 
     "countDictionary = lambda dict, target: sum(x==target for x in dict.values())\n" +
     "countList       = lambda list, target: sum(x==target for x in list)\n" +
+    "# spriteNear      = lambda sprite, distance, position: False\n" + 
+    "def spriteNear  (sprite, distance, position, offset): \n" + 
+    "   near = False\n" + 
+    "   x = sprite.newX - offset[0]\n" + 
+    "   y = sprite.newY - offset[1]\n" + 
+    "   if x < (position[0] - distance):\n" +
+    "      pass\n" + 
+    "   elif x > (position[0] + distance): \n" + 
+    "      pass\n" + 
+    "   elif y < (position[1] - distance): \n" + 
+    "      pass\n" + 
+    "   elif y > (position[1] + distance): \n" + 
+    "      pass\n" + 
+    "   else:\n" +
+    "      near = True\n" +     
+    "   return near\n" + 
     "def returnPrint ( value, message):\n" + 
     "   print (message)\n" + 
     "   return value\n" +     
@@ -89,14 +105,20 @@ Blockly.Python.finish=function(a){
     "validateFilename = lambda filename:True if os.path.exists(filename) else errorFunction (\'\\nThis file does not exist: ===>\' + filename + \'<=== in directory:\' + os.getcwd() + \'\\n\' )\n" +    
     "makeImage = lambda filename:pygame.image.load(filename).convert_alpha() if validateFilename (filename) else None\n" +
     "#helper functions\n" + 
-    "def makeSheet (filename, hCount, vCount):\n" + 
+    "def makeSheet (filename, hCount, vCount, totalImages):\n" + 
     "   sheet = type ('Sheet', (object,), {})\n" + 
     "   sheet.image = (pygame.image.load (filename).convert_alpha())\n" + 
-    "   (width,height) = sheet.image.get_size()\n" + 
+    "   (width,height) = sheet.image.get_size()\n" +
+    "   sheet.hCount = hCount\n" + 
+    "   sheet.vCount = vCount\n" +     
     "   sheet.width = int(width / hCount)\n" + 
     "   sheet.height = int(height / vCount) \n" + 
     "   sheet.rect = pygame.Rect (0,0,sheet.width,sheet.height)\n" + 
-    "   sheet.surface = pygame.Surface (sheet.rect.size).convert()\n" + 
+    "   sheet.surface = pygame.Surface (sheet.rect.size).convert()\n" +
+    "   sheet.totalImages = totalImages\n" +     
+    "   sheet.index = 0\n" + 
+    "   sheet.doneSequence = False\n" + 
+    "   sheet.displayTime = 0\n" + 
     "   print ( \'[width,height]: [\' + str(sheet.width) + \',\' + str(sheet.height) + \']\')\n" + 
     "   return sheet\n" + 
     "def makeSprite (filename):\n" +  

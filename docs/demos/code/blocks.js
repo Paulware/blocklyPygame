@@ -2488,8 +2488,10 @@ Blockly.Blocks['spritesheet'] = {
        .appendField("with ");                                        
    this.appendValueInput("Y")
        .appendField("images horizontally, and  ");                                     
+   this.appendValueInput("TOTAL")
+       .appendField("images vertically, and ")   
    this.appendDummyInput()
-       .appendField("images vertically")   
+       .appendField("total images")
    this.setInputsInline(true);
    this.setOutput(true, null);
    this.setTooltip('');
@@ -2501,14 +2503,96 @@ Blockly.Blocks['placesheet'] = {
   init: function() {   
     this.appendValueInput ("SHEET") 
         .appendField ( "Using sheet")
-    this.appendValueInput ("XCOUNT")
-        .appendField ( "select horizontal sprite");
-    this.appendValueInput ("YCOUNT")
-        .appendField ( "and vertical sprite" );
+    this.appendValueInput ("COUNT")
+        .appendField ( "select sprite");
     this.appendValueInput("POSITION")
         .appendField ("place at position ");
     this.appendValueInput ("SURFACE") 
         .appendField ( "on surface")
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['nextsprite'] = {
+  init: function() {   
+    this.appendValueInput ( "DELAY")
+        .appendField ( "After ")
+    this.appendValueInput ("SHEET") 
+        .appendField ( "seconds, from sheet")
+    this.appendValueInput("POSITION")
+        .appendField ("place next sprite at position ");
+    this.appendValueInput ("SURFACE") 
+        .appendField ( "on surface")
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['donesprite'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendValueInput ("SHEET") 
+        .appendField ( "Sprite sheet")
+   this.appendDummyInput()
+       .appendField("has cycled through all images")
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['initsheet'] = {
+  init: function() {   
+   this.appendValueInput ("SHEET") 
+        .appendField ( "Reset image for sprite sheet ");
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['spritenear'] = {
+  init:function(){
+    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+    this.setColour(0);
+    this.appendValueInput ("SPRITE") 
+         .appendField ( "Sprite ");
+    this.appendValueInput ("DISTANCE") 
+         .appendField ( "within ");
+    this.appendValueInput ("POSITION") 
+         .appendField ( "of position ");    
+    this.appendValueInput ("OFFSET") 
+         .appendField ( "adjust by")   
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['showabsolute'] = {
+  init: function() {   
+    this.appendValueInput ("SPRITE") 
+        .appendField ( "Show absolution location using Sprite ");
+    this.appendValueInput ("OFFSET") 
+        .appendField ( "adjust by offset position")   
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
