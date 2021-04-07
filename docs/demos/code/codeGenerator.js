@@ -1404,7 +1404,7 @@ Blockly.Python['spritenear'] = function(block) {
 Blockly.Python['showabsolute'] = function(block) {
   var sprite = Blockly.Python.valueToCode    (block, "SPRITE",    Blockly.Python.ORDER_ATOMIC);
   var offset = Blockly.Python.valueToCode    (block, "OFFSET",    Blockly.Python.ORDER_ATOMIC);
-  var code = "print ( \" Absolute Position : [\" + str(" + sprite + ".newX - " + offset + "[0]) + \",\" + " + 
-                                                  "str(" + sprite + ".newY - " + offset + "[1]) + \"]\")\n"
+  var code = "print ( \" X:\"  + str(" + sprite + ".newX - " + offset + "[0]) +  \" Y:\"+ " + 
+                                                  "str(" + sprite + ".newY - " + offset + "[1]) )\n"
   return code;
 }
