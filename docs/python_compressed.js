@@ -105,6 +105,15 @@ Blockly.Python.finish=function(a){
     "validateFilename = lambda filename:True if os.path.exists(filename) else errorFunction (\'\\nThis file does not exist: ===>\' + filename + \'<=== in directory:\' + os.getcwd() + \'\\n\' )\n" +    
     "makeImage = lambda filename:pygame.image.load(filename).convert_alpha() if validateFilename (filename) else None\n" +
     "#helper functions\n" + 
+    "def nextColor (jeb):\n" +
+    "   colors = [\"#33ccff\", \"#000099\", \"#cc33cc\", \"#cc0000\", \"#ff6600\", \"#ffcc33\", \"#33cc00\"]\n" +     
+    "   jeb.state = (jeb.state + 1) % len(colors)\n" + 
+    "   return pygame.Color(colors[jeb.state])\n" + 
+    "def jebColor ():\n" + 
+    "   color = type ('Color', (object,), {})\n" + 
+    "   color.state = 0\n" +
+    "   color.lastDisplayTime = 0\n" +     
+    "   return color\n" + 
     "def makeSheet (filename, hCount, vCount, totalImages):\n" + 
     "   sheet = type ('Sheet', (object,), {})\n" + 
     "   sheet.image = (pygame.image.load (filename).convert_alpha())\n" + 

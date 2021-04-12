@@ -1408,3 +1408,15 @@ Blockly.Python['showabsolute'] = function(block) {
                                                   "str(" + sprite + ".newY - " + offset + "[1]) )\n"
   return code;
 }
+
+Blockly.Python['jebcolor'] = function(block) {  
+  var code = 'jebColor()';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['nextcolor'] = function(block) {  
+  var jeb = Blockly.Python.valueToCode    (block, "JEB",    Blockly.Python.ORDER_ATOMIC);
+  var code = 'nextColor (' + jeb + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
