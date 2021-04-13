@@ -106,7 +106,7 @@ Blockly.Python.finish=function(a){
     "makeImage = lambda filename:pygame.image.load(filename).convert_alpha() if validateFilename (filename) else None\n" +
     "#helper functions\n" + 
     "def nextColor (jeb):\n" +
-    "   colors = [\"#33ccff\", \"#000099\", \"#cc33cc\", \"#cc0000\", \"#ff6600\", \"#ffcc33\", \"#33cc00\"]\n" +     
+    "   colors = [\"#ff0000\", \"#ff0400\", \"#ff1f00\", \"#ff5200\", \"#ff7a00\", \"#ff9d00\", \"#ffc800\", \"#fff300\", \"#d0ff00\", \"#a5ff00\", \"#72ff00\", \"#08ff00\", \"#00ff10\", \"#00ff47\", \"#00ff85\", \"#00ffbc\", \"#00ffdc\", \"#00d4ff\", \"#00a1ff\", \"#0056ff\", \"#0008ff\", \"#9100ff\", \"#b100ff\", \"#f700ff\", \"#ff00a1\", \"#ff0062\"  ]\n" +     
     "   jeb.state = (jeb.state + 1) % len(colors)\n" + 
     "   return pygame.Color(colors[jeb.state])\n" + 
     "def jebColor ():\n" + 
