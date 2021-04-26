@@ -2628,3 +2628,59 @@ Blockly.Blocks['nextcolor'] = {
    this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['listobject'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("LIST")
+       .appendField("Create a list object using list:");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['rotatelist'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("LIST")
+       .appendField("Rotate to next item in list");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['loadimagelist'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("SHEET")
+       .appendField("Using sprite sheet");                                        
+   this.appendValueInput ("LIST")
+       .appendField("create a list of images based on index list");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['nextimage'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("LIST")
+       .appendField("Get next image in image list");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+

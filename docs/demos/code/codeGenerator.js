@@ -3,7 +3,6 @@ function removeFirstLast (line){
   return line;
 }
 
-
 Blockly.Python['pygameinit'] = function(block) {  
   var code = 'import pygame\npygame.init()\n';
   return code;
@@ -1417,6 +1416,31 @@ Blockly.Python['jebcolor'] = function(block) {
 Blockly.Python['nextcolor'] = function(block) {  
   var jeb = Blockly.Python.valueToCode    (block, "JEB",    Blockly.Python.ORDER_ATOMIC);
   var code = 'nextColor (' + jeb + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['listobject'] = function(block) {  
+  var list = Blockly.Python.valueToCode    (block, "LIST",    Blockly.Python.ORDER_ATOMIC);
+  var code = 'listObject (' + list + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['rotatelist'] = function(block) {  
+  var list = Blockly.Python.valueToCode    (block, "LIST",    Blockly.Python.ORDER_ATOMIC);
+  var code = 'nextListItem ( ' + list + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['loadimagelist'] = function(block) {  
+  var list = Blockly.Python.valueToCode        (block, "LIST",  Blockly.Python.ORDER_ATOMIC);
+  var spritesheet = Blockly.Python.valueToCode (block, "SHEET", Blockly.Python.ORDER_ATOMIC);
+  var code = 'loadImageList ( ' + spritesheet + ',' + list + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['nextimage'] = function(block) {  
+  var list = Blockly.Python.valueToCode        (block, "LIST",  Blockly.Python.ORDER_ATOMIC);
+  var code = 'getNextImage ( ' + list + ')'
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 

@@ -138,7 +138,6 @@ Blockly.Python.finish=function(a){
     "   x = 0\n" + 
     "   y = 0\n" + 
     "   h = 0\n" + 
-    "   obj = type ('ImageList', (object,), {} )\n" +
     "   images = []\n" +  
     "   for i in range (spritesheet.totalImages):\n" + 
     "      if i in indexList:\n" + 
@@ -155,12 +154,10 @@ Blockly.Python.finish=function(a){
     "         h = 0\n" + 
     "      else:\n" + 
     "         x = x + spritesheet.width\n" + 
-    "   obj.list = images\n" + 
-    "   obj.index = 0\n" + 
-    "   return obj\n" +      
+    "   return images\n" +      
     "def getNextImage (list): \n" + 
-    "   list.index = (list.index + 1) % len(list.list)\n" +
-    "   return list.list[list.index]\n" + 
+    "   list.index = (list.index + 1) % len(list)\n" +
+    "   return list[list.index]\n" + 
     "def nextListItem (list):\n" +
     "   list.index = (list.index + 1) % len (list.list)\n" +
     "   value = list.list[list.index]\n" + 
