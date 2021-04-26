@@ -1228,7 +1228,7 @@ function class13() {
      
 function class14() { 
         document.write(`
-<category name="Class14 List Object "colour="%{BKY_PROCEDURES_HUE}">  
+<category name="Class14 List Object, timer block "colour="%{BKY_PROCEDURES_HUE}">  
    <block type="debugcode"></block>
    <category name="Sound" colour="%{BKY_COLOR_HUE}">
       <block type="playsound"></block>
@@ -1360,6 +1360,8 @@ function class14() {
      <block type="currenttime"></block>
      <block type="elapsedtime"></block>
      <block type="wait"></block>
+     <block type="settimer"></block>
+     <block type="timerelapsed"></block>     
    </category>
    <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>  
 </category>  

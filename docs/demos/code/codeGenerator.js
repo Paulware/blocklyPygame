@@ -1444,3 +1444,17 @@ Blockly.Python['nextimage'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
+Blockly.Python['settimer'] = function(block) {
+  var timer = block.getFieldValue ("TIMER");
+  var add   = Blockly.Python.valueToCode   (block, "ADD",    Blockly.Python.ORDER_ATOMIC);
+  var code  = timer + ' = type (\'Timer\', (object,), {})\n' + timer + '.endTime = time.time() + ' + add + '\n'
+  return code;
+}
+
+Blockly.Python['timerelapsed'] = function(block) {  
+  var timer = block.getFieldValue ("TIMER");
+  var code = 'time.time() > ' + timer + '.endTime'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+

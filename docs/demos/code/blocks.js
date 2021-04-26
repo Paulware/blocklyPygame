@@ -2683,4 +2683,59 @@ Blockly.Blocks['nextimage'] = {
   }
 };
 
+Blockly.Blocks['settimer']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Set timer ")        
+        .appendField(new Blockly.FieldDropdown([
+                                                ["1", "timer1"],
+                                                ["2", "timer2"],
+                                                ["3", "timer3"],
+                                                ["4", "timer4"],
+                                                ["5", "timer5"],
+                                                ["6", "timer6"],
+                                                ["7", "timer7"],
+                                                ["8", "timer8"],
+                                                ["9", "timer9"]
+                                               ]), "TIMER");     
+   this.appendValueInput("ADD")
+        .appendField("to current time + ");
+   this.appendDummyInput()
+        .appendField ("seconds")
+   this.setInputsInline(true); 
+   this.setPreviousStatement(true, null);
+   this.setNextStatement(true, null);  
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['timerelapsed']={
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour(0);
+   this.appendDummyInput()
+        .appendField("Timer ")        
+        .appendField(new Blockly.FieldDropdown([
+                                                ["1", "timer1"],
+                                                ["2", "timer2"],
+                                                ["3", "timer3"],
+                                                ["4", "timer4"],
+                                                ["5", "timer5"],
+                                                ["6", "timer6"],
+                                                ["7", "timer7"],
+                                                ["8", "timer8"],
+                                                ["9", "timer9"]
+                                               ]), "TIMER");     
+   this.appendDummyInput()
+        .appendField ("has elapsed")
+   this.setInputsInline(true);        
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 
