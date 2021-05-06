@@ -2738,4 +2738,24 @@ Blockly.Blocks['timerelapsed']={
   }
 };
 
+Blockly.Blocks['cyclesheet'] = {
+  init: function() {   
+    this.appendValueInput("SHEET")
+        .appendField("Cycle through sprite sheet"); 
+    this.appendValueInput("POSITION")
+        .appendField("at position")    
+    this.appendValueInput("SURFACE")
+        .appendField("on surface");
+    this.appendValueInput("DELAY")
+        .appendField("delaying ");
+    this.appendDummyInput ()
+        .appendField ("seconds between images" );    
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
 

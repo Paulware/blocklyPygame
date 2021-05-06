@@ -133,7 +133,16 @@ Blockly.Python.finish=function(a){
     "   obj.displayTime = 0\n" + 
     "   print ( \'[width,height]: [\' + str(obj.width) + \',\' + str(obj.height) + \']\')\n" + 
     "   return obj\n" + 
-    "#helper functions\n" + 
+    "#helper functions\n" +
+    "def cycleSheet (Screen, sheet, position, waitTime):\n" + 
+    "   explosionlist = loadImageList ( sheet,[i for i in range(sheet.totalImages)])\n" + 
+    "   x = position[0]\n" + 
+    "   y = position[1]\n" + 
+    "   for i in range(sheet.totalImages):\n" + 
+    "      img = getNextImage ( explosionlist)\n" + 
+    "      Screen.blit (img,(x,y))\n" + 
+    "      pygame.display.update()\n" + 
+    "      threading.Event().wait (waitTime)\n" + 
     "def loadImageList (spritesheet,indexList):\n" + 
     "   x = 0\n" + 
     "   y = 0\n" + 

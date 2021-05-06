@@ -1457,4 +1457,11 @@ Blockly.Python['timerelapsed'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
-
+Blockly.Python['cyclesheet'] = function(block) {
+  var sheet    = Blockly.Python.valueToCode (block, "SHEET",    Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION", Blockly.Python.ORDER_ATOMIC);
+  var surface  = Blockly.Python.valueToCode (block, "SURFACE",  Blockly.Python.ORDER_ATOMIC);
+  var delay    = Blockly.Python.valueToCode (block, "DELAY",    Blockly.Python.ORDER_ATOMIC);
+  var code  = 'cycleSheet (' + surface + ', ' + sheet + ',' + position + ',' +  delay + ')\n' 
+  return code;
+}

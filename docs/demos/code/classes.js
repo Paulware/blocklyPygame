@@ -1266,6 +1266,7 @@ function class14() {
      <block type="nextsprite"></block>
      <block type="donesprite"></block>
      <block type="initsheet"></block>
+     <block type="cyclesheet"></block>
    </category>
    <category name="Image" colour="%{BKY_PROCEDURES_HUE}">
      <block type="loadimage"></block>
