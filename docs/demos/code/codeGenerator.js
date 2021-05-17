@@ -1465,3 +1465,16 @@ Blockly.Python['cyclesheet'] = function(block) {
   var code  = 'cycleSheet (' + surface + ', ' + sheet + ',' + position + ',' +  delay + ')\n' 
   return code;
 }
+
+Blockly.Python['spritelist'] = function(block) {  
+  var spritesheet = Blockly.Python.valueToCode (block, "SHEET", Blockly.Python.ORDER_ATOMIC);
+  var code = 'loadSpriteImages ( ' + spritesheet + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};
+
+Blockly.Python['listelement'] = function(block) {  
+  var list = Blockly.Python.valueToCode  (block, "LIST",  Blockly.Python.ORDER_ATOMIC);
+  var index = Blockly.Python.valueToCode  (block, "INDEX",  Blockly.Python.ORDER_ATOMIC);
+  var code = 'getListElement ( ' + list + ',' + index + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+};

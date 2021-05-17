@@ -1355,7 +1355,9 @@ function class14() {
      <block type="listobject"></block>
      <block type="loadimagelist"></block>
      <!block type="rotatelist"><!/block>   
-     <block type="nextimage"></block>     
+     <block type="nextimage"></block>    
+     <block type="spritelist"></block>     
+     <block type="listelement"></block>
    </category>
    <category name="Time" colour="%{BKY_PROCEDURES_HUE}">
      <block type="currenttime"></block>

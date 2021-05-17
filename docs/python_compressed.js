@@ -118,10 +118,10 @@ Blockly.Python.finish=function(a){
     "def makeSheet (filename, hCount, vCount, totalImages):\n" + 
     "   obj = type ('Sheet', (object,), {})\n" + 
     "   obj.sheet = pygame.image.load (filename).convert()\n" + 
-    "   rect = pygame.Rect (0,0,1,1)\n" + 
+    "   rect = pygame.Rect (0,0,11,11)\n" + 
     "   image = pygame.Surface (rect.size).convert()\n" + 
     "   image.blit (obj.sheet, (0,0), rect)\n" +  
-    "   obj.colorkey = image.get_at((0,0))\n" +     
+    "   obj.colorkey = image.get_at((10,10))\n" +     
     "   (width,height) = obj.sheet.get_size()\n" +
     "   obj.hCount = hCount\n" + 
     "   obj.vCount = vCount\n" +     
@@ -167,9 +167,34 @@ Blockly.Python.finish=function(a){
     "   obj.list = images\n" + 
     "   obj.index = 0\n" + 
     "   return obj\n" +      
+    "def loadSpriteImages (spritesheet):\n" + 
+    "   x = 0\n" + 
+    "   y = 0\n" + 
+    "   h = 0\n" + 
+    "   obj = type ('ImageList', (object,), {} )\n" +
+    "   images = []\n" +  
+    "   for i in range (spritesheet.totalImages):\n" + 
+    "      rect = pygame.Rect(( x,y,spritesheet.width,spritesheet.height))\n" + 
+    "      image = pygame.Surface(rect.size).convert()\n" + 
+    "      image.blit(spritesheet.sheet, (0, 0), rect)\n" + 
+    "      image.set_colorkey (spritesheet.colorkey)\n" + 
+    "      images.append ( image)\n" + 
+    "      h = h + 1\n" + 
+    "      if h == spritesheet.hCount:\n" + 
+    "         x = 0\n" + 
+    "         y = y + spritesheet.height\n" + 
+    "         h = 0\n" + 
+    "      else:\n" + 
+    "         x = x + spritesheet.width\n" + 
+    "   obj.list = images\n" + 
+    "   obj.index = 0\n" + 
+    "   return obj\n" +          
     "def getNextImage (list): \n" + 
     "   list.index = (list.index + 1) % len(list.list)\n" +
     "   return list.list[list.index]\n" + 
+    "def getListElement (list,index): \n" + 
+    "   index = index % len(list.list)\n" +
+    "   return list.list[index]\n" + 
     "def nextListItem (list):\n" +
     "   list.index = (list.index + 1) % len (list.list)\n" +
     "   value = list.list[list.index]\n" + 

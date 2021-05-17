@@ -2759,3 +2759,33 @@ Blockly.Blocks['cyclesheet'] = {
   }
 };
 
+Blockly.Blocks['spritelist'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("SHEET")
+       .appendField("Using sprite sheet");                                        
+   this.appendDummyInput ()
+       .appendField("create a list of images");
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['listelement'] = {
+  init:function(){
+   this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
+   this.setColour("%{BKY_LISTS_HUE}");
+   this.appendValueInput ("INDEX")
+       .appendField("Get element");                                        
+   this.appendValueInput ("LIST")
+       .appendField("in list");                                        
+   this.setInputsInline(true);
+   this.setOutput(true, null);
+   this.setTooltip('');
+   this.setHelpUrl('http://www.example.com/');
+  }
+};
+
