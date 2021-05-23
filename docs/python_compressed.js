@@ -143,6 +143,14 @@ Blockly.Python.finish=function(a){
     "      Screen.blit (img,(x,y))\n" + 
     "      pygame.display.update()\n" + 
     "      threading.Event().wait (waitTime)\n" + 
+    "def placeSheet (Screen, sheet, position, index):\n" + 
+    "   index = index % sheet.totalImages\n" + 
+    "   imageList = loadImageList ( sheet,[i for i in range(sheet.totalImages)])\n" + 
+    "   x = position[0]\n" + 
+    "   y = position[1]\n" + 
+    "   img = imageList.list[index]\n" + 
+    "   Screen.blit (img,(x,y))\n" + 
+    "   pygame.display.update()\n" + 
     "def loadImageList (spritesheet,indexList):\n" + 
     "   x = 0\n" + 
     "   y = 0\n" + 

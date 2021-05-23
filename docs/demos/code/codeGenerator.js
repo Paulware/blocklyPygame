@@ -1337,23 +1337,6 @@ Blockly.Python['spritesheet'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 };
 
-Blockly.Python['placesheet'] = function(block) {
-  var sheet = Blockly.Python.valueToCode (block, "SHEET",  Blockly.Python.ORDER_ATOMIC);
-  var count = Blockly.Python.valueToCode (block, "COUNT",  Blockly.Python.ORDER_ATOMIC);
-  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
-  var surface = Blockly.Python.valueToCode (block, "SURFACE",  Blockly.Python.ORDER_ATOMIC);
-  
-  code = sheet + ".index = " + count + "% " + sheet + ".totalImages\n" + 
-         sheet + ".xCount = " + sheet + ".index % " + sheet + ".hCount\n" + 
-         sheet + ".yCount = " + sheet + ".index // " + sheet + ".hCount\n" + 
-         "print (\" [xCount,yCount]: [\" + str(" + sheet + ".xCount )+ \",\" + str(" + sheet + ".yCount) + \"]\") \n" +          
-         sheet + ".rect = pygame.Rect(" + sheet + ".xCount * " + sheet + ".width, " + sheet + ".yCount *" + sheet + ".height," + sheet + ".width," + sheet + ".height);\n" + 
-         sheet + ".surface.blit(" + sheet + ".image, (0,0)," + sheet + ".rect);\n" + 
-         sheet + ".destination = pygame.Rect ( " + position + "[0]," + position + "[1]," + sheet + ".width," + sheet + ".height);\n" + 
-         surface + ".blit (" + sheet + ".surface," + sheet + ".destination);\n" +
-         "pygame.display.update()\n";         
-  return code;
-}
 
 Blockly.Python['nextsprite'] = function(block) {
   var sheet = Blockly.Python.valueToCode    (block, "SHEET",    Blockly.Python.ORDER_ATOMIC);
@@ -1362,19 +1345,11 @@ Blockly.Python['nextsprite'] = function(block) {
   var delay = Blockly.Python.valueToCode    (block, "DELAY",    Blockly.Python.ORDER_ATOMIC);
   
   code = "if time.time() > " + sheet + ".displayTime: \n" + 
-         "  " + sheet + ".index = " + sheet + ".index % " + sheet + ".totalImages\n" + 
-         "  " + sheet + ".xCount = " + sheet + ".index % " + sheet + ".hCount\n" + 
-         "  " + sheet + ".yCount = " + sheet + ".index // " + sheet + ".hCount\n" + 
-         "  print (\" [xCount,yCount]: [\" + str(" + sheet + ".xCount )+ \",\" + str(" + sheet + ".yCount) + \"]\") \n" +          
-         "  " + sheet + ".rect = pygame.Rect(" + sheet + ".xCount * " + sheet + ".width, " + sheet + ".yCount *" + sheet + ".height," + sheet + ".width," + sheet + ".height);\n" + 
-         "  " + sheet + ".surface.blit(" + sheet + ".image, (0,0)," + sheet + ".rect);\n" + 
-         "  " + sheet + ".destination = pygame.Rect ( " + position + "[0]," + position + "[1]," + sheet + ".width," + sheet + ".height);\n" + 
-         "  " + surface + ".blit (" + sheet + ".surface," + sheet + ".destination);\n" +
-         "  pygame.display.update()\n" + 
-         "  " + sheet + ".index = " + sheet + ".index + 1\n" +      
+         "  placeSheet (" + surface + "," + sheet + "," +  position + "," +  sheet + ".index)\n" +
+         "  " + sheet + ".index = " + sheet + ".index + 1\n" +   
          "  " + sheet + ".doneSequence = " + sheet + ".index == " + sheet + ".totalImages\n" +         
-         "  " + sheet + ".displayTime = time.time() + " + delay + "\n"
-         
+         "  " + sheet + ".index = " + sheet + ".index % " + sheet + ".totalImages\n" +        
+         "  " + sheet + ".displayTime = time.time() + " + delay + "\n"         
   return code;
 }
 
@@ -1456,6 +1431,29 @@ Blockly.Python['timerelapsed'] = function(block) {
   var code = 'time.time() > ' + timer + '.endTime'
   return [code, Blockly.Python.ORDER_NONE]; 
 };
+
+
+Blockly.Python['placesheet'] = function(block) {
+  var sheet = Blockly.Python.valueToCode (block, "SHEET",  Blockly.Python.ORDER_ATOMIC);
+  var index = Blockly.Python.valueToCode (block, "COUNT",  Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+  var surface = Blockly.Python.valueToCode (block, "SURFACE",  Blockly.Python.ORDER_ATOMIC);
+  
+  /*
+  var code = sheet + ".index = " + count + "% " + sheet + ".totalImages\n" + 
+             sheet + ".xCount = " + sheet + ".index % " + sheet + ".hCount\n" + 
+             sheet + ".yCount = " + sheet + ".index // " + sheet + ".hCount\n" + 
+             "print (\" [xCount,yCount]: [\" + str(" + sheet + ".xCount )+ \",\" + str(" + sheet + ".yCount) + \"]\") \n" +          
+             sheet + ".rect = pygame.Rect(" + sheet + ".xCount * " + sheet + ".width, " + sheet + ".yCount *" + sheet + ".height," + sheet + ".width," + sheet + ".height);\n" + 
+             sheet + ".surface.blit(" + sheet + ".image, (0,0)," + sheet + ".rect);\n" + 
+             sheet + ".destination = pygame.Rect ( " + position + "[0]," + position + "[1]," + sheet + ".width," + sheet + ".height);\n" + 
+             surface + ".blit (" + sheet + ".surface," + sheet + ".destination);\n" +
+             "pygame.display.update()\n";         
+  */
+  code  = 'placeSheet (' + surface + ', ' + sheet + ',' + position + ',' + index + ')\n' 
+         
+  return code;
+}
 
 Blockly.Python['cyclesheet'] = function(block) {
   var sheet    = Blockly.Python.valueToCode (block, "SHEET",    Blockly.Python.ORDER_ATOMIC);
