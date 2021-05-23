@@ -86,7 +86,7 @@
                      function savePython() {
                         var text = document.all.content_python.value;
                         var filename = "project.py"
-                        var tempElem = document.createElement('a');
+                        var tempElem = document.getElementById ( 'download')
                         tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
                         tempElem.setAttribute('download', filename);
                         tempElem.click();
@@ -172,10 +172,6 @@
                                  fr.onload=function(){
                                      alert ( 'onload triggered' );
                                      alert ( 'got result: ' + fr.result );            
-                                     //var tempElem = document.createElement ('a');
-                                     //tempElem.value = fr.result;
-                                     //document.getElementById('output') 
-                                     //        .textContent=fr.result; 
                                  } 
                                    
                                  fr.readAsText('C:\SpigotMC\scriptcraft\plugins\spleef.xml');    
@@ -186,7 +182,7 @@
                         text = document.all.content_xml.value;
                         //var text=JSON.stringify(text);
                         var filename = "project.xml"
-                        var tempElem = document.createElement('a');
+                        var tempElem = document.getElementById ( 'download')
                         tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
                         tempElem.setAttribute('download', filename);
                         tempElem.click();
@@ -742,6 +738,6 @@
     <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>  
   </xml>
-
+<a id="download"></a>
 </body>
 </html>
