@@ -206,12 +206,16 @@ Blockly.Python['drawcircle'] = function(block) {
   var color     = Blockly.Python.valueToCode (block, "COLOR",   Blockly.Python.ORDER_ATOMIC)
   var position  = Blockly.Python.valueToCode (block, "POSITION",Blockly.Python.ORDER_ATOMIC)
   var radius    = Blockly.Python.valueToCode (block, "RADIUS",  Blockly.Python.ORDER_ATOMIC)
-
+  var fill      = block.getFieldValue ("FILL"); 
+  var width     = '1'
   if (!isNaN(color.substring (2,color.length-1))) { 
     color = '0X' + color.substring (2,color.length-1)  
   }
+  if (fill == 'TRUE') {
+    width = '0';
+  }
   
-  var code = 'pygame.draw.circle(' + surface + ',' + color + ',' + position + ',' + radius + ',1)\npygame.display.update()\n';
+  var code = 'pygame.draw.circle(' + surface + ',' + color + ',' + position + ',' + radius + ',' + width + ')\npygame.display.update()\n';
   return code;
 };
 

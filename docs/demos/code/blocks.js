@@ -387,6 +387,9 @@ Blockly.Blocks['drawcircle'] = {
         .appendField("with color");   
     this.appendValueInput("RADIUS")
         .appendField("and radius");         
+    this.appendDummyInput()
+        .appendField('fill')
+        .appendField(new Blockly.FieldCheckbox(false), 'FILL');        
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setInputsInline(true);     
