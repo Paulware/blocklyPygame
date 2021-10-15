@@ -2792,3 +2792,440 @@ Blockly.Blocks['listelement'] = {
   }
 };
 
+Blockly.Blocks['inputbox'] = {
+  init: function() {   
+    this.appendValueInput("POSITION")
+        .appendField("Create an input at position:"); 
+    this.appendValueInput("WIDTH")
+        .appendField("with width");
+    this.appendDummyInput()
+        .appendField("pixels")
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['display'] = {
+  init: function() {   
+    this.appendValueInput("WIDTH")
+        .appendField("Create a display with width"); 
+    this.appendValueInput("HEIGHT")
+        .appendField("pixels, height");
+    this.appendValueInput("TITLE")
+        .appendField("pixels, and title/caption");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['updatedisplay'] = {
+  init: function() {   
+   this.appendDummyInput ()
+       .appendField("Update the display");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['quit'] = {
+  init: function() {   
+    this.appendDummyInput ()
+       .appendField("Quit");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['update'] = {
+  init: function() {   
+    this.appendValueInput("OBJECT")
+        .appendField("Update class object");
+    this.appendValueInput("EVENT")
+        .appendField("with event variable");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['label'] = {
+  init: function() {   
+    this.appendValueInput("POSITION")
+        .appendField("Create an label at position:"); 
+    this.appendValueInput("WIDTH")
+        .appendField("with width");
+    this.appendValueInput("VALUE")
+        .appendField("pixels, initialized with value ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['button'] = {
+  init: function() {   
+    this.appendValueInput("POSITION")
+        .appendField("Create a button at position:"); 
+    this.appendValueInput("WIDTH")
+        .appendField("with width");
+    this.appendValueInput("VALUE")
+        .appendField("pixels, initialized with value ");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['checkbox'] = {
+  init: function() {   
+    this.appendValueInput("POSITION")
+        .appendField("Create a checkbox at position:"); 
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['icon'] = {
+  init: function() {   
+    this.appendValueInput("ICON")
+        .appendField("Set the screen icon to image file ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['modbusconnect'] = {
+  init: function() {   
+    this.appendValueInput("MODBUS")
+        .appendField("Connect to modbus server object" );
+    this.appendValueInput ("IPADDRESS")
+        .appendField ( "Located at ipaddress ");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);   
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['trycode'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Try Code");
+    this.appendStatementInput("TRYCODE")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(290);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pause'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Wait for user to press Enter");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['modbus'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField("Create a Modbus object");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['modbusreadfloat'] = {
+  init: function() {   
+    this.appendValueInput ("ADDRESS")
+        .appendField ( "Read float value located at address");
+    this.appendValueInput ("MODBUS")
+        .appendField ( "using modbus server");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['modbuswritefloat'] = {
+  init: function() {   
+    this.appendValueInput ("VALUE")
+        .appendField ( "Write (float value)");
+    this.appendValueInput ("ADDRESS")
+        .appendField ( "to address");
+    this.appendValueInput ("MODBUS")
+        .appendField ( "using modbus server");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['inputboxreadfloat'] = {
+  init: function() {   
+    this.appendValueInput ("INPUTBOX")
+        .appendField ( "Float value of inputbox");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['inputboxwrite'] = {
+  init: function() {   
+    this.appendValueInput ("VALUE")
+        .appendField ( "Write");
+    this.appendValueInput ("INPUTBOX")
+        .appendField ( "to inputbox");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['databaseconnect'] = {
+  init: function() {   
+    this.appendValueInput ("FILENAME")
+        .appendField ( "Connect to file database located in file:");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['slider'] = {
+  init: function() {   
+    this.appendValueInput ("X")
+        .appendField ( "Create a slider at x");
+    this.appendValueInput ("Y")
+        .appendField ( "y");
+    this.appendValueInput ("WIDTH")
+        .appendField ( "width");
+    this.appendValueInput ("HEIGHT")
+        .appendField ( "height");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pyvisa'] = {
+  init: function() {   
+    this.appendDummyInput ()
+        .appendField ( "Create a pyvisa object");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['esp32bluetooth'] = {
+  init: function() {   
+    this.appendValueInput ("NAME")
+        .appendField ( "BLE object with name");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['esp32ssd1306'] = {
+  init: function() { 
+    this.appendValueInput ("WIDTH")
+        .appendField ( "SSD1306 object with width");
+    this.appendValueInput ("HEIGHT")
+        .appendField ( "and height");
+    this.appendValueInput ("SCL" )
+        .appendField ( "using SCL pin" )
+    this.appendValueInput ("SDA" )
+        .appendField ( "and SDA pin" )
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['mqttclient'] = {
+  init: function() { 
+    this.appendValueInput ("ID")
+        .appendField ( "MQTTClient with id");
+    this.appendValueInput ("SERVER")
+        .appendField ( "connected to server located at");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['esp32button'] = {
+  init: function() { 
+    this.appendValueInput ("PIN")
+        .appendField ( "Button connected to pin");
+    this.appendDummyInput ()
+        .appendField ( "and ground");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['ssd1306setlines'] = {
+  init: function() {   
+    this.appendValueInput ("LINES")
+        .appendField ( "Display lines");
+    this.appendValueInput ("OBJECT")
+        .appendField ( "on ssd1306 object");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['pygamedisplay'] = {
+  init: function() {   
+    this.appendValueInput("WIDTH")
+        .appendField("Create a display with width"); 
+    this.appendValueInput("HEIGHT")
+        .appendField("pixels, height");
+    this.appendValueInput("TITLE")
+        .appendField("pixels, and title/caption");
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['ssd1306menu'] = {
+  init: function() {   
+    this.appendValueInput("DISPLAY")
+        .appendField("Create a menu for ssd1306 display"); 
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['addmenupage'] = {
+  init: function() {   
+    this.appendValueInput ("PAGE")
+        .appendField ( "Add page numbered");
+    this.appendValueInput ("MENU")
+        .appendField ( "to menu");     
+    this.appendValueInput ("LINES")
+        .appendField ( "show these lines");
+    this.appendValueInput ("RESPONSES")
+        .appendField ( "handle these responses");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);        
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['piadf4360obj'] = {
+  init: function() {   
+    this.appendValueInput("CLOCK")
+        .appendField("Create an adf4360 object with clock pin"); 
+    this.appendValueInput("DATA")
+        .appendField("data pin"); 
+    this.appendValueInput("LE")
+        .appendField("and latch enable"); 
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['adf4360obj'] = {
+  init: function() {   
+    this.appendValueInput("CLOCK")
+        .appendField("Create an adf4360 object with clock pin"); 
+    this.appendValueInput("DATA")
+        .appendField("data pin"); 
+    this.appendValueInput("LE")
+        .appendField("and latch enable"); 
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};

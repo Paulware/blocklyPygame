@@ -48,12 +48,15 @@ Blockly.Python.finish=function(a){
  Blockly.Python.variableDB_.reset();
  var imports = 
     "import time\n" + 
+    "import sys\n" + 
+    "if sys.version [0:1] !=  \'3\':\n" + 
+    "   print ( \'Run python3 rather than python2\' )\n" +  
+    "   exit()\n" + 
     "try:\n" + 
     "   import pygame\n" + 
     "except:\n" +
     "   print ( \'Could not import pygame. Try: \\npip install pygame\')\n" +
     "   time.sleep (5)\n" + 
-    "import time\n" + 
     "import threading\n" + 
     "import math\n" +
     "try:\n" + 
@@ -228,9 +231,64 @@ Blockly.Python.finish=function(a){
     "    sprite.newX = 0\n" + 
     "    sprite.newY = 0\n" + 
     "  return sprite\n"    
+ imports = ''
  
- var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\n' 
- return(imports + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+'\ntime.sleep(2)'
+ var setupCode = 'os.chdir (os.path.dirname(os.path.abspath(__file__)))\n' + 
+                 'pygame.init()\n' 
+ setupCode = '';
+ 
+ // Add classes foundin classCode.js
+ var classCode = '' 
+ if (a.indexOf ( 'Inputbox(' ) > -1) { 
+    classCode = classCode + classInputbox ();
+ }
+ if (a.indexOf ( 'Label(' ) > -1) {
+    classCode = classCode + classLabel ();
+ } 
+ if (a.indexOf ( 'Checkbox(' ) > -1) { 
+    classCode = classCode + classCheckbox();
+ } 
+ if (a.indexOf ( 'Modbus()' ) > -1) {
+    classCode = classCode + modbusClass();  
+ } 
+ if (a.indexOf ( 'JsonDb(' ) > -1) { 
+    classCode = classCode + databaseClass();
+ } 
+ if (a.indexOf ( 'Slider(' ) > -1) {
+    classCode = classCode + sliderClass();
+ }
+ if (a.indexOf ( 'PyVisa()' ) > -1) { 
+    classCode = classCode + pyvisaClass();
+ } 
+ if (a.indexOf ( 'BLE(' ) > -1) {
+    classCode = classCode + esp32BluetoothClass();
+ } 
+ if (a.indexOf ( 'SSD1306_I2C(' ) > -1) { 
+    classCode = classCode + esp32Ssd1306Class();
+ } 
+ if (a.indexOf ( 'MQTTClient(' ) > -1) {
+    classCode = classCode + mqttClientClass();
+ } 
+ if (a.indexOf ( 'Esp32Button(' ) > -1) { 
+    classCode = classCode + esp32ButtonClass();
+ } else if (a.indexOf ( 'Button(' ) > -1) {
+    classCode = classCode + classButton ();
+ } 
+
+ if (a.indexOf ( 'Display(' ) > -1) {
+    classCode = classCode + displayClass();
+ }  
+ if (a.indexOf ( 'Ssd1306Menu(' ) > -1) { 
+    classCode = classCode + ssdMenuClass();
+ }
+ if (a.indexOf ( 'PIADF4360(' ) > -1) {
+    classCode = classCode + piAdf4360Class();
+ } else if (a.indexOf ( 'ADF4360(' ) > -1) {
+    classCode = classCode + adf4360Class();
+ }
+ var endFooter = '\ntime.sleep(2)';
+ endFooter = '';
+ return(imports + classCode + setupCode + b.join("\n")+"\n\n"+c.join("\n\n")).replace(/\n\n+/g,"\n\n").replace(/\n*$/,"\n\n\n")+a+endFooter;
 };
 Blockly.Python.scrubNakedValue=function(a){return a+"\n"};
 Blockly.Python.quote_=function(a){a=a.replace(/\\/g,"\\\\").replace(/\n/g,"\\\n");var b="'";-1!==a.indexOf("'")&&(-1===a.indexOf('"')?b='"':a=a.replace(/'/g,"\\'"));return b+a+b};Blockly.Python.multiline_quote_=function(a){a=a.replace(/'''/g,"\\'\\'\\'");return"'''"+a+"'''"};

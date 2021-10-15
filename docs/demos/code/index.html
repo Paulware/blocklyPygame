@@ -16,7 +16,8 @@
   <script src="../../dart_compressed.js"></script>
   <script src="code.js"></script>
   <script src="blocks.js"></script>  
-  <script src="classes.js"></script>   
+  <script src="classes.js"></script> 
+  <script src="classCode.js"></script>  
   <script src="codeGenerator.js"></script>
   <script>
      function eventFire(el, etype){
@@ -225,43 +226,74 @@
   <pre id="content_dart" class="content prettyprint lang-dart" style="visibility:hidden"></pre>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-    <category name="Classes"colour="%{BKY_PROCEDURES_HUE}">        
-      <script>
-         class1 ();
-         class2 ();
-         class3 ();
-         class4 ();
-         class5 ();
-         class6 ();
-         class7 ();
-         class8 ();
-         class9 ();
-         class10();
-         class11();
-         class12();
-         class13();
-         class14();
-      </script>
-    </category>    
-    <category name="Setup" colour="%{BKY_PROCEDURES_HUE}">
-      <block type="debugcode"></block>
-      <!block type="pygameinit"><!/block>
-      <!block type="colors" id="blockColors" name="blockColors"><!/block>
-      <block type="expression"></block>
-      <block type="exec"></block>
-      <block type="isprogram"></block>
-      <block type="pygameupdate"></block>
-      <!block type="includedef"><!/block>
-      <block type="getangle"></block>
-      <block type="imports"></block>
-      <block type="import"></block>
-      <block type="getkey"></block>
-      <block type="pygamekey"></block>
-      <block type="playsound"></block>
-      <block type="include"></block>
-    </category> 
-
-    <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
+    <category name="Miscellaneous"> 
+        <block type="trycode"></block>
+        <block type="position"></block>
+        <block type="math_number">
+           <field name="NUM">123</field>
+        </block>      
+        <block type="text"></block>
+        <block type="quit"></block>
+        <block type="update"></block> 
+        <block type="pause"></block>        
+        <block type="text_print">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>        
+    </category>
+    <category name="Gui" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="pygamedisplay"> </block>
+        <category name="Inputbox"> 
+           <block type="inputbox">          </block>  
+           <block type="inputboxreadfloat"> </block>
+           <block type="inputboxwrite">     </block>
+        </category> 
+        
+        <!block type="display">       <!/block> 
+        <block type="icon">          </block>
+        <block type="updatedisplay"> </block>        
+        <block type="label">         </block>
+        <block type="button">        </block>
+        <block type="checkbox">      </block>
+        <block type="slider">        </block>
+        
+    </category>
+    <category name="Database" > 
+       <block type="databaseconnect"></block>
+    </category>
+    <category name="Equipment">
+       <block type="pyvisa"></block>
+       <category name="ESP32 Micro Python"> 
+          <block type="esp32bluetooth"></block>
+          <category name="SSD1306">
+             <block type="esp32ssd1306"></block>
+             <block type="ssd1306setlines"></block>
+             <category name="menu">
+                <block type="ssd1306menu"></block>
+                <block type="addmenupage"></block>
+             </category>
+          </category>
+          <category name="ADF4360"> 
+             <block type="adf4360obj"></block>
+          </category>          
+          <block type="esp32button"></block>
+          <block type="mqttclient"></block>
+       </category>
+       <category name="Raspberry pi">
+          <block type="piadf4360obj"></block>
+       </category>
+    </category>
+    
+    <category name="Modbus protocol" colour="%{BKY_PROCEDURES_HUE}">
+        <block type="modbus"></block>
+        <block type="modbusconnect"></block>
+        <block type="modbusreadfloat"></block>
+        <block type="modbuswritefloat"></block>
+    </category>
+        <category name="Objects" colour="%{BKY_PROCEDURES_HUE}">
       <block type="getattribute"></block>
       <block type="setattribute"></block>
       <block type="callmethod"></block>
@@ -384,6 +416,48 @@
          <block type="polymoment"></block>
       </category>
     </category>      
+
+    <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+    <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>  
+    <sep></sep>
+  
+   <category name="Backups" colour="%{BKY_PROCEDURES_HUE}">  
+    <category name="Classes" colour="%{BKY_PROCEDURES_HUE}">        
+      <script>
+         class1 ();
+         class2 ();
+         class3 ();
+         class4 ();
+         class5 ();
+         class6 ();
+         class7 ();
+         class8 ();
+         class9 ();
+         class10();
+         class11();
+         class12();
+         class13();
+         class14();
+      </script>
+    </category>    
+    <category name="Setup" colour="%{BKY_PROCEDURES_HUE}">
+      <block type="debugcode"></block>
+      <!block type="pygameinit"><!/block>
+      <!block type="colors" id="blockColors" name="blockColors"><!/block>
+      <block type="expression"></block>
+      <block type="exec"></block>
+      <block type="isprogram"></block>
+      <block type="pygameupdate"></block>
+      <!block type="includedef"><!/block>
+      <block type="getangle"></block>
+      <block type="imports"></block>
+      <block type="import"></block>
+      <block type="getkey"></block>
+      <block type="pygamekey"></block>
+      <block type="playsound"></block>
+      <block type="include"></block>
+    </category> 
+
     <category name="Surface" colour="%{BKY_PROCEDURES_HUE}">
       <block type="screenstart"></block>
       <!block type="fullscreen"><!/block>
@@ -733,10 +807,8 @@
       </block>
       <block type="jebcolor"></block>
       <block type="nextcolor"></block>
-    </category>    
-    <sep></sep>
-    <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
-    <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>  
+    </category>
+   </category>    
   </xml>
 <a id="download"></a>
 </body>

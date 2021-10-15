@@ -1480,3 +1480,221 @@ Blockly.Python['listelement'] = function(block) {
   var code = 'getListElement ( ' + list + ',' + index + ')'
   return [code, Blockly.Python.ORDER_NONE]; 
 };
+
+Blockly.Python['inputbox'] = function(block) {
+  var width    = Blockly.Python.valueToCode (block, "WIDTH",     Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+
+  var code  = 'Inputbox(' + position + ', ' + width + ')' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['display'] = function(block) {
+  var width  = Blockly.Python.valueToCode (block, "WIDTH",  Blockly.Python.ORDER_ATOMIC);
+  var height = Blockly.Python.valueToCode (block, "HEIGHT", Blockly.Python.ORDER_ATOMIC);
+  var title  = Blockly.Python.valueToCode (block, "TITLE",  Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'pygame.display.set_mode ([' + width + ',' + height + '])\n' + 
+              'pygame.display.set_caption ( ' + title + ' )\n' 
+  return code;
+}
+
+Blockly.Python['updatedisplay'] = function(block) {
+  var code  = 'pygame.display.update()\n' 
+  return code;
+}
+
+Blockly.Python['quit'] = function(block) {
+  var code  = 'pygame.quit()\n' + 
+              'sys.exit()\n' 
+  return code;
+}
+
+Blockly.Python['update'] = function(block) {
+  var obj  = Blockly.Python.valueToCode (block, "OBJECT",  Blockly.Python.ORDER_ATOMIC);
+  var ev   = Blockly.Python.valueToCode (block, "EVENT",   Blockly.Python.ORDER_ATOMIC); 
+  var code  = obj + '.update(' + ev + ')\n'; 
+  return code;
+}
+
+Blockly.Python['label'] = function(block) {
+  var width    = Blockly.Python.valueToCode (block, "WIDTH",     Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+  var value    = Blockly.Python.valueToCode (block, "VALUE",     Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'Label(' + position + ', ' + width + ', ' + value + ')\n' 
+  return code;
+}
+
+Blockly.Python['button'] = function(block) {
+  var width    = Blockly.Python.valueToCode (block, "WIDTH",     Blockly.Python.ORDER_ATOMIC);
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+  var value    = Blockly.Python.valueToCode (block, "VALUE",     Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'Button(' + position + ', ' + width + ', ' + value + ')' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['checkbox'] = function(block) {
+  var position = Blockly.Python.valueToCode (block, "POSITION",  Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'Checkbox(' + position + ')' 
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['icon'] = function(block) {
+  var icon    = Blockly.Python.valueToCode (block, "ICON",     Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'pygame.display.set_icon(pygame.image.load(' + icon + '))\n' 
+  return code;
+}
+
+Blockly.Python['modbusconnect'] = function(block) {
+  var modbus    = Blockly.Python.valueToCode (block, "MODBUS", Blockly.Python.ORDER_ATOMIC); 
+  var ipAddress = Blockly.Python.valueToCode (block, "IPADDRESS", Blockly.Python.ORDER_ATOMIC);   
+  var code  = modbus + '.connect(' + ipAddress + ')\n'; 
+  return code;
+}
+
+Blockly.Python ['trycode'] = function (block) {
+  var tryCode = Blockly.Python.statementToCode (block, 'TRYCODE' );  
+  var code =  'try:\n' +
+              tryCode + 
+              'except Exception as ex: \n' + 
+              '  print ( \' Try Fail because:\' + str(ex) )\n' 
+  return code;
+};
+
+Blockly.Python['pause'] = function(block) {
+  var code  = 'input(\'Press enter to continue\')\n' 
+  return code;
+}
+
+Blockly.Python['modbus'] = function(block) {
+  return ['Modbus()', Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['modbusreadfloat'] = function(block) {
+  var address = Blockly.Python.valueToCode (block, "ADDRESS", Blockly.Python.ORDER_ATOMIC); 
+  var modbus  = Blockly.Python.valueToCode (block, "MODBUS", Blockly.Python.ORDER_ATOMIC); 
+  var code = modbus + '.readFloatAddress(' + address + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['modbuswritefloat'] = function(block) {
+  var value = Blockly.Python.valueToCode (block, "VALUE", Blockly.Python.ORDER_ATOMIC); 
+  var address = Blockly.Python.valueToCode (block, "ADDRESS", Blockly.Python.ORDER_ATOMIC); 
+  var modbus  = Blockly.Python.valueToCode (block, "MODBUS", Blockly.Python.ORDER_ATOMIC); 
+  var code = modbus + '.writeFloatAddress(' + value + ',' + address + ')\n'
+  return code; 
+}
+
+Blockly.Python['inputboxreadfloat'] = function(block) {
+  var inputbox = Blockly.Python.valueToCode (block, "INPUTBOX", Blockly.Python.ORDER_ATOMIC); 
+  var code = inputbox + '.readFloat()'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['inputboxwrite'] = function(block) {
+  var inputbox = Blockly.Python.valueToCode (block, "INPUTBOX", Blockly.Python.ORDER_ATOMIC); 
+  var value    = Blockly.Python.valueToCode (block, "VALUE", Blockly.Python.ORDER_ATOMIC); 
+  var code     = inputbox + '.writeValue (' + value + ')\n';
+  return code;
+}
+
+Blockly.Python['databaseconnect'] = function(block) {
+  var filename = Blockly.Python.valueToCode (block, "FILENAME", Blockly.Python.ORDER_ATOMIC); 
+  var code = 'JsonDb(' + filename + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['slider'] = function(block) {
+  var x = Blockly.Python.valueToCode (block, "X", Blockly.Python.ORDER_ATOMIC); 
+  var y = Blockly.Python.valueToCode (block, "Y", Blockly.Python.ORDER_ATOMIC); 
+  var width = Blockly.Python.valueToCode (block, "WIDTH", Blockly.Python.ORDER_ATOMIC); 
+  var height = Blockly.Python.valueToCode (block, "HEIGHT", Blockly.Python.ORDER_ATOMIC); 
+  var code = 'Slider(' + x + ',' + y + ',' + width + ',' + height + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['pyvisa'] = function(block) {
+  var code = 'PyVisa()'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['esp32bluetooth'] = function(block) {
+  var name = Blockly.Python.valueToCode  (block, "NAME", Blockly.Python.ORDER_ATOMIC); 
+  var code = 'BLE(' + name + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['esp32ssd1306'] = function(block) {
+  var width = Blockly.Python.valueToCode  (block, "WIDTH", Blockly.Python.ORDER_ATOMIC); 
+  var height = Blockly.Python.valueToCode (block, "HEIGHT", Blockly.Python.ORDER_ATOMIC);  
+  var scl = Blockly.Python.valueToCode (block, "SCL", Blockly.Python.ORDER_ATOMIC);  
+  var sda = Blockly.Python.valueToCode (block, "SDA", Blockly.Python.ORDER_ATOMIC);  
+  var code = 'SSD1306_I2C(' + width + ',' + height + ',' + scl + ',' + sda + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['mqttclient'] = function(block) {
+  var id = Blockly.Python.valueToCode  (block, "ID", Blockly.Python.ORDER_ATOMIC); 
+  var server = Blockly.Python.valueToCode (block, "SERVER", Blockly.Python.ORDER_ATOMIC);  
+  var code = 'MQTTClient(' + id + ',' + server + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['esp32button'] = function(block) {
+  var pin = Blockly.Python.valueToCode  (block, "PIN", Blockly.Python.ORDER_ATOMIC); 
+  var code = 'Esp32Button(' + pin + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['ssd1306setlines'] = function(block) {
+  var lines = Blockly.Python.valueToCode (block, "LINES", Blockly.Python.ORDER_ATOMIC); 
+  var obj   = Blockly.Python.valueToCode (block, "OBJECT", Blockly.Python.ORDER_ATOMIC); 
+  var code  = obj + '.setLines ( ' + lines + ')\n';
+  return code;
+}
+
+Blockly.Python['pygamedisplay'] = function(block) {
+  var width  = Blockly.Python.valueToCode (block, "WIDTH",  Blockly.Python.ORDER_ATOMIC);
+  var height = Blockly.Python.valueToCode (block, "HEIGHT", Blockly.Python.ORDER_ATOMIC);
+  var title  = Blockly.Python.valueToCode (block, "TITLE",  Blockly.Python.ORDER_ATOMIC);
+   
+  var code  = 'Display( ' + width + ',' + height + ',' + title + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+
+Blockly.Python['ssd1306menu'] = function(block) {
+  var display  = Blockly.Python.valueToCode (block, "DISPLAY",  Blockly.Python.ORDER_ATOMIC);   
+  var code  = 'Ssd1306Menu( ' + display + ')'
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['addmenupage'] = function(block) {
+  var page      = Blockly.Python.valueToCode (block, "PAGE", Blockly.Python.ORDER_ATOMIC); 
+  var menu      = Blockly.Python.valueToCode (block, "MENU", Blockly.Python.ORDER_ATOMIC); 
+  var lines     = Blockly.Python.valueToCode (block, "LINES", Blockly.Python.ORDER_ATOMIC); 
+  var responses = Blockly.Python.valueToCode (block, "RESPONSES", Blockly.Python.ORDER_ATOMIC); 
+  var code  = menu + '.addPage ( ' + page + ',' + lines + ',' + responses + ')\n';
+  return code;
+}
+
+Blockly.Python['piadf4360obj'] = function(block) {
+  var clock = Blockly.Python.valueToCode (block, "CLOCK", Blockly.Python.ORDER_ATOMIC); 
+  var data  = Blockly.Python.valueToCode (block, "DATA", Blockly.Python.ORDER_ATOMIC); 
+  var le    = Blockly.Python.valueToCode (block, "LE", Blockly.Python.ORDER_ATOMIC); 
+  var code  = 'PIADF4360(' + clock + ',' + data + ',' + le + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+Blockly.Python['adf4360obj'] = function(block) {
+  var clock = Blockly.Python.valueToCode (block, "CLOCK", Blockly.Python.ORDER_ATOMIC); 
+  var data  = Blockly.Python.valueToCode (block, "DATA", Blockly.Python.ORDER_ATOMIC); 
+  var le    = Blockly.Python.valueToCode (block, "LE", Blockly.Python.ORDER_ATOMIC); 
+  var code  = 'ADF4360(' + clock + ',' + data + ',' + le + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
