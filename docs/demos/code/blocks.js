@@ -836,12 +836,12 @@ Blockly.Blocks['rectposition']={
 Blockly.Blocks['getattribute']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-   this.setColour(0);
+   this.setColour(290);
    this.appendDummyInput()
         .appendField ("Get attribute ")
         .appendField (new Blockly.FieldTextInput ( "width"), "ATTRIBUTE")   
    this.appendValueInput("OBJECT")
-       .appendField("from object"); 
+       .appendField("from class object"); 
    this.setInputsInline(true);         
    this.setOutput(true, null);
    this.setTooltip('');
@@ -935,11 +935,11 @@ Blockly.Blocks['drawsprites'] = {
 
 Blockly.Blocks['setattribute'] = {
   init: function() {   
-    this.appendValueInput("OBJECT")
-        .appendField("Set object");
     this.appendDummyInput()
-        .appendField (".attribute ")
+        .appendField ("Set .attribute ")
         .appendField (new Blockly.FieldTextInput ( "width"), "ATTRIBUTE")    
+    this.appendValueInput("OBJECT")
+        .appendField("in class object");
     this.appendValueInput("VALUE")
         .appendField("to ");        
     this.setPreviousStatement(true, null);
@@ -2150,12 +2150,12 @@ Blockly.Blocks['setarrayelement']={
 Blockly.Blocks['callmethod']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-   this.setColour(0);
+   this.setColour(290);
    this.appendDummyInput()
         .appendField ("Call method ")
         .appendField (new Blockly.FieldTextInput ( "methodname()"), "METHOD")   
    this.appendValueInput("OBJECT")
-       .appendField("in object"); 
+       .appendField("in class object"); 
    this.setPreviousStatement(true, null);
    this.setInputsInline(true);      
    this.setNextStatement(true, null);      
@@ -2167,12 +2167,12 @@ Blockly.Blocks['callmethod']={
 Blockly.Blocks['returnmethod']={
   init:function(){
    this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-   this.setColour(0);
+   this.setColour(290);
    this.appendDummyInput()
         .appendField ("Return method ")
         .appendField (new Blockly.FieldTextInput ( "methodname()"), "METHOD")   
    this.appendValueInput("OBJECT")
-       .appendField("in object"); 
+       .appendField("from class object"); 
    this.setInputsInline(true);      
    this.setOutput(true, null);     
    this.setTooltip('');
@@ -3229,3 +3229,20 @@ Blockly.Blocks['adf4360obj'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['classobj'] = {
+  init: function() {   
+    this.appendDummyInput()
+        .appendField ("Create a")
+        .appendField (new Blockly.FieldTextInput ( "classname"), "NAME")      
+    this.appendDummyInput()
+        .appendField ("class object with parameters")
+        .appendField (new Blockly.FieldTextInput ( "x,y,z"), "PARAMETERS")      
+    this.setOutput(true, null);
+    this.setColour(290);
+    this.setInputsInline(true);    
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+

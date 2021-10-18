@@ -1698,3 +1698,12 @@ Blockly.Python['adf4360obj'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE]; 
 }
 
+Blockly.Python['classobj'] = function(block) {
+  var name        = block.getFieldValue ("NAME");  
+  var parameters  = block.getFieldValue ("PARAMETERS");  
+  var code  = name + '(' + parameters + ')';
+  return [code, Blockly.Python.ORDER_NONE]; 
+}
+
+
+
